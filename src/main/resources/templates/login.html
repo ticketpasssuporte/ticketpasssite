@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns= "http://www.w3.org/1999/xhtml"
+	xmlns:th= "http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,19 +14,19 @@
 <body>
     <div class="container" id="container">
 	  <div class="form-container sign-up-container">
-		<form action="#">
+		<form action="salvarusuario" method="post" th:object="${usuario}">
 			<h1>Crie sua conta</h1>
 			
 			<br>
             <button id="gmail">Entre com Gmail <i id="icon" class="fa fa-google"></i></button>
             <br>
-      
+      	
 			<span>OU</span><br>
-			
-			<input type="text" placeholder="Nome" />
-			<input type="text" placeholder="Sobrenome" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Senha" />
+		
+			<input type="text" th:field="*{nome}" placeholder="Nome" />
+			<input type="text" th:field="*{sobrenome}" placeholder="Sobrenome" />
+			<input type="email" th:field="*{email}" placeholder="Email" />
+			<input type="password" th:field="*{senha}" placeholder="Senha" />
 			<button>Cadastra-se</button>
 		</form>
 	</div>

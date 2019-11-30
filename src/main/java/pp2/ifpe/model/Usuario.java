@@ -1,10 +1,10 @@
 package pp2.ifpe.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class Usuario {
@@ -12,14 +12,19 @@ public class Usuario {
 	@Id
 	@GeneratedValue
 	private Integer id;
-	@NotBlank 
+	@NotBlank
+	@Column(length = 50)
 	private String nome;
 	@NotBlank
+	@Column(length = 50)
 	private String sobrenome;
 	@NotBlank
+	@Column(length = 150)
 	private String email;
-	@NotNull
+	@NotBlank
+	@Column(length = 255)
 	private String senha;
+	
 	public Integer getId() {
 		return id;
 	}
