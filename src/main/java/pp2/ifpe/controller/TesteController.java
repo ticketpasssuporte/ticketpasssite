@@ -27,6 +27,7 @@ public class TesteController {
 	@PostMapping("/salvarusuario")
 	public String salvarusuario(Usuario usuario){
 		usuario.setSenha(Functions.getSHA256(usuario.getSenha()));
+		usuario.setToken(Functions.getSHA256(usuario.getToken()));
 		this.usuarioDAO.save(usuario);
 		return "redirect:/login";
 	}

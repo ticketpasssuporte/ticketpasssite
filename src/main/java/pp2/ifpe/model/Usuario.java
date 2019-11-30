@@ -5,12 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Usuario {
 
 	@Id
 	@GeneratedValue
+	@NotNull
 	private Integer id;
 	@NotBlank
 	@Column(length = 50)
@@ -24,7 +26,24 @@ public class Usuario {
 	@NotBlank
 	@Column(length = 255)
 	private String senha;
+	@NotNull
+	@Column(length = 255)
+	private String token;
+	@NotNull
+	private boolean status;
 	
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -55,5 +74,6 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
 	
 }
