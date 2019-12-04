@@ -9,6 +9,9 @@
 	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./cssPaginasSoltas/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="./js/validacao.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -23,10 +26,15 @@
       	
 			<span>OU</span><br>
 		
-			<input type="text" th:field="*{nome}" placeholder="Nome" />
-			<input type="text" th:field="*{sobrenome}" placeholder="Sobrenome" />
-			<input type="email" th:field="*{email}" placeholder="Email" />
-			<input type="password" th:field="*{senha}" placeholder="Senha" />
+			
+			<input id="nome" type="text" th:field="*{nome}" placeholder="Nome" />
+			<span  class="erro" id="erroNOME"></span>
+			<input id ="sobrenome" type="text" th:field="*{sobrenome}" placeholder="Sobrenome" />
+			<span  class="erro" id="erroSobrenome"></span>
+			<input id ="email" type="email" th:field="*{email}" placeholder="Email" />
+			<span  class="erro" id="erroEmail"></span>
+			<input id = "senha" type="password" th:field="*{senha}" placeholder="Senha" />
+			<span  class="erro" id="erroSenha"></span>
 			<button>Cadastra-se</button>
 		</form>
 	</div>

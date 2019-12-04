@@ -1,47 +1,35 @@
 $(document).ready(function(){
 
-$("input").on("focus", function(){
+$("input").focus( function(){
   $(this).css("background-color", "#bfbfbf", "border-color", "#bfbfbf");
 });
-$("input").blur( function(){
+/*$("input").blur( function(){
 $(this).css("background-color", "#eee");
-
-  if($(this).val() == ""){
-        $(this).css("background-color", "#ff8080", "border-color", "#ff8080");
-      }else{
-        $(this).css("background-color", "#eee","border-color", "#eee");
-      }
-});
-
-$('input').on("blur", function(){
-  if($(this).val() ==""){
-  $(".erro").html("favor preencher todos os campos");
-}
-});
-
-
-$('input').on("blur",function() {
-    var nome = $('#nome').val();
-    var email = $('#email').val();
-    var sobrenome = $('#sobrenome').val();
-    var senha = $('#senha').val();
-
-  if(nome.length < 2 ) {
+});*/
+$('#nome').blur(function() {
+    var nome = $('#nome').val() 
+  if(nome.length < 2 || nome == "") {
     $("#nome").css("background-color", "#ff8080", "border-color","#ff8080" );
     $("#erroNOME").html('Nome não pode ter menos que 2 caracteres');     
     }else{        
     $("#erroNOME").hide()
     $("#nome").css("background-color", "#99ff99", "border-color", "#99ff99");
     }
+});
 
-  if(sobrenome.length < 2) {
+$('#sobrenome').blur(function() {
+	var sobrenome = $('#sobrenome').val();
+  if(sobrenome.length < 2 || sobrenome =="") {
     $("#sobrenome").css("background-color", "#ff8080","border-color", "#ff8080");
     $("#erroSobrenome").html('sobrenome não pode ter menos que 2 caracteres');     
     }else{
       $("#erroSobrenome").hide();
       $("#sobrenome").css("background-color", "#99ff99","border-color", "#99ff99");
     }
+});
 
+$('#email').blur(function() {
+	var email = $('#email').val();
   if(email != "") {
       var filtro = /^.+@.+\..{2,}$/;
       if (filtro.test(email)) {
@@ -55,7 +43,10 @@ $('input').on("blur",function() {
       $("#email").css("background-color", "#ff8080","border-color", "#ff8080");
       $("#erroEmail").html('Forneça um endereço de email');
     }
+});
 
+$('#senha').blur(function() {
+	 var senha = $('#senha').val();
     if(senha.length < 6) {
     $("#senha").css("background-color", "#ff8080","border-color", "#ff8080");
     $("#erroSenha").html('senha deve ter no minino 6 digitos');     
@@ -65,6 +56,9 @@ $('input').on("blur",function() {
     }
   });
 });
+
+
+
 //});
 /*if (senha =="") {
       $("#password").css("background-color", "#ff8080","border-color", "#ff8080");
@@ -77,3 +71,22 @@ $('input').on("blur",function() {
       $("#password").css("background-color", "#ff8080","border-color", "#ff8080");
       $("#erroEmail").html('senha não atende os requisitos, certifique-se de que a senha tenha ao menos um caracter maiusculo, um numero e um caracter especial');
     }*/
+
+
+
+
+
+
+
+/*  if($(this).val() == ""){
+$(this).css("background-color", "#ff8080", "border-color", "#ff8080");
+}else{
+$(this).css("background-color", "#eee","border-color", "#eee");
+}
+
+
+$('input').on("blur", function(){
+if($(this).val() ==""){
+$(".erro").html("favor preencher todos os campos");
+}
+});*/
