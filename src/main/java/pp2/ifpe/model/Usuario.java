@@ -6,13 +6,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
 @Entity
 public class Usuario {
 
 	@Id
 	@GeneratedValue
-	@NotNull
 	private Integer id;
 	@NotBlank
 	@Column(length = 50)
@@ -29,7 +29,7 @@ public class Usuario {
 	@NotNull
 	@Column(length = 255)
 	private String token;
-	@NotNull
+	@Null
 	private boolean status;
 	
 	public boolean isStatus() {
