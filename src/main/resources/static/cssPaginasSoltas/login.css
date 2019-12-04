@@ -291,7 +291,7 @@ footer a {
     text-decoration: none;
 }
 
-span{
+.erro{
 	color: red;
 	font-size: 15px;
 	font-family: OCR A Std, monospace;

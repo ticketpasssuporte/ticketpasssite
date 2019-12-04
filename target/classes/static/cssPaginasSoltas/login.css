@@ -291,7 +291,11 @@ footer a {
     text-decoration: none;
 }
 
+<<<<<<< HEAD
 span{
+=======
+.erro{
+>>>>>>> branch 'master' of https://github.com/ticketpasssuporte/ticketpasssite.git
 	color: red;
 	font-size: 15px;
 	font-family: OCR A Std, monospace;
