@@ -17,7 +17,7 @@
 <body>
     <div class="container" id="container">
 	  <div class="form-container sign-up-container">
-		<form action="salvarusuario" method="post" th:object="${usuario}">
+		<form action="salvarUsuario" method="post" th:object="${usuario}">
 			<h1>Crie sua conta</h1>
 			
 			<br>
@@ -39,7 +39,7 @@
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="#">
+		<form th:action="@{/realizarLogin}"  method="post" th:object="${usuario}">
 			<h1>Login</h1>
 
 			<br>
@@ -47,8 +47,8 @@
             <br>
       
 			<span>OU</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Senha" />
+			<input type="email" placeholder="Email" th:field="*{email}" />
+			<input type="password" placeholder="Senha" th:field="*{senha}"/>
 			<a href="#">Esqueceu sua senha?</a>
 			<button>Entrar</button>
 		</form>

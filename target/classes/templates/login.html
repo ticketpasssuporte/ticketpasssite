@@ -17,7 +17,7 @@
 <body>
     <div class="container" id="container">
 	  <div class="form-container sign-up-container">
-		<form action="salvarusuario" method="post" th:object="${usuario}">
+		<form action="salvarUsuario" method="post" th:object="${usuario}">
 			<h1>Crie sua conta</h1>
 			
 			<br>
@@ -28,15 +28,6 @@
 		
 			
 			<input id="nome" type="text" th:field="*{nome}" placeholder="Nome" />
-<<<<<<< HEAD
-			<span id="erroNOME"></span>
-			<input id ="sobrenome" type="text" th:field="*{sobrenome}" placeholder="Sobrenome" />
-			<span id="erroSobrenome"></span>
-			<input id ="email" type="email" th:field="*{email}" placeholder="Email" />
-			<span id="erroEmail"></span>
-			<input id = "senha" type="password" th:field="*{senha}" placeholder="Senha" />
-			<span id="erroSenha"></span>
-=======
 			<span  class="erro" id="erroNOME"></span>
 			<input id ="sobrenome" type="text" th:field="*{sobrenome}" placeholder="Sobrenome" />
 			<span  class="erro" id="erroSobrenome"></span>
@@ -44,12 +35,11 @@
 			<span  class="erro" id="erroEmail"></span>
 			<input id = "senha" type="password" th:field="*{senha}" placeholder="Senha" />
 			<span  class="erro" id="erroSenha"></span>
->>>>>>> branch 'master' of https://github.com/ticketpasssuporte/ticketpasssite.git
 			<button>Cadastra-se</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="#">
+		<form th:action="@{/realizarLogin}"  method="post" th:object="${usuario}">
 			<h1>Login</h1>
 
 			<br>
@@ -57,8 +47,8 @@
             <br>
       
 			<span>OU</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Senha" />
+			<input type="email" placeholder="Email" th:field="*{email}" />
+			<input type="password" placeholder="Senha" th:field="*{senha}"/>
 			<a href="#">Esqueceu sua senha?</a>
 			<button>Entrar</button>
 		</form>

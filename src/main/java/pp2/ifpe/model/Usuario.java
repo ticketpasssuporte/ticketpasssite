@@ -5,8 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
+
 
 @Entity
 public class Usuario {
@@ -26,7 +25,7 @@ public class Usuario {
 	@NotBlank
 	@Column(length = 255)
 	private String senha;
-	@NotNull
+	/*@NotNull
 	@Column(length = 255)
 	private String token;
 	@Null
@@ -43,7 +42,7 @@ public class Usuario {
 	}
 	public void setToken(String token) {
 		this.token = token;
-	}
+	} */
 	public Integer getId() {
 		return id;
 	}
