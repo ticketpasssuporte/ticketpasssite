@@ -27,13 +27,13 @@
 			<span>OU</span><br>
 		
 			
-			<input id="nome" type="text" th:field="*{nome}" placeholder="Nome" />
+			<input name="nome" id="nome" type="text" th:field="*{nome}" placeholder="Nome" />
 			<span  class="erro" id="erroNOME"></span>
-			<input id ="sobrenome" type="text" th:field="*{sobrenome}" placeholder="Sobrenome" />
-			<span  class="erro" id="erroSobrenome"></span>
-			<input id ="email" type="email" th:field="*{email}" placeholder="Email" />
+			<!--<input id ="sobrenome" type="text" th:field="*{sobrenome}" placeholder="Sobrenome" />
+			<span  class="erro" id="erroSobrenome"></span>-->
+			<input name="email" id ="email" type="email" th:field="*{email}" placeholder="Email" />
 			<span  class="erro" id="erroEmail"></span>
-			<input id = "senha" type="password" th:field="*{senha}" placeholder="Senha" />
+			<input name="senha" id = "senha" type="password" th:field="*{senha}" placeholder="Senha" />
 			<span  class="erro" id="erroSenha"></span>
 			<button>Cadastra-se</button>
 		</form>
