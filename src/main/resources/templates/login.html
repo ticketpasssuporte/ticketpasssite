@@ -12,34 +12,42 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
 	<script type="text/javascript" src="./js/validacao.js"></script>
+	<script type="text/javascript" src="./js/jquery.validate.min.js"></script>
     <title>Document</title>
 </head>
 <body>
     <div class="container" id="container">
 	  <div class="form-container sign-up-container">
-		<form action="salvarUsuario" method="post" th:object="${usuario}">
+	  
+		<form action="salvarUsuario" id="formCadastro" method="post" th:object="${usuario}">
 			<h1>Crie sua conta</h1>
 			
 			<br>
             <button id="gmail">Entre com Gmail <i id="icon" class="fa fa-google"></i></button>
             <br>
       	
+      	
+			<!-- ALERTA MENSAGEM DE ERRO NO CADASTRO -->
+			<div id="alerta" class="alert alert-warning" th:if="${!#strings.isEmpty(mensagemErro)}">
+			<strong>EMAIL JÁ CADASTRADO. TENTE OUTRO DIFERENTE</strong>
+			</div>
 			<span>OU</span><br>
 		
 			
-			<input name="nome" id="nome" type="text" th:field="*{nome}" placeholder="Nome" />
-			<span  class="erro" id="erroNOME"></span>
-			<!--<input id ="sobrenome" type="text" th:field="*{sobrenome}" placeholder="Sobrenome" />
-			<span  class="erro" id="erroSobrenome"></span>-->
-			<input name="email" id ="email" type="email" th:field="*{email}" placeholder="Email" />
-			<span  class="erro" id="erroEmail"></span>
-			<input name="senha" id = "senha" type="password" th:field="*{senha}" placeholder="Senha" />
-			<span  class="erro" id="erroSenha"></span>
-			<button>Cadastra-se</button>
+			<input id="nome" type="text" th:field="*{nome}" name="nome" placeholder="Nome" />
+			<span id="erroNOME"></span>
+			<input id ="email" type="email" th:field="*{email}" name="email" placeholder="Email" />
+			<span id="erroEmail"></span>
+			<input id = "senha" type="password" th:field="*{senha}" name="senha" placeholder="Senha" />
+			<span id="erroSenha"></span>
+			<button id="btn" type="submit">Cadastra-se</button>
+			
+			<span th:text="${mensagemErro}"></span>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form th:action="@{/realizarLogin}"  method="post" th:object="${usuario}">
+	    
+		<form th:action="@{/realizarlogin}"  method="post" th:object="${usuario}">
 			<h1>Login</h1>
 
 			<br>
@@ -49,9 +57,11 @@
 			<span>OU</span>
 			<input type="email" placeholder="Email" th:field="*{email}" />
 			<input type="password" placeholder="Senha" th:field="*{senha}"/>
+			<div th:if="${mensagem}" th:text="${mensagem}"></div>
 			<a href="#">Esqueceu sua senha?</a>
 			<button>Entrar</button>
 		</form>
+		
 	</div>
 	<div class="overlay-container">
 		<div class="overlay">
@@ -69,7 +79,73 @@
 	</div>
     </div>
 
-
 </body>
+<script type="text/javascript">
+     $(document).ready(function(){
+
+    	 $("#btn").click(function(){
+   		  $.ajax({
+   			           url : "http:localhost:9090/verificacao",
+   			           type : 'post',
+   			           data : {
+   			                email : $('#formCadastro :input[name="email"]').val(),
+   			           }
+   			       });
+   	  });
+    	 
+    	 $("#formCadastro").validate({
+    		   rules: {
+    			 nome: {
+    			      required: true
+    			  },
+		      	 email: {
+		            required: true,
+		            email: false,		            
+		            remote: {
+		            	url:'http:localhost:9090/verificacao',
+		            type: "post",
+		            data:
+	                  {
+	                      email: function()
+	                      {
+	                          return $('#formCadastro :input[name="email"]').val();
+	                      }
+	                  }
+		          },
+		          
+		          senha:{
+		              required:true,
+		              minlength:6
+		          }
+   
+    	   },
+    	                    
+          messages:{
+                     
+                 nome: {
+                  required: "O campo nome é obrigatório."
+                 },
+    	   
+		      	   email: {
+		             required: "O campo nome é obrigatório.",
+		             remote: "Email já existente"   
+		      	   },
+		      	   
+		      	 senha: {
+		              required: "O campo senha é obrigatório.",
+		              minlength:"A senha tem que ter no mínimo 6 caracteres"
+		            }
+           
+    		   },
+    		   
+    		   submitHandler:function(form){
+    			   form.submit();
+    		   }
+    		   
+    	} 
+    });
+     });
+      	  
+</script>
 <script type="text/javascript" src="./js/login.js"></script>
 </html>

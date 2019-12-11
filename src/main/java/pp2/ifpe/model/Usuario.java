@@ -4,7 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
+
+
 
 
 @Entity
@@ -13,16 +14,16 @@ public class Usuario {
 	@Id
 	@GeneratedValue
 	private Integer id;
-	@NotBlank
+	
 	@Column(length = 50)
 	private String nome;
-	@NotBlank
+	
 	@Column(length = 50)
 	private String sobrenome;
-	@NotBlank
+	
 	@Column(length = 150)
 	private String email;
-	@NotBlank
+	
 	@Column(length = 255)
 	private String senha;
 	/*@NotNull

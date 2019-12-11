@@ -16,4 +16,25 @@ public class IndexController {
 		return "quemSomos";
 	}
 	
+	@GetMapping("/ativacaoConta")
+    public String ativacao() {
+		return "ativacaoConta";
+	}
+	
+	@GetMapping("/confirmouConta")
+    public String confirmou() {
+		return "confirmouConta";
+	}
+	
+	@GetMapping("/esqueciSenha")
+    public String esqueceuSenha() {
+		return "esqueceuSenha";
+	}
+	
+	
+	@GetMapping("/redefinicaoSenha")
+    public String redefinicao() {
+		return "redefinirSenha";
+	}
+	
 }
