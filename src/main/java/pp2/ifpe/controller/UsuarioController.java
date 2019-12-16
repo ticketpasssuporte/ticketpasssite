@@ -123,6 +123,12 @@ public class UsuarioController {
 	public String ativeSuaConta() {
 		return "/ativarConta";
 	}
+	
+	// mensagem conta confirmada
+	@GetMapping("confirmou")
+	public String confirmouConta() {
+		return "/confirmouConta";
+	}
 
 	// Ativar conta no bd
 	@GetMapping("/ativarConta")
@@ -145,7 +151,7 @@ public class UsuarioController {
 		}
 
 		ra.addFlashAttribute("alertSucesso", "Conta Ativada com sucesso!");
-		return "redirect:/login";
+		return "redirect:/confirmouConta";
 	}
 	
 }
