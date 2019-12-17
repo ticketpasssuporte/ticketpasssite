@@ -92,7 +92,7 @@ public class UsuarioController {
 	public String efetuarLogin(HttpServletRequest request, @ModelAttribute Usuario usuario,
 			@RequestParam(name = "retorno", required = false) String retorno, RedirectAttributes ra,
 			HttpSession session) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		String redirect = "redirect:/index";
+		String redirect = "redirect:/home";
 		if (retorno != null) {
 			redirect = "redirect:" + retorno;
 		}
@@ -110,7 +110,12 @@ public class UsuarioController {
 		ra.addFlashAttribute("loginEfetuado", true);
 		return redirect;
 	}
-	
+	//logout
+		@PostMapping("/sair")
+		public String sair(HttpSession session) {
+			session.invalidate();
+			return "redirect:/index";
+		}
 	
 	
 	
