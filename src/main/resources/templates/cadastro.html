@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="cadastroElogin/css/cadastro.css">
 	<link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Cadastro</title>
 </head>
 <body>
@@ -13,24 +14,42 @@
 		<div class="header-section">
 			<h1 style="text-align: center;"><strong>Cadastro</strong></h1>
 		</div>
-		<form th:action="@{/cadastro}" th:object="${usuario}" method="post" id="form"  class="needs-validation" novalidate>
+		<form th:action="@{/cadastro}" th:object="${usuario}" id="registration_form" method="post" class="needs-validation" novalidate>
+		
 		<div th:if="${mensagemErro != null}" th:text="${mensagemErro}" class="alert alert-danger"></div>
+		
 		<div class="form-group">
-			<input type="text" class="form-control" id="nome" required size="45" th:field="*{nome}"  />
+			<input type="text" id="form_fname" class="form-control" required size="45" th:field="*{nome}"  />
 			<label for="">Nome de usuário:</label>
+			<br><br><br><br>
+			<span class="error_form" id="fname_error_message"></span>
 		</div>
 		<div class="form-group">
-			<input type="email"  name="email"  id="email" class="form-control"  required size="45" th:field="*{email}" />
+			<input type="text" id="form_email" class="form-control" required size="45" th:field="*{email}" />
 			<label for="">Email:</label>
+			<br><br><br><br>
+			<span class="error_form" id="email_error_message"></span>
 		</div>
 		<div class="form-group">
-			<input type="password"  name="senha" id="senha" class="form-control" required size="45" th:field="*{senha}"/>
+			<input type="password" id="form_password" class="form-control" required size="45" th:field="*{senha}"/>
 			<label for="">Senha:</label>
+			<br><br><br><br>
+			<span class="error_form" id="password_error_message"></span>
 		</div>
+		<div class="form-group">
+			<input type="password" id="form_retype_password" class="form-control" required size="45" th:field="*{senha}"/>
+			<label for="">Confime a senha:</label>
+			<br><br><br><br>
+			<span class="error_form" id="retype_password_error_message"></span>
+		</div>
+
+
 		<div class="btn-group">
-			<button type="submit"  value="Cadastrar" class="btn-login">Cadastrar</button>
+			<button type="submit" value="Register" class="btn-login">Cadastrar</button>
+			<a href="index" class="voltar">Voltar a página inicial</a>
 		</div>
        </form>
+		
 		<div class="ou">OU</div>
 		
 		<div class='g-sign-in-button'>
@@ -44,6 +63,112 @@
   	</div>  
 	</div>
 	</div>
+	
+	<script>
+		 $(function() {
+
+         $("#fname_error_message").hide();
+         $("#email_error_message").hide();
+         $("#password_error_message").hide();
+         $("#retype_password_error_message").hide();
+
+         var error_fname = false;
+         var error_email = false;
+         var error_password = false;
+         var error_retype_password = false;
+
+         $("#form_fname").focusout(function(){
+            check_fname();
+         });
+         $("#form_email").focusout(function() {
+            check_email();
+         });
+         $("#form_password").focusout(function() {
+            check_password();
+         });
+         $("#form_retype_password").focusout(function() {
+            check_retype_password();
+         });
+
+         function check_fname() {
+            var pattern = /^[a-zA-Z]*$/;
+            var fname = $("#form_fname").val();
+            if (pattern.test(fname) && fname !== '') {
+               $("#fname_error_message").hide();
+               //$("#form_fname").css("border-bottom","2px solid #34F458");
+            } else {
+               $("#fname_error_message").html("Digite apenas caracteres!");
+               $("#fname_error_message").show();
+              // $("#form_fname").css("border-bottom","2px solid #F90A0A");
+               error_fname = true;
+            }
+         }
+
+         function check_password() {
+            var password_length = $("#form_password").val().length;
+            if (password_length < 5) {
+               $("#password_error_message").html("A senha deve conter pelo menos 5 caracteres!");
+               $("#password_error_message").show();
+               //$("#form_password").css("border-bottom","2px solid #F90A0A");
+               error_password = true;
+            } else {
+               $("#password_error_message").hide();
+               //$("#form_password").css("border-bottom","2px solid #34F458");
+            }
+         }
+
+         function check_retype_password() {
+            var password = $("#form_password").val();
+            var retype_password = $("#form_retype_password").val();
+            if (password !== retype_password) {
+               $("#retype_password_error_message").html("A senha não confere!");
+               $("#retype_password_error_message").show();
+               //$("#form_retype_password").css("border-bottom","2px solid #F90A0A");
+               error_retype_password = true;
+            } else {
+               $("#retype_password_error_message").hide();
+               //$("#form_retype_password").css("border-bottom","2px solid #34F458");
+            }
+         }
+
+         function check_email() {
+            var pattern = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            var email = $("#form_email").val();
+            if (pattern.test(email) && email !== '') {
+               $("#email_error_message").hide();
+               //$("#form_email").css("border-bottom","2px solid #34F458");
+            } else {
+               $("#email_error_message").html("Email inválido!");
+               $("#email_error_message").show();
+               //$("#form_email").css("border-bottom","2px solid #F90A0A");
+               error_email = true;
+            }
+         }
+
+         $("#registration_form").submit(function() {
+            error_fname = false;
+            error_email = false;
+            error_password = false;
+            error_retype_password = false;
+
+            check_fname();
+            check_email();
+            check_password();
+            check_retype_password();
+
+            if (error_fname === false && error_email === false && error_password === false && error_retype_password === false) {
+               alert("Cadastro Efetuado");
+               return true;
+            } else {
+               alert("Por favor, preencha o formulário corretamente");
+               return false;
+            }
+
+
+         });
+      });
+	</script>
+	
 	
 </body>
 </html>

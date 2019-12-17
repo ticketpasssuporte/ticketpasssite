@@ -34,8 +34,8 @@ a, p, button, input, label
 	position: relative;
 	background: rgba(26, 26, 26, .87);
 	padding: 20px;
-	height: 490px;
-	width: 400px;
+	height: 570px;
+	width: 500px;
 }
 
 .form-group
@@ -105,6 +105,7 @@ i.fa
 	position: absolute;
 	top: 0;
 }
+
 #google{
 	border-radius: 50px;
 }
@@ -115,14 +116,23 @@ i.fa
 	border: 0;
 	padding: 8px 50px;
 	border-radius: 50px;
-	margin-left: 30%;
+	margin-left: 0%;
 	margin-top: 3%;
 }
 
-.forgot-password
+.voltar
 {
 	padding: 8px;
 	float: right;
+	margin-top: 3%;
+}
+
+.error_form
+{
+	color: white;
+ 	padding-left: 10px;
+  	border-radius: 4px;
+  	margin-top: 1px;
 }
 
 .clear
@@ -165,8 +175,8 @@ a
 .ou
 {
 	position: relative;
-	margin-top: 5%;
-	margin-left: 45%;
+	margin-top: 0.5%;
+	margin-left: 47%;
 	width: 40px;
 	height: 40px;
 	background: white;
@@ -177,7 +187,7 @@ a
 	color: #000000;
 	
 }
-
+	
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -192,7 +202,7 @@ a
   box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
   transition: background-color .218s, border-color .218s, box-shadow .218s;
   margin-top: 5%;
-  margin-left: 17%;
+  margin-left: 24%;
 }
 .g-sign-in-button:hover {
   cursor: pointer;
