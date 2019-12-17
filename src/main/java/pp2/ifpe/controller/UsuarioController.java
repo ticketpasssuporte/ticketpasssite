@@ -154,4 +154,29 @@ public class UsuarioController {
 		return "redirect:/confirmouConta";
 	}
 	
+	 /*
+		 * Recuperar senha
+		 */
+		@GetMapping("/recuperar-senha")
+		public String recuperarSeha() {
+			return "/recuperarSenha";
+		}
+		
+		/*
+		 * Recuperar senha enviando um email com uma nova senha
+		 */
+		@PostMapping("/recuperar-senha")
+		public ModelAndView recuperarSenha(@RequestParam(name = "email", required = true) String email) {
+			
+			
+			ModelAndView mv = new ModelAndView("/receberSenha");
+			
+			this.usuarioService.recuperarSenha(email);
+			
+			mv.addObject("emailEnviado", true);
+			mv.addObject("email", email);
+			
+			
+		   return mv;
+		}
 }

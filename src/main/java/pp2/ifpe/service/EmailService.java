@@ -117,5 +117,30 @@ public class EmailService {
 		this.emailRep.save(email);
 	}
 	
+public void enviarRecuperacaoDeSenha(String email, String nome, String novasenha) throws MessagingException{
+		
+		
+		// Criando mensagem do email
+		EmailMensagem mensagem = new EmailMensagem();
+		mensagem.setTitulo("Olá, " +  nome + "  recupere sua senha!");
+		mensagem.setMensagem("Sua nova senha é:  " + novasenha + "  (Não se preocupe,você pode muda-la em nossa página')");
+				
+
+		Email recuperacaoDeSenha =  new Email();
+		recuperacaoDeSenha.setAssunto("Ticketpasssuporte - Recuperacao de senha!!");
+		recuperacaoDeSenha.setMensagem(mensagem);
+		recuperacaoDeSenha.setNomeRemetente("ticketpasssuporte");
+		recuperacaoDeSenha.setEmailRemetente("ticketpasssuporte@gmail.com");
+		recuperacaoDeSenha.setNomeDestiantario(nome);
+		recuperacaoDeSenha.setEmailDestinatario(email);
+
+		// nao deverá seguir nenhum tolken no corpo do email. apenas a senha 
+		boolean semTolken = false;
+		
+		this.sendEmailTSL(recuperacaoDeSenha, semTolken);
+		
+		
+	}
+	
   
 }
