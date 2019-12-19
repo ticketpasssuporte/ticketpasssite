@@ -1,48 +1,56 @@
 package pp2.ifpe.model;
-
+import java.util.Calendar;
 import java.util.Date;
+
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Evento {
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Column(length = 50)
 	private String nome;
 	@DateTimeFormat(pattern = "MM/dd/yyyy") @FutureOrPresent
 	private Date datainicio;
-	@Temporal(TemporalType.TIME) @Future
-	private String horainicio;
-	@Temporal(TemporalType.TIME) @Future
-	private String horafim;
+	@Temporal(value =TemporalType.TIME) @Future
+	private Date horainicio = Calendar.getInstance().getTime();;
+	@Temporal(value =TemporalType.TIME) @Future
+	private Date horafim = Calendar.getInstance().getTime();
 	@Column(length = 150)
 	private String desc_evento;
 	@Column(length = 150)
 	private String desc_org;
+	
 	@ManyToOne
-	private Endereco endereco;
-	@ManyToOne
+	@JoinColumn(name="id_categoria")
 	private Categoria categoria;
+	
 	@ManyToOne
+	@JoinColumn(name="id_usuario")
 	private Usuario usuario;
-	@OneToMany
-	private Ingresso ingresso;
-	@Lob @Column(name = "foto_evento")
+	
+	
+		
+	@Lob @Column(name = "foto_evento", columnDefinition="TEXT")
 	private byte[] foto_evento;
+	
 	
 	public Integer getId() {
 		return id;
@@ -62,16 +70,16 @@ public class Evento {
 	public void setDatainicio(Date datainicio) {
 		this.datainicio = datainicio;
 	}
-	public String getHorainicio() {
+	public Date getHorainicio() {
 		return horainicio;
 	}
-	public void setHorainicio(String horainicio) {
+	public void setHorainicio(Date horainicio) {
 		this.horainicio = horainicio;
 	}
-	public String getHorafim() {
+	public Date getHorafim() {
 		return horafim;
 	}
-	public void setHorafim(String horafim) {
+	public void setHorafim(Date horafim) {
 		this.horafim = horafim;
 	}
 	public String getDesc_evento() {
@@ -86,30 +94,7 @@ public class Evento {
 	public void setDesc_org(String desc_org) {
 		this.desc_org = desc_org;
 	}
-	public Endereco getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-	public Categoria getCategoria() {
-		return categoria;
-	}
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
-	public Usuario getUsuario() {
-		return usuario;
-	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-	public Ingresso getIngresso() {
-		return ingresso;
-	}
-	public void setIngresso(Ingresso ingresso) {
-		this.ingresso = ingresso;
-	}
+	
 	public byte[] getFoto_evento() {
 		return foto_evento;
 	}
