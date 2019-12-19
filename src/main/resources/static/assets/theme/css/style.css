@@ -359,16 +359,15 @@ nav .mbr-section-btn {
 .mbr-bold {
   font-weight: 700; }
 
-/* botão confirmar */
-[type='submit'] {
+/* botão confirmar do reenviar email */
+#botao {
   -webkit-appearance: none; 
   background-color: black;
   color: white;
   
   }
-  
-#text{
-	
+ 
+#input{
 border-radius:20px;
 -webkit-box-sizing: border-box;
 -moz-box-sizing: border-box;
@@ -376,10 +375,15 @@ box-sizing: border-box;
 outline:none;
 text-decoration:none;
 font-family: Tahoma;
-font-size: 30px;
+text-align:center;
+	
+} 
 
-width: 100%;
+#texto{
+
+margin-left:40%;
 }
+
 /* texto  */
 h6{
    text-align:center;

@@ -17,7 +17,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.FutureOrPresent;
-import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -28,11 +27,11 @@ public class Evento {
 	@Column(length = 50)
 	private String nome;
 	@DateTimeFormat(pattern = "MM/dd/yyyy") @FutureOrPresent
-	private Date datainicio;
+	private Date dataInicio;
 	@Temporal(value =TemporalType.TIME) @Future
-	private Date horainicio = Calendar.getInstance().getTime();;
+	private Date horaInicio = Calendar.getInstance().getTime();;
 	@Temporal(value =TemporalType.TIME) @Future
-	private Date horafim = Calendar.getInstance().getTime();
+	private Date horaFim = Calendar.getInstance().getTime();
 	@Column(length = 150)
 	private String desc_evento;
 	@Column(length = 150)
@@ -50,56 +49,127 @@ public class Evento {
 		
 	@Lob @Column(name = "foto_evento", columnDefinition="TEXT")
 	private byte[] foto_evento;
-	
-	
+
+
+
 	public Integer getId() {
 		return id;
 	}
+
+
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
+
+
 	public String getNome() {
 		return nome;
 	}
+
+
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Date getDatainicio() {
-		return datainicio;
+
+
+
+	public Date getDataInicio() {
+		return dataInicio;
 	}
-	public void setDatainicio(Date datainicio) {
-		this.datainicio = datainicio;
+
+
+
+	public void setDataInicio(Date dataInicio) {
+		this.dataInicio = dataInicio;
 	}
-	public Date getHorainicio() {
-		return horainicio;
+
+
+
+	public Date getHoraInicio() {
+		return horaInicio;
 	}
-	public void setHorainicio(Date horainicio) {
-		this.horainicio = horainicio;
+
+
+
+	public void setHoraInicio(Date horaInicio) {
+		this.horaInicio = horaInicio;
 	}
-	public Date getHorafim() {
-		return horafim;
+
+
+
+	public Date getHoraFim() {
+		return horaFim;
 	}
-	public void setHorafim(Date horafim) {
-		this.horafim = horafim;
+
+
+
+	public void setHoraFim(Date horaFim) {
+		this.horaFim = horaFim;
 	}
+
+
+
 	public String getDesc_evento() {
 		return desc_evento;
 	}
+
+
+
 	public void setDesc_evento(String desc_evento) {
 		this.desc_evento = desc_evento;
 	}
+
+
+
 	public String getDesc_org() {
 		return desc_org;
 	}
+
+
+
 	public void setDesc_org(String desc_org) {
 		this.desc_org = desc_org;
 	}
-	
+
+
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+
+
 	public byte[] getFoto_evento() {
 		return foto_evento;
 	}
+
+
+
 	public void setFoto_evento(byte[] foto_evento) {
 		this.foto_evento = foto_evento;
 	}
-
+	
+	
+	
 }

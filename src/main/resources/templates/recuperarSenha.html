@@ -16,7 +16,7 @@
 		<form th:action="@{/recuperar-senha}" id="registration_form"  method="post">		
 		
 		<div class="form-group">
-			<input type="text" id="form_email" class="form-control"  required size="45" />
+			<input type="email" id="form_email" name="email" class="form-control"  required size="45" />
 			<label for="">Email:</label>
 			<span class="error_form" id="email_error_message"></span>
 		</div>

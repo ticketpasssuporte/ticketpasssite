@@ -15,7 +15,7 @@ public class Ingresso {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Column
-	private String tipoingresso;
+	private String tipoIngresso;
 	@DecimalMin(value = "0.00")
 	private double valor;
 	@Min(value = 0)
@@ -26,39 +26,54 @@ public class Ingresso {
 	@ManyToOne
 	@JoinColumn(name="id_evento")
 	private Evento evento;
-	
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public int getQuantidade() {
-		return quantidade;
+
+	public String getTipoIngresso() {
+		return tipoIngresso;
 	}
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
+
+	public void setTipoIngresso(String tipoIngresso) {
+		this.tipoIngresso = tipoIngresso;
 	}
-	public String getComentarios() {
-		return comentarios;
-	}
-	public void setComentarios(String comentarios) {
-		this.comentarios = comentarios;
-	}
-	public String getTipoingresso() {
-		return tipoingresso;
-	}
-	public void setTipoingresso(String tipoingresso) {
-		this.tipoingresso = tipoingresso;
-	}
+
 	public double getValor() {
 		return valor;
 	}
+
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
 
-	
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public String getComentarios() {
+		return comentarios;
+	}
+
+	public void setComentarios(String comentarios) {
+		this.comentarios = comentarios;
+	}
+
+	public Evento getEvento() {
+		return evento;
+	}
+
+	public void setEvento(Evento evento) {
+		this.evento = evento;
+	}
 	
 
 }

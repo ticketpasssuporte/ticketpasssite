@@ -11,10 +11,11 @@ import javax.mail.MessagingException;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import pp2.ifpe.enums.TipoUsuarioEnum;
 import pp2.ifpe.model.Usuario;
-import pp2.ifpe.model.UsuarioDAO;
+import pp2.ifpe.persistence.UsuarioDAO;
 
 @Service
 public class UsuarioService {
@@ -47,13 +48,10 @@ public class UsuarioService {
 		this.usuarioDAO.save(usuario);
 	}
 	
-	public void criarUsuario(Usuario usuario) throws ServiceException, MessagingException {
+	public void criarUsuario(@RequestParam (name = "email") Usuario usuario) throws ServiceException, MessagingException {
 		if (this.findUsuarioByEmail(usuario.getEmail()) != null) {
-			throw new ServiceException("Já existe um usuário com este e-mail: " + usuario.getEmail());
-		}
-
-		if (this.findByNome(usuario.getNome()) != null) {
-			throw new ServiceException("Já existe um usuário com este apelido: " + usuario.getNome());
+			//throw new ServiceException("Já existe um usuário com este e-mail: " + usuario.getEmail());
+		
 		}
 
 		usuario.setTipoUsuario(TipoUsuarioEnum.PADRAO);
@@ -74,8 +72,18 @@ public class UsuarioService {
 		this.emailService.enviarConfirmacaoDeConta(usuario);
 	}
 	
-       public Usuario efetuarLogin(String email, String senha) throws ServiceException, NoSuchAlgorithmException, UnsupportedEncodingException {
-		
+	
+	
+	public void reEnviarEmailConfirmacao(String email) throws MessagingException {
+		Usuario usuario = this.findByEmail(email);
+
+		if (usuario.getAtivo() == false) {
+			this.emailService.enviarConfirmacaoDeConta(usuario);
+		}
+	}
+	
+	
+       public Usuario efetuarLogin(String email, String senha) throws ServiceException, NoSuchAlgorithmException, UnsupportedEncodingException {	
 		String senhaCriptografada = criptografarSenha(senha);
 		Usuario usuario = this.usuarioDAO.efetuarLogin(email, senhaCriptografada);
 		//Usuario usuario = this.usuarioDAO.efetuarLogin(email, senha);
@@ -90,10 +98,7 @@ public class UsuarioService {
 
 		return usuario;
 	}
-	
-	
-	
-	
+
 	
 	public String criptografarSenha(String senha)  throws NoSuchAlgorithmException, 
 	   UnsupportedEncodingException{
@@ -115,7 +120,8 @@ public class UsuarioService {
 		
 	}//fim do metodo criptografarSenha
 	
-	public void recuperarSenha(String email) {
+	
+public void recuperarSenha(String email) {
 		
 		Usuario usuario = this.usuarioDAO.findByEmailIgnoreCase(email);
 		
@@ -138,6 +144,9 @@ public class UsuarioService {
 				e.printStackTrace();
 			}
 			
+			
+			
+			
 			try {
 				this.emailService.enviarRecuperacaoDeSenha(email, usuario.getNome(), senha);
 			} catch (MessagingException e) {
@@ -149,18 +158,19 @@ public class UsuarioService {
 		
 	}//fim do metodo recuperarSenha
 	
-	public String GeradorDeSenhaAleatorio(int qtdDeLetras){
-	     java.util.Random r = new java.util.Random();
-	     char[] goodChar = { 'a', 'b', 'c', 'd', 'e', 'f', 'g',
-	         'h','i', 'j', 'k','l', 'm', 'n','o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x','w',
-	         'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I','J', 'K','L',
-	         'M', 'N','O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z','1',
-	         '2', '3', '4', '5', '6', '7', '8', '9'};
-	    StringBuffer sb = new StringBuffer();
-	    for (int i = 0; i < qtdDeLetras; i++) {
-	      sb.append(goodChar[r.nextInt(goodChar.length)]);
-	    }
-	    return sb.toString();
-	  }//fim do metodo GeradorDeSenhaAleatorio
-	
+
+public String GeradorDeSenhaAleatorio(int qtdDeLetras){
+    java.util.Random r = new java.util.Random();
+    char[] goodChar = { 'a', 'b', 'c', 'd', 'e', 'f', 'g',
+        'h','i', 'j', 'k','l', 'm', 'n','o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x','w',
+        'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I','J', 'K','L',
+        'M', 'N','O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z','1',
+        '2', '3', '4', '5', '6', '7', '8', '9'};
+   StringBuffer sb = new StringBuffer();
+   for (int i = 0; i < qtdDeLetras; i++) {
+     sb.append(goodChar[r.nextInt(goodChar.length)]);
+   }
+   return sb.toString();
+ }//fim do metodo GeradorDeSenhaAleatorio
+
 }	

@@ -159,29 +159,57 @@ public class UsuarioController {
 		return "redirect:/confirmouConta";
 	}
 	
-	 /*
-		 * Recuperar senha
-		 */
-		@GetMapping("/recuperar-senha")
-		public String recuperarSeha() {
-			return "/recuperarSenha";
+	/*
+	 * Reenviar email de confirmação
+	 */
+	@PostMapping("reenviarConfirmacao")
+	public String reenviarEmailConfirmarcaoConta(@RequestParam(name = "email", required = true) String email,
+			RedirectAttributes ra) {
+		String retorno = "redirect:ativar";
+
+		Usuario usuario = this.usuarioService.findByEmail(email);
+
+		if (usuario == null) {
+			ra.addFlashAttribute("alertErro", "Email não cadastrado no sistema");
+		} else if (email.trim() != "") {
+			try {
+				this.usuarioService.reEnviarEmailConfirmacao(usuario.getEmail());
+			} catch (MessagingException e) {
+				e.printStackTrace();
+			}
+		} else {
+			ra.addFlashAttribute("alertErro", "Email inválido");
 		}
+
+		return retorno;
+	}
+	
+	/*
+	 * Recuperar senha
+	 */
+	@GetMapping("/recuperar-senha")
+	public String recuperarSeha() {
+		return "/recuperarSenha";
+	}
+
+	/*
+	 * Recuperar senha enviando um email com uma nova senha
+	 */
+	@PostMapping("/recuperar-senha")
+	public ModelAndView recuperarSenha(@RequestParam(name = "email", required = true) String email) {
 		
-		/*
-		 * Recuperar senha enviando um email com uma nova senha
-		 */
-		@PostMapping("/recuperar-senha")
-		public ModelAndView recuperarSenha(@RequestParam(name = "email", required = true) String email) {
-			
-			
-			ModelAndView mv = new ModelAndView("/receberSenha");
-			
-			this.usuarioService.recuperarSenha(email);
-			
-			mv.addObject("emailEnviado", true);
-			mv.addObject("email", email);
-			
-			
-		   return mv;
-		}
+		
+		ModelAndView mv = new ModelAndView("/receberSenha");
+		
+		this.usuarioService.recuperarSenha(email);
+		
+		mv.addObject("emailEnviado", true);
+		mv.addObject("email", email);
+		
+		
+		return mv;
+	}
+	
+	
+		
 }

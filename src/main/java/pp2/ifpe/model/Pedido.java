@@ -21,7 +21,7 @@ public class Pedido {
 	@DecimalMin(value = "0.01")
 	private double valor;
 	@Min(value = 0)
-	private int qtd;
+	private int quantidade;
 	@DateTimeFormat(pattern = "MM/dd/yyyy") @FutureOrPresent
 	private Date data;
 	private String pedidopaypal;
@@ -34,7 +34,6 @@ public class Pedido {
 	@ManyToOne
 	@JoinColumn(name="id_usuario")
 	private Usuario usuario;
-	
 	public Integer getId() {
 		return id;
 	}
@@ -47,11 +46,11 @@ public class Pedido {
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
-	public int getQtd() {
-		return qtd;
+	public int getQuantidade() {
+		return quantidade;
 	}
-	public void setQtd(int qtd) {
-		this.qtd = qtd;
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
 	}
 	public Date getData() {
 		return data;
@@ -77,6 +76,19 @@ public class Pedido {
 	public void setQrcode(String qrcode) {
 		this.qrcode = qrcode;
 	}
+	public Ingresso getIngresso() {
+		return ingresso;
+	}
+	public void setIngresso(Ingresso ingresso) {
+		this.ingresso = ingresso;
+	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 	
 
 }

@@ -7,6 +7,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
+
     <title>Cadastro</title>
 </head>
 <body>
@@ -14,9 +16,9 @@
 		<div class="header-section">
 			<h1 style="text-align: center;"><strong>Cadastro</strong></h1>
 		</div>
-		<form th:action="@{/cadastro}" th:object="${usuario}" id="registration_form" method="post" class="needs-validation" novalidate>
+		<form th:action="@{/cadastro}" th:object="${usuario}" id="registration_form" method="post" class="needs-validation" >
 		
-		<div th:if="${mensagemErro != null}" th:text="${mensagemErro}" class="alert alert-danger"></div>
+		
 		
 		<div class="form-group">
 			<input type="text" id="form_fname" class="form-control" required size="45" th:field="*{nome}"  />
@@ -25,7 +27,7 @@
 			<span class="error_form" id="fname_error_message"></span>
 		</div>
 		<div class="form-group">
-			<input type="text" id="form_email" class="form-control" required size="45" th:field="*{email}" />
+			<input type="email" id="form_email" class="form-control" required size="45" th:field="*{email}" />
 			<label for="">Email:</label>
 			<br><br><br><br>
 			<span class="error_form" id="email_error_message"></span>
@@ -58,6 +60,59 @@
 	</div>
 	
 	<script>
+	$("#registration_form" ).validate({
+
+		   rules: {
+		     nome: {
+		       required: true
+		          
+		          // remote: 'check-email.php' //Deve utilizar um arquivo 
+		          
+		     },
+		     email: {
+			       required: true,
+			       email: true,
+			       remote:{
+		                  url: 'https://localhost:9090/criarUsuario',
+		                  type: "post",
+		                  data:
+		                  {
+		                      email: function()
+		                      {
+		                          return $('#registration_form :input[name="email"]').val();
+		                      }
+		                  }
+			       
+			     }
+		         
+		   },
+		   messages:{
+		         //exemplo
+		     nome: {
+		      required: "O campo nome é obrigatório."
+		            },
+		       email: {
+		  		      required: "O campo email é obrigatório.",
+		  		      email: "O email é inválido.",
+		  		      remote: "Email já existente"
+		  		            }
+		   },
+		   submitHandler: function (form) {
+		            form.submit(); // submit the form // this is the default
+		    }
+		 });
+	</script>
+	
+	<script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		 $(function() {
 
          $("#fname_error_message").hide();
@@ -121,22 +176,7 @@
             }
          }
 
-         $("#registration_form").submit(function() {
-            error_fname = false;
-            error_email = false;
-            error_password = false;
-
-            check_fname();
-            check_email();
-            check_password();
-
-            if (error_fname === false && error_email === false && error_password === false) {
-               alert("Cadastro Efetuado");
-               return true;
-            } else {
-               alert("Por favor, preencha o formulário corretamente");
-               return false;
-            }
+            
 
 
          });

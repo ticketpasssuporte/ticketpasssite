@@ -54,12 +54,12 @@ public class EmailService {
 		 */
 		// Setando validade
 		LocalDate agora = LocalDate.now();
-		LocalDate validade = agora.plusDays(5);
+		LocalDate validade = agora.plusDays(2);
 
 		// Criando mensagem do email
 		EmailMensagem mensagem = new EmailMensagem();
 		mensagem.setTitulo("Olá, " + usuario.getNome() + ". Ative sua conta!");
-		mensagem.setMensagem("Para ter acesso total ao nosso site ative sua conta, copiando esse endereço abaixo e colando na url. (este email vence em: "
+		mensagem.setMensagem("Para ter acesso total ao nosso site, ative sua conta, copiando esse endereço abaixo e colando na url. (este email vence em: "
 				+ validade.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + ")");
 		;
 		mensagem.setController("/ativarConta");
@@ -117,19 +117,20 @@ public class EmailService {
 		this.emailRep.save(email);
 	}
 	
+   
 public void enviarRecuperacaoDeSenha(String email, String nome, String novasenha) throws MessagingException{
 		
 		
 		// Criando mensagem do email
 		EmailMensagem mensagem = new EmailMensagem();
 		mensagem.setTitulo("Olá, " +  nome + "  recupere sua senha!");
-		mensagem.setMensagem("Sua nova senha é:  " + novasenha + "  (Não se preocupe,você pode muda-la em nossa página')");
-				
+		mensagem.setMensagem("Sua nova senha é:  " + novasenha + "  (Não se preocupe, você pode muda-la em nossa pagina ')");
+				;
 
 		Email recuperacaoDeSenha =  new Email();
-		recuperacaoDeSenha.setAssunto("Ticketpasssuporte - Recuperacao de senha!!");
+		recuperacaoDeSenha.setAssunto("Ticketpass - Recuperacao de senha!!");
 		recuperacaoDeSenha.setMensagem(mensagem);
-		recuperacaoDeSenha.setNomeRemetente("ticketpasssuporte");
+		recuperacaoDeSenha.setNomeRemetente("Ticketpass");
 		recuperacaoDeSenha.setEmailRemetente("ticketpasssuporte@gmail.com");
 		recuperacaoDeSenha.setNomeDestiantario(nome);
 		recuperacaoDeSenha.setEmailDestinatario(email);
@@ -141,6 +142,5 @@ public void enviarRecuperacaoDeSenha(String email, String nome, String novasenha
 		
 		
 	}
-	
   
 }
