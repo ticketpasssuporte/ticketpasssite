@@ -1,79 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns= "http://www.w3.org/1999/xhtml"
-	xmlns:th= "http://www.thymeleaf.org"> 
+	xmlns:th= "http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="cadastroElogin/css/recuperarSenha.css">
+	<title>Login</title>
+	<link rel="stylesheet" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <title>Recuperar Senha</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="cadastroElogin/css/recuperarSenha.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+
 </head>
 <body>
 	<div class="login">
 		<div class="header-section">
-			<h1 style="text-align: center;"><strong>Recuperar Senha</strong></h1>
-		</div><br/><br/>
-		<form th:action="@{/recuperar-senha}" id="registration_form"  method="post">		
-		
-		<div class="form-group">
-			<input type="email" id="form_email" name="email" class="form-control"  required size="45" />
-			<label for="">Email:</label>
-			<span class="error_form" id="email_error_message"></span>
+			<h1 style="text-align: center;"><strong>Recuperar senha</strong></h1>
 		</div>
-		<br/>
-		
+		<form th:action="@{/recuperar-senha}" id="form-senha" method="post">
+		<br>
+		<div class="form-group">
+			<label for="">Digite seu email:</label>
+			<input type="email" class="form-control" name="email" id="inputEmail"  required>
+		</div>
+		<br>
 		<div class="btn-group">
 			<button type="submit" class="btn-login">Enviar</button>
-		</div>
-       </form>	
-	</div>
-	
-	<script>
-		 $(function() {
-
-         $("#email_error_message").hide();
-        
-
-         var error_email = false;
-
-        
-
-         $("#form_email").focusout(function() {
-            check_email();
-         });
-
-
-         function check_email() {
-            var pattern = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-            var email = $("#form_email").val();
-            if (pattern.test(email) && email !== '') {
-               $("#email_error_message").hide();
-               //$("#form_email").css("border-bottom","2px solid #34F458");
-            } else {
-               $("#email_error_message").html("Email inválido!");
-               $("#email_error_message").show();
-               //$("#form_email").css("border-bottom","2px solid #F90A0A");
-               error_email = true;
-            }
-         }
-
-         $("#registration_form").submit(function() {
-
-            error_email = false;
-
-            check_email();
-
-            if (error_email === false) {
-               alert("Verifique seu email");
-               return true;
-            } else {
-               alert("Por favor, preencha o formulário corretamente");
-               return false;
-            }
-
-         });
-      });
-	</script>
-	
+			<div class="clear"></div>
+		</div>		 
+ 	    </form>
+ 	  </div> 
+ 	  	<script type="text/javascript" src="js/validacao.js"></script>	   
 </body>
 </html>

@@ -7,32 +7,34 @@
 	<link rel="stylesheet" href="/cadastroElogin/css/login.css">
 	<link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	
-	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>	
 </head>
 <body>
 	<div class="login">
 		<div class="header-section">
 			<h1 style="text-align: center;"><strong>Login</strong></h1>
 		</div>
-		<form th:action="@{/login}" th:object="${usuario}" method="post">
-		<div th:if="${mensagemErro != null}" th:text="${mensagemErro}" class="alert alert-danger"></div>
+		<form th:action="@{/login}" th:object="${usuario}" id="form-login" method="post">
+		<div th:if="${mensagemErro != null}" th:text="${mensagemErro}" style=color:white; class=""></div>
 		<input th:if="${acessoNegado != null}" name="retorno" type="hidden" th:value="${retorno}">
 		
 		<div class="form-group">
-			<input type="text" class="form-control" id="inputEmail" required size="45" th:field="*{email}">
 			<label for="">Email:</label>
-			<br><br><br><br>
-			<p class="emailError"></p>
+			<input type="email" class="form-control" name="email" id="inputEmail" th:field="*{email}" required>
 		</div>
+		<br>
 		<div class="form-group">
-			<input type="password" class="form-control" id="inputPassword" required size="45" th:field="*{senha}">
 			<label for="">Senha:</label>
-			<br><br><br><br>
-			<p class="passwordError"></p>
+			<input type="password" class="form-control" name="password" id="inputPassword" th:field="*{senha}" required>
 		</div>
+		<br>
 		<div class="btn-group">
 			<button type="submit" class="btn-login">Entrar</button>
 			<a th:href="@{/recuperar-senha}" class="forgot-password">Esqueceu a senha?</a>
@@ -49,48 +51,17 @@
     	<span class='text-container'> 
       		<span>Entre com o Google</span>
     	</span>
-  	</div>  
-	</div>
-	<div class="btn-group">
-    	<button class="btn-voltar"><a href="index" style="text-decoration: none">Voltar para página inicial</a></button>
-    </div>
- </form>
+  		</div>  
+		</div>
+		<div class="btn-group">
+    	<a class="btn-voltar" href="index" style="text-decoration: none" role="button">Voltar</a>
+    	</div>
+ 	</form>
 		<div class="footer-section">
 			<p>Não possui cadastro?&nbsp; <a href="/cadastro">Crie uma conta!</a></p>
 		</div>
 	</div>
 	
-	<script> 
-		function isEmail(inputEmail) {
-    	var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-			return regex.test(inputEmail);
-		}
-		function validatePassword(inputPassword) {
-			return inputPassword.length > 4;
-		}
-
-		$(document).ready(function(){
-    		$('#inputEmail').change(function(){
-        	var email = $(this).val().trim();
-        // alert(`email = ${JSON.stringify(email)}`)
-        	if(!isEmail(email)) {
-       //Error?
-           	$(".emailError").html("O formato do email não é válido!");
-        } else {
-            $(".emailError").html("");
-        }
-    });
-    $('#inputPassword').change(function(){
-        var password = $(this).val();	
-        if(!validatePassword(password)) {
-			$(".passwordError").html("A senha deve ter pelo menos 5 caracteres!");
-		} else {
-			$(".passwordError").html("");
-		}
-    });
-});
-
-</script>	
-	
+	<script type="text/javascript" src="js/validacao.js"></script>	  
 </body>
 </html>

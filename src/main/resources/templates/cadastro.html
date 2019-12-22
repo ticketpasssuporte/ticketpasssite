@@ -1,188 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns= "http://www.w3.org/1999/xhtml"
-	xmlns:th= "http://www.thymeleaf.org"> 
-<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="cadastroElogin/css/cadastro.css">
-	<link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
-	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
-
-    <title>Cadastro</title>
-</head>
-<body>
-	<div class="login">
-		<div class="header-section">
-			<h1 style="text-align: center;"><strong>Cadastro</strong></h1>
-		</div>
-		<form th:action="@{/cadastro}" th:object="${usuario}" id="registration_form" method="post" class="needs-validation" >
+	xmlns:th= "http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="cadastroElogin/css/cadastro.css">
+		
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		
+		<title>Cadastro</title>		
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="js/additional-methods.min.js"></script>
+		<script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+		<script type="text/javascript" src="js/validacao.js"></script>
 		
 		
-		
-		<div class="form-group">
-			<input type="text" id="form_fname" class="form-control" required size="45" th:field="*{nome}"  />
-			<label for="">Nome de usuário:</label>
-			<br><br><br><br>
-			<span class="error_form" id="fname_error_message"></span>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+      		<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      		<div class="card card-signup">
+      		<div class="card-cadastro">
+			<h1 style="text-align: center" id="titulo"><strong>Cadastro</strong></h1>
+			
+			<form th:action="@{/cadastro}" th:object="${usuario}" id="formCadastro" method="post">
+			<div th:if="${mensagemErro != null}" th:text="${mensagemErro}" style=color:white; class=""></div>
+			
+			
+				<div class="row" id="form-group">
+					<label>Nome: </label>
+					<input type="text" name="nome" id="nome" class="form-control" th:field="*{nome}" required />
+				</div>
+				<div class="row" id="form-group">
+					<label>E-mail: </label>
+					<input type="email" name="email" id="email" class="form-control" th:field="*{email}" required />
+				</div>				
+				<div class="row" id="form-group">
+					<label>Senha:</label>
+					<input type="password" name="password" id="pessword" class="form-control" th:field="*{senha}" required  />
+				</div>
+				<br>
+				
+				<input type="submit" name="enviar" id="enviar" value="Cadastrar" class="btn btn-primary form-control" />
+				<a href="index" class="voltar">Voltar a página inicial</a>
+				
+				<div class="ou">OU</div>
+				
+				<hr class="my-4">
+              <div class='g-sign-in-button'>
+  				<div class=content-wrapper>
+  					<div id="google" class='logo-wrapper'>  
+    					<img src='https://developers.google.com/identity/images/g-logo.png'>
+    				</div>  
+    					<span class='text-container'> 
+      					<span>Entre com o Google</span>
+    				</span>
+            		</div>  
+					</div>	
+			 </form>
+		       </div>
+		          </div>
+			        </div>
+			</div>
 		</div>
-		<div class="form-group">
-			<input type="email" id="form_email" class="form-control" required size="45" th:field="*{email}" />
-			<label for="">Email:</label>
-			<br><br><br><br>
-			<span class="error_form" id="email_error_message"></span>
-		</div>
-		<div class="form-group">
-			<input type="password" id="form_password" class="form-control" required size="45" th:field="*{senha}"/>
-			<label for="">Senha:</label>
-			<br><br><br><br>
-			<span class="error_form" id="password_error_message"></span>
-		</div>
-
-		<div class="btn-group">
-			<button type="submit" value="Register" class="btn-login">Cadastrar</button>
-			<a href="index" class="voltar">Voltar a página inicial</a>
-		</div>
-       </form>
-		
-		<div class="ou">OU</div>
-		
-		<div class='g-sign-in-button'>
-  			<div class=content-wrapper>
-  			<div id="google" class='logo-wrapper'>  
-    			<img src='https://developers.google.com/identity/images/g-logo.png'>
-    		</div>  
-    	<span class='text-container'> 
-      		<span>Entre com o Google</span>
-    	</span>
-  	</div>  
-	</div>
-	</div>
-	
-	<script>
-	$("#registration_form" ).validate({
-
-		   rules: {
-		     nome: {
-		       required: true
-		          
-		          // remote: 'check-email.php' //Deve utilizar um arquivo 
-		          
-		     },
-		     email: {
-			       required: true,
-			       email: true,
-			       remote:{
-		                  url: 'https://localhost:9090/criarUsuario',
-		                  type: "post",
-		                  data:
-		                  {
-		                      email: function()
-		                      {
-		                          return $('#registration_form :input[name="email"]').val();
-		                      }
-		                  }
-			       
-			     }
-		         
-		   },
-		   messages:{
-		         //exemplo
-		     nome: {
-		      required: "O campo nome é obrigatório."
-		            },
-		       email: {
-		  		      required: "O campo email é obrigatório.",
-		  		      email: "O email é inválido.",
-		  		      remote: "Email já existente"
-		  		            }
-		   },
-		   submitHandler: function (form) {
-		            form.submit(); // submit the form // this is the default
-		    }
-		 });
-	</script>
-	
-	<script>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		 $(function() {
-
-         $("#fname_error_message").hide();
-         $("#email_error_message").hide();
-         $("#password_error_message").hide();
-        
-
-         var error_fname = false;
-         var error_email = false;
-         var error_password = false;
-        
-
-         $("#form_fname").focusout(function(){
-            check_fname();
-         });
-         $("#form_email").focusout(function() {
-            check_email();
-         });
-         $("#form_password").focusout(function() {
-            check_password();
-         });
-
-         function check_fname() {
-            var pattern = /^[a-zA-Z]*$/;
-            var fname = $("#form_fname").val();
-            if (pattern.test(fname) && fname !== '') {
-               $("#fname_error_message").hide();
-               //$("#form_fname").css("border-bottom","2px solid #34F458");
-            } else {
-               $("#fname_error_message").html("Digite apenas caracteres!");
-               $("#fname_error_message").show();
-              // $("#form_fname").css("border-bottom","2px solid #F90A0A");
-               error_fname = true;
-            }
-         }
-
-         function check_password() {
-            var password_length = $("#form_password").val().length;
-            if (password_length < 5) {
-               $("#password_error_message").html("A senha deve conter pelo menos 5 caracteres!");
-               $("#password_error_message").show();
-               //$("#form_password").css("border-bottom","2px solid #F90A0A");
-               error_password = true;
-            } else {
-               $("#password_error_message").hide();
-               //$("#form_password").css("border-bottom","2px solid #34F458");
-            }
-         }
-
-         function check_email() {
-            var pattern = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-            var email = $("#form_email").val();
-            if (pattern.test(email) && email !== '') {
-               $("#email_error_message").hide();
-               //$("#form_email").css("border-bottom","2px solid #34F458");
-            } else {
-               $("#email_error_message").html("Email inválido!");
-               $("#email_error_message").show();
-               //$("#form_email").css("border-bottom","2px solid #F90A0A");
-               error_email = true;
-            }
-         }
-
-            
-
-
-         });
-      });
-	</script>
-	
-	
-</body>
+		 <script type="text/javascript" src="js/validacao.js"></script>
+	</body>
 </html>

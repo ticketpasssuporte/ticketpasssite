@@ -1,92 +1,86 @@
-$(document).ready(function(){
+// Form Cadastro //
 
-$("input").focus( function(){
-  $(this).css("background-color", "#bfbfbf", "border-color", "#bfbfbf");
-});
-/*$("input").blur( function(){
-$(this).css("background-color", "#eee");
-});*/
-$('#nome').blur(function() {
-    var nome = $('#nome').val() 
-  if(nome.length < 2 || nome == "") {
-    $("#nome").css("background-color", "#ff8080", "border-color","#ff8080" );
-    $("#erroNOME").html('Nome não pode ter menos que 2 caracteres');     
-    }else{        
-    $("#erroNOME").hide()
-    $("#nome").css("background-color", "#99ff99", "border-color", "#99ff99");
-    }
-});
+		$(document).ready(function(){
+			$('#formCadastro').validate({
+				rules:{
+					'nome': {
+						required:true, rangelength:[3, 50],
+						minWords:2
+					},
+					'email': {
+						required:true,
+						email: true,
+					},
+					'password': {
+			            required:true,
+			            rangelength:[5, 15],
+						}
+			        },
+					messages:{
+						'nome':{
+							required:"Este campo é obrigatório!",
+							rangelength:"Este campo deve ter entre 3 e 50 caracteres!",
+							minWords: 2,
+					},
+					'email':{
+						required:"Este campo é obrigatório!",
+						email:"Insira o email corretamente!",
+					},
+					'password':{
+						required:"Este campo é obrigatório!",
+						rangelength:"Digite pelo menos 5 caracteres!",
+						rangelength:"A senha deve conter entre 5 e 15 caracteres!",
+						}
+					}
+				});
+			});
+		
+//-------------------------------------------------------------//
 
-$('#sobrenome').blur(function() {
-	var sobrenome = $('#sobrenome').val();
-  if(sobrenome.length < 2 || sobrenome =="") {
-    $("#sobrenome").css("background-color", "#ff8080","border-color", "#ff8080");
-    $("#erroSobrenome").html('sobrenome não pode ter menos que 2 caracteres');     
-    }else{
-      $("#erroSobrenome").hide();
-      $("#sobrenome").css("background-color", "#99ff99","border-color", "#99ff99");
-    }
-});
+// Login Form //
+		
+		 $(document).ready(function(){
+		      $('#form-login').validate({
+		        rules:{ 
+		          'email':{
+		            required:true,
+		            'email':true,
+		          },
+		          'password':{
+		            required:true, 
+		            rangelength: [5,15],
+		          	}
+		          },
+		          messages:{
+					'email':{
+						required: "Este campo é obrigatório!",
+						email: "Insira o email corretamente!",
+					},
+					'password':{
+						required:"Este campo é obrigatório",
+						rangelength:"A senha deve ter entre 5 e 15 caracteres!",
+						}
+					},
+			});
+		});
+//-------------------------------------------------------------//
 
-$('#email').blur(function() {
-	var email = $('#email').val();
-  if(email != "") {
-      var filtro = /^.+@.+\..{2,}$/;
-      if (filtro.test(email)) {
-        $("#erroEmail").hide();  
-        $("#email").css("background-color", "#99ff99","border-color", "#99ff99");
-      }else {
-        $("#email").css("background-color", "#ff8080","border-color", "#ff8080");
-        $("#erroEmail").html('O endereço de email fornecido é invalido');
-       }
-    } else {
-      $("#email").css("background-color", "#ff8080","border-color", "#ff8080");
-      $("#erroEmail").html('Forneça um endereço de email');
-    }
-});
-
-$('#senha').blur(function() {
-	 var senha = $('#senha').val();
-    if(senha.length < 6) {
-    $("#senha").css("background-color", "#ff8080","border-color", "#ff8080");
-    $("#erroSenha").html('senha deve ter no minino 6 digitos');     
-    }else{
-    $("#erroSenha").hide();
-    $("#senha").css("background-color", "#99ff99","border-color", "#99ff99");
-    }
-  });
-});
-
-
-
-//});
-/*if (senha =="") {
-      $("#password").css("background-color", "#ff8080","border-color", "#ff8080");
-      $("#erroEmail").html('senha não pode fica vazia'); 
-  }else{
-    var filtroPass = /^(?=(?:.*?[A-Z]){3})(?=(?:.*?[0-9]){2})(?=(?:.*?[!@#$%*()_+^&}{:;?.]){1})(?!.*\s)[0-9a-zA-Z!@#$%;*(){}_+^&]*$/;
-    if(filtroPass.exec(senha)){
-      $("#password").css("background-color", "#99ff99","border-color", "#99ff99");
-    }else{
-      $("#password").css("background-color", "#ff8080","border-color", "#ff8080");
-      $("#erroEmail").html('senha não atende os requisitos, certifique-se de que a senha tenha ao menos um caracter maiusculo, um numero e um caracter especial');
-    }*/
-
-
-
-
-
-
-
-/*  if($(this).val() == ""){
-$(this).css("background-color", "#ff8080", "border-color", "#ff8080");
-}else{
-$(this).css("background-color", "#eee","border-color", "#eee");
-}
-
-
-$('input').on("blur", function(){
-if($(this).val() ==""){
-$(".erro").html("favor preencher todos os campos");
-}
-});*/
+// form recuperar senha //
+		 
+		 $(document).ready(function(){
+		      $('#form-senha').validate({
+		        rules:{ 
+		          'email':{
+		            required:true,
+		            'email':true,
+		           }
+		         },
+		          messages:{
+					'email':{
+						required: "Este campo é obrigatório!",
+						email: "Insira o email corretamente!",
+					  }
+				  },
+			});
+		});
+//------------------------------------------------------------//

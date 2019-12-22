@@ -11,7 +11,6 @@ import javax.mail.MessagingException;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import pp2.ifpe.enums.TipoUsuarioEnum;
 import pp2.ifpe.model.Usuario;
@@ -48,11 +47,14 @@ public class UsuarioService {
 		this.usuarioDAO.save(usuario);
 	}
 	
-	public void criarUsuario(@RequestParam (name = "email") Usuario usuario) throws ServiceException, MessagingException {
+	public void criarUsuario(Usuario usuario) throws ServiceException, MessagingException {
 		if (this.findUsuarioByEmail(usuario.getEmail()) != null) {
-			//throw new ServiceException("Já existe um usuário com este e-mail: " + usuario.getEmail());
-		
+			throw new ServiceException("Já existe um usuário com este e-mail: " + usuario.getEmail());
 		}
+		else if(usuario.getSenha() == "") {
+			throw new ServiceException("Senha precisa ser preenchida");
+		} else {
+			
 
 		usuario.setTipoUsuario(TipoUsuarioEnum.PADRAO);
 		usuario.setToken(UUID.randomUUID().toString());
@@ -72,7 +74,7 @@ public class UsuarioService {
 		this.emailService.enviarConfirmacaoDeConta(usuario);
 	}
 	
-	
+ }
 	
 	public void reEnviarEmailConfirmacao(String email) throws MessagingException {
 		Usuario usuario = this.findByEmail(email);
