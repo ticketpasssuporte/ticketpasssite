@@ -3,7 +3,6 @@ package pp2.ifpe.service;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Optional;
 import java.util.UUID;
 
 import javax.mail.MessagingException;
@@ -35,8 +34,8 @@ public class UsuarioService {
 		return usuarioDAO.findByEmailIgnoreCase(email);
 	}
 
-	public Optional<Usuario> findById(Integer id) {
-		return this.usuarioDAO.findById(id);
+	public Usuario findById(Integer id) {
+		return this.usuarioDAO.findByID(id);
 	}
 
 	public Usuario findByNome(String nome) {
@@ -51,11 +50,7 @@ public class UsuarioService {
 		if (this.findUsuarioByEmail(usuario.getEmail()) != null) {
 			throw new ServiceException("Já existe um usuário com este e-mail: " + usuario.getEmail());
 		}
-		else if(usuario.getSenha() == "") {
-			throw new ServiceException("Senha precisa ser preenchida");
-		} else {
-			
-
+		
 		usuario.setTipoUsuario(TipoUsuarioEnum.PADRAO);
 		usuario.setToken(UUID.randomUUID().toString());
 		System.out.println(UUID.randomUUID().toString());
@@ -74,7 +69,12 @@ public class UsuarioService {
 		this.emailService.enviarConfirmacaoDeConta(usuario);
 	}
 	
- }
+ // editar perfil //
+	
+	
+	
+	
+//----------------------------------------//	
 	
 	public void reEnviarEmailConfirmacao(String email) throws MessagingException {
 		Usuario usuario = this.findByEmail(email);
@@ -174,5 +174,8 @@ public String GeradorDeSenhaAleatorio(int qtdDeLetras){
    }
    return sb.toString();
  }//fim do metodo GeradorDeSenhaAleatorio
+
+
+
 
 }	

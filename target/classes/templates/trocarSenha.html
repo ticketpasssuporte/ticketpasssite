@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns= "http://www.w3.org/1999/xhtml"
+	xmlns:th= "http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Trocar Senha</title>
+	<link rel="stylesheet" href="/cadastroElogin/css/login.css">
+	<link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>	
+</head>
+<body>
+	<div class="login">
+		<div class="header-section">
+			<h1 style="text-align: center;"><strong>Trocar Senha</strong></h1>
+		</div>
+		<form th:action="#" th:object="${usuario}" id="form-login" method="POST">
+		<div th:if="${mensagemErro != null}" th:text="${mensagemErro}" style=color:white; class=""></div>
+		<input th:if="${acessoNegado != null}" name="retorno" type="hidden" th:value="${retorno}">
+		
+		<div class="form-group">
+			<label for="">Senha:</label>
+			<input type="password" class="form-control" name="senha" id="inputPassword" th:field="*{senha}" required>
+		</div>
+		<br>
+		<div class="form-group">
+			<label for="">Confirmar Senha:</label>
+			<input type="password" class="form-control" name="senha" id="inputPassword" th:field="*{confirmarSenha}" required>
+		</div>
+		<br>
+		<div class="btn-group">
+			<button type="submit" class="btn-login">Entrar</button>
+			<a th:href="@{/recuperar-senha}" class="forgot-password">Esqueceu a senha?</a>
+			<div class="clear"></div>
+		</div>
+   
+		<div class="ou">OU</div>
+		
+		<div class='g-sign-in-button'>
+  			<div class=content-wrapper>
+  			<div id="google" class='logo-wrapper'>  
+    			<img  src='https://developers.google.com/identity/images/g-logo.png'>
+    		</div>  
+    	<span class='text-container'> 
+      		<span>Entre com o Google</span>
+    	</span>
+  		</div>  
+		</div>
+		<div class="btn-group">
+    	<a class="btn-voltar" href="/index" style="text-decoration: none" role="button">Voltar</a>
+    	</div>
+ 	</form>
+		<div class="footer-section">
+			<p>Não possui cadastro?&nbsp; <a href="/cadastro">Crie uma conta!</a></p>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="js/validacao.js"></script>	
+    <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
+	  
+</body>
+</html>

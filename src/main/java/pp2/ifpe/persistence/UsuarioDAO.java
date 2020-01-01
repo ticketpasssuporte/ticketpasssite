@@ -24,6 +24,11 @@ public interface UsuarioDAO extends JpaRepository<Usuario, Integer> {
 		public Usuario findByID(Integer id);
 
 		public Usuario findByNomeIgnoreCase(String nome);
+		
+		@Query("SELECT u FROM Usuario u WHERE u.email = :email")
+		public Usuario recuperarSenha(String email);
+		
+		
 }
 		
 

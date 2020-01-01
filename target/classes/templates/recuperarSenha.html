@@ -3,7 +3,7 @@
 	xmlns:th= "http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
-	<title>Login</title>
+	<title>Recuperar Senha</title>
 	<link rel="stylesheet" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
 			<h1 style="text-align: center;"><strong>Recuperar senha</strong></h1>
 		</div>
 		<form th:action="@{/recuperar-senha}" id="form-senha" method="post">
-		<br>
+	
 		<div class="form-group">
 			<label for="">Digite seu email:</label>
 			<input type="email" class="form-control" name="email" id="inputEmail"  required>

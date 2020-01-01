@@ -210,6 +210,31 @@ public class UsuarioController {
 		return mv;
 	}
 	
+// editar //
+	
+	@GetMapping("/editar")
+	public ModelAndView exibirEditarPerfil(HttpSession session, RedirectAttributes ra) {
+		ModelAndView mv = new ModelAndView("/trocarSenha");
+
+		if (session.getAttribute("usuarioLogado") == null) {
+			ra.addFlashAttribute("acessoNegado", true);
+			ra.addFlashAttribute("retorno", "/editar");
+
+			mv.setViewName("redirect:/login");
+			return mv;
+		}
+
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+
+		mv.addObject(usuario);
+
+		return mv;
+	}
+	
+	
+	
+	
+	
 	
 		
 }

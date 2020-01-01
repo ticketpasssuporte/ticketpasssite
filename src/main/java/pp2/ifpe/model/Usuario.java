@@ -7,6 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -20,13 +21,19 @@ public class Usuario {
 	private Integer id;
 	
 	@Column(length = 50)
+	@NotNull
 	private String nome;
 	
 	@Column(length = 150)
 	private String email;
 	
+	@NotNull
 	@Column(length = 255)
 	private String senha;
+	
+	@Size(max = 30)
+	@Transient
+	private String confirmarSenha;
 	
 	@Size(max = 255)
 	@Column(unique = true, nullable = false)
@@ -42,6 +49,7 @@ public class Usuario {
 	public Integer getId() {
 		return id;
 	}
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -64,6 +72,14 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	public String getConfirmarSenha() {
+		return confirmarSenha;
+	}
+	
+	public void setConfirmarSenha(String confirmarSenha) {
+		this.confirmarSenha = confirmarSenha;
+	}
 	public String getToken() {
 		return token;
 	}
@@ -83,6 +99,8 @@ public class Usuario {
 	public void setTipoUsuario(TipoUsuarioEnum tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
+
+	
 	
 	
 	

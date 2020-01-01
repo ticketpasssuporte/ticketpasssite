@@ -4,36 +4,41 @@
 			$('#formCadastro').validate({
 				rules:{
 					'nome': {
-						required:true, rangelength:[3, 50],
-						minWords:2
+						required:true, 
+						maxlength: 20,
+	                   	minlength: 3	
 					},
+					
 					'email': {
 						required:true,
-						email: true,
+						minlength: 7,
+						email: true
 					},
-					'password': {
+					'senha': {
 			            required:true,
-			            rangelength:[5, 15],
+			            maxlength: 15,
+	                   	minlength: 5
+			            
 						}
 			        },
 					messages:{
 						'nome':{
 							required:"Este campo é obrigatório!",
-							rangelength:"Este campo deve ter entre 3 e 50 caracteres!",
-							minWords: 2,
+							rangelength:"Este campo deve ter entre 3 e 20 caracteres!",
+							
 					},
 					'email':{
 						required:"Este campo é obrigatório!",
-						email:"Insira o email corretamente!",
+						email:"Insira o email corretamente!"
 					},
-					'password':{
+					'senha':{
 						required:"Este campo é obrigatório!",
-						rangelength:"Digite pelo menos 5 caracteres!",
-						rangelength:"A senha deve conter entre 5 e 15 caracteres!",
+						rangelength:"Digite pelo menos 5 caracteres!"
+					
 						}
 					}
-				});
-			});
+				})
+			})
 		
 //-------------------------------------------------------------//
 
@@ -44,11 +49,12 @@
 		        rules:{ 
 		          'email':{
 		            required:true,
-		            'email':true,
+		            email:true
 		          },
-		          'password':{
+		          'senha':{
 		            required:true, 
-		            rangelength: [5,15],
+		            maxlength: 15,
+                   	minlength: 5
 		          	}
 		          },
 		          messages:{
@@ -56,7 +62,7 @@
 						required: "Este campo é obrigatório!",
 						email: "Insira o email corretamente!",
 					},
-					'password':{
+					'senha':{
 						required:"Este campo é obrigatório",
 						rangelength:"A senha deve ter entre 5 e 15 caracteres!",
 						}
@@ -72,7 +78,7 @@
 		        rules:{ 
 		          'email':{
 		            required:true,
-		            'email':true,
+		            email:true
 		           }
 		         },
 		          messages:{
