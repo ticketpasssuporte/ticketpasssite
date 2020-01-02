@@ -99,7 +99,7 @@
   .nav-dropdown .dropdown-item::after {
     color: inherit; }
   .nav-dropdown .btn {
-    font-size: 15px;
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0;
     margin-bottom: 0;
@@ -195,7 +195,7 @@
     .nav-dropdown-sm .link:focus, .nav-dropdown-sm .link:hover,
     .nav-dropdown-sm .dropdown-item:focus,
     .nav-dropdown-sm .dropdown-item:hover {
-     // background: rgba(0, 0, 0, 0.2) !important;
+      background: rgba(0, 0, 0, 0.2) !important;
       color: #c0a375; }
   .nav-dropdown-sm .nav-btn {
     position: relative;
@@ -261,32 +261,5 @@
 
 .is-builder .nav-dropdown.collapsing {
   transition: none !important; }
-.dropdown-menu{
-   background-color: black !important;
-}
-a{
-	font-size: 20px;
-	text-align:left;
-}
-span{
-	font-size: 20px;
-	color: #ffffff;
-}
-button {
-
-background: transparent;
-border: none !important;
-}
-ul.nav li.dropdown:hover ul.dropdown-menu
-{ 
-    display: block; 
-}
-ul .dropdown-menu{
-	text-align: left;
-}
-#navbar{
-	
-}
-
 
 /*# sourceMappingURL=style.css.map */
