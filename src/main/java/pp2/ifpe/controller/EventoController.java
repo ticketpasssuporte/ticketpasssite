@@ -34,7 +34,7 @@ public class EventoController {
 //	@GetMapping("/removerEvento")
 //	public String removerEventos(Integer id){
 //		this.evenService.editarEvento();
-////		return"";
+////		return"/";
 //	}
 	
 }
