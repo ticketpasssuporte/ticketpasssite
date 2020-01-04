@@ -26,6 +26,7 @@ public class Evento {
 	private Integer id;
 	@Column(length = 50)
 	private String nome;
+	private Boolean status;
 	@DateTimeFormat(pattern = "MM/dd/yyyy") @FutureOrPresent
 	private Date dataInicio;
 	@Temporal(value =TemporalType.TIME) @Future
@@ -72,6 +73,17 @@ public class Evento {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	
+	public Boolean getStatus() {
+		return status;
+	}
+
+
+
+	public void setStatus(Boolean status) {
+		this.status = status;
 	}
 
 

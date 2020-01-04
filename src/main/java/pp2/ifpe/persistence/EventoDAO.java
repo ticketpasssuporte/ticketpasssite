@@ -6,4 +6,10 @@ import pp2.ifpe.model.Evento;
 
 public interface EventoDAO extends JpaRepository<Evento, Integer> {
 
+	Evento findByNome(String nome);
+
+	Evento findByStatus();
+
+	Evento findById();
+
 }

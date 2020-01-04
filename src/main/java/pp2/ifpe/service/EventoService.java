@@ -1,5 +1,6 @@
 package pp2.ifpe.service;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
@@ -12,7 +13,7 @@ public class EventoService {
 	private EventoDAO eventoDAO;
 	
 	public String salvarEvento(Evento evento){
-		
+		evento.setStatus(true);
 		this.eventoDAO.save(evento);
 		return"";
 	}
@@ -28,8 +29,15 @@ public class EventoService {
 	}
 	
 	public String deletarEvento(Evento evento) {
+		Evento eventochecado = eventoDAO.findById();
+		//if(eventochecado == false){
+			evento.setStatus(false);
+			this.eventoDAO.save(evento);
+			return"";
+		//}else{
+			
+			//return"";
+		//}
 		
-		this.eventoDAO.save(evento);
-		return"";
 	}
 }

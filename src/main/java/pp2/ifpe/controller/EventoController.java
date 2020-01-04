@@ -14,15 +14,27 @@ public class EventoController {
 	@Autowired
 	private EventoService evenService;
 	
-	@GetMapping("/cadEvento")
-	public String cadEvento(Evento evento) {
+	@GetMapping("/cadastraEvento")
+	public String cadastraEvento(Evento evento) {
 		return"redirect:/";
 	}
 	
-	@PostMapping("/cadastraEvento")
-	public String cadastrandoEvento(Evento evento) {
+	@PostMapping("/salvarEvento")
+	public String salvarEvento(Evento evento) {
 		this.evenService.salvarEvento(evento);
 		return"redirect:/";
 	}
+	
+//	@GetMapping("")
+//	public String editarEvento(Integer id) {
+//		this.evenService.editarEvento();
+//		return"";
+//	}
+	
+//	@GetMapping("/removerEvento")
+//	public String removerEventos(Integer id){
+//		this.evenService.editarEvento();
+////		return"";
+//	}
 	
 }
