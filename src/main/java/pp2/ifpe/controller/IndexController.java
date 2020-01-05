@@ -39,4 +39,8 @@ public class IndexController {
 		return "redefinirSenha";
 	}
 	
+	@GetMapping("/criarEvento")
+	public String criarEvento() {
+	return "criarEvento";	
+	}
 }
