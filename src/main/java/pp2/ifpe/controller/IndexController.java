@@ -43,4 +43,14 @@ public class IndexController {
 	public String criarEvento() {
 	return "criarEvento";	
 	}
+	
+	@GetMapping("/eventoPago")
+	public String eventoPago() {
+		return "eventoPago";
+	}
+	
+	@GetMapping("/eventoGratuito")
+	public String eventoGratuito() {
+		return "eventoGratuito";
+	}
 }

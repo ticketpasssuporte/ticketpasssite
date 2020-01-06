@@ -36,7 +36,8 @@
 
 </head>
 <body>
-  <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-w">
+
+ <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-w">
 
     
 
@@ -70,59 +71,31 @@
 </section>
 
 <!--Inicio do formulário-->
-<section class="mbr-section form1 cid-rHENz2I6PJ" id="form1-10" style="font-family: 'Questrial', sans-serif";>
-  <section style="background-color: #CCCCCC">
-  <div class="container">
-    <div class="form-group">
-    <form>
-      <h3 style="margin-left: 0%"><strong>1- Digite o nome do evento</strong></h3>
-      <p style="margin-left: 0%">Adicione também uma imagem de divulgação com as principais informações do evento!</p>
-      <label style="margin-left: 0%" for="">Nome do evento: </label>
-      <input type="text" style="margin-left: 0%" class="form-control" id="nomeEvento">
-    </form>
-    </div>
+
+<section class="mbr-section form1 cid-rHENz2I6PJ" id="form1-10" style="background-color: #CCCCCC; font-family: 'Questrial', sans-serif;">
+<div class="container">
+<form>
+<div class="form-group">
+	<h3 style="margin-left: 0%"><strong>1- Digite o nome do evento</strong></h3>
+    <p style="margin-left: 0%">Adicione também uma imagem de divulgação com as principais informações do evento!</p>
+    <label style="margin-left: 0%" for="">Nome do evento: </label>
+    <input type="text" style="margin-left: 0%" class="form-control" id="nomeEvento">
+</div>
+
 
 <!--Upload da Imagem-->
-<label for="" style="margin-left: 0%">Insira uma imagem para divulgação do evento: </label>
-<div class="item-wrapper one">
-<div class="item">
-  <form data-validation="true" action="#" method="post" enctype="multipart/form-data">
-    <div class="item-inner">
-      <div class="item-content">
-        <div class="image-upload" style="margin-left: 0%"> <label style="cursor: pointer;" for="file_upload"> <img src="" alt="" class="uploaded-image">
-          <div class="h-100">
-            <div class="dplay-tbl">
-              <div class="dplay-tbl-cell"> <i class="fa fa-cloud-upload"></i>
-                <h6 class="mt-10 mb-70" style="font-size: 15px">Clique ou arraste uma imagem aqui</h6>
-              </div>
-            </div>
-          </div>
-          <!--upload-content--> <input data-required="image" type="file" name="image_name" id="file_upload" class="image-input" data-traget-resolution="image_resolution" value="">
-          </label></div>
-          <div class="form-group">
-          <span>(Obs: A dimensão recomendada é de 1600 x 838)</span>
-        </div>
-        </div>
-      </div>
-        <!--item-content-->
-        </div>
-        <!--item-inner-->
-        </form>
-    </div>
-    <!--item-->
+
+<div class="form-group">
+	<label for="">Forneça uma foto para seu evento:</label>
+	<input type="file" class="form-control-file" id="uploadFoto"><br>
 </div>
-</div>
-</section>
 
 <!--Dia do evento (HORA, DATA)-->
-<section style="background-color: #CCCCCC">
+
 <div class="form-group">
-<div class="container">
-  <h3 style="margin-left: 0%"><strong> 2- Escolha o dia do evento!</strong></h3>
-    <p  style="margin-left: 0%">Informe ao público a data de realização do seu evento.</p>
-</div>
-<div class="form-group">
-  <div class="container">
+	<h3 style="margin-left: 0%"><strong> 2- Escolha o dia do evento!</strong></h3>
+	<p  style="margin-left: 0%">Informe ao público a data de realização do seu evento.</p>
+    
     <label style="margin-left: 0%">Data de início:</label>
     <input type="date">
     &nbsp;&nbsp;
@@ -135,237 +108,25 @@
     <label>Hora de Término:</label>
     <input type="time">
   </div>
-</div>
-</div>
-</section>
-
-<!--Ingressos-->
-<section style="background-color: #CCCCCC">
-<div class="container">
-<div class="form-group">
-    <h3 style="margin-left: 0%"><strong>3- Ingressos</strong></h3>
-      <label for="">Escolha o tipo de ingresso que você deseja criar:</label>
-      <!--<button type="button" class="btn btn-primary" style="padding: 15px 10px">Ingresso pago</button>-->
-      <!--<button type="button" class="btn btn-primary" style="padding: 15px 10px">Ingresso gratuito</button>-->
-      <button class="In-pago btn btn-primary btn-sm">Ingresso Pago</button>
-      <button class="In-gratis btn btn-primary btn-sm">Ingresso Gratis</button>
-
-<!--##############################################################################################-->
-
-
-  </div>
-
-</div>
-</section >
-
-<!-- Formulário de ingresso pago -->
-
-<div class="container">
-<div id="pago-container" class="form-group" style="display:none">
-  <h3 style="margin-left: 0%"><strong>Ingresso Pago</strong></h3>
-
-  <form id="pago">
-      <label style="margin-left: 0%" for="">Nome do ingresso:</label>
-       <input type="text" style="margin-left: 0%" class="form-control" id="nomeEventoPg" placeholder="Ex. Ingresso único, Meia entrada, etc">
-    <br>
-      <label style="margin-left: 0%" for="">Quantidade de Ingressos:</label>
-      <input type="number" style="margin-left: 0%" class="form-control" placeholder="Ex. 150">
-    <br>
-      <label style="margin-left: 0%" for="">Preço:</label>
-      <input type="number" style="margin-left: 0%" class="form-control" placeholder="R$">
-    <br>
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" value="" id="meia-entrada">
-        <label class="form-check-label" for="meia-entrada" style="text-align: left;">Criar meia entrada</label>
-      </div>
-    <br>
-
-      <h3 style="margin-left: 0%">Periodo de vendas deste ingresso:</h3>
-    <br>
-    <div class="form-check">
-      <input type="radio" name="pago" value="data" class="form-check-input"  id="materialChecked">
-      <label class="form-check-label" for="materialChecked">Venda por data</label><br>
-      <input type="radio" name="pago" value="lote" class="form-check-input" id="materialChecked">
-      <label class="form-check-label" for="materialChecked">Venda por lote</label>
-    </div>
-    <br>
-      <!--inicio das vendas-->
-      <label style="margin-left: 0%">Início das vendas:</label>
-      <input type="date" name="data" style="margin-left: 0%" class="form-control">
-    <br>
-      <label style="margin-left: 0%">Hora do início:</label>
-      <input type="time" name="horaInicio" style="margin-left: 0%" class="form-control">
-    <br>
-      <!-- ####-->
-
-      <!--fim das vendas-->
-      <label style="margin-left: 0%">Fim das vendas:</label>
-      <input type="date" name="data" style="margin-left: 0%" class="form-control">
-    <br>
-      <label style="margin-left: 0%">Hora do término:</label>
-      <input type="time" name="horaInicio" style="margin-left: 0%" class="form-control">
-    <br>
-
-
-    <button class="cancelar-pago btn btn-primary btn-sm">Cancelar</button>
-    <button class="btn btn-primary btn-sm">Criar Ingresso</button>
-  </form>
-</div>
-<!-- FIM INGRESSO PAGO######## -->
-
-<!-- ingresso gratuito-->
-<div id="gratis-container" class="form-group" style="display:none">
-   <h3 style="margin-left: 0%"><strong>Ingresso Gratis</strong></h3>
-  <form id="gratis">
-      <label style="margin-left: 0%">Nome do ingresso:</label>
-      <input type="text" style="margin-left: 0%" class="form-control" id="nomeEventoGt" placeholder="Ex. Ingresso único, Meia entrada, etc">
-    <br>
-      <label style="margin-left: 0%">Quantidade de Ingressos:</label>
-      <input type="number" name="qtd" placeholder="Ex. 150" style="margin-left: 0%" class="form-control">
-    <br>
-      <label style="margin-left: 0%">Preço:</label>
-      <input type="number" name="dinheiro" placeholder="R$" style="margin-left: 0%" class="form-control" disabled>
-      <br>
-   
-    <h3 style="margin-left: 0%">Periodo de vendas deste ingresso:</h3>
-
-    <br>
-    <div class="form-check">
-      <input type="radio" name="pago" value="data" class="form-check-input"  id="materialChecked">
-      <label class="form-check-label" for="materialChecked">Venda por data</label><br>
-      <input type="radio" name="pago" value="lote" class="form-check-input" id="materialChecked">
-      <label class="form-check-label" for="materialChecked">Venda por lote</label>
-    </div>
-    <br>
-       <!--inicio das vendas-->
-      <label style="margin-left: 0%">Início das vendas:</label>
-      <input type="date" name="data" style="margin-left: 0%" class="form-control">
-    <br>
-      <label style="margin-left: 0%">Hora do início:</label>
-      <input type="time" name="horaInicio" style="margin-left: 0%" class="form-control">
-    <br>
-      <!-- ####-->
-
-      <!--fim das vendas-->
-      <label style="margin-left: 0%">Fim das vendas:</label>
-      <input type="date" name="data" style="margin-left: 0%" class="form-control">
-    <br>
-      <label style="margin-left: 0%">Hora do término:</label>
-      <input type="time" name="horaInicio" style="margin-left: 0%" class="form-control">
-    <br>
-
-
-    <button class="cancelar-gratis btn btn-primary btn-sm">Cancelar</button>
-    <button class="btn btn-primary btn-sm">Criar Ingresso</button>
-  </form>
-</div>
-
-<script type="text/javascript">
-  //ingresso pago
-  $(function(){
-  
-  // Ao clicar para mostrar o formulário de login
-  
-  $("button.In-pago").click(function(){
-    $("#pago-container").fadeIn("fast");
-    $("#gratis-container").fadeOut("fast");
-  });
-  
-  // Ao clicar para fechar o formulário de login
-  
-  $("button.cancelar-pago").click(function(){
-    $("#pago-container").fadeOut("fast");
-  });
-
-
-  // Se preferir que o login seja por AJAX
-  
-  $("#pago-container #pago").submit(function(e){
-    
-    // O e.preventDefault impede do formulário ser enviado para o faz_login.php, recarregando a página imediatamente
-    
-    e.preventDefault();
-
-    $.ajax({
-        type: 'POST',
-        url: 'faz_login.php',
-        data: $("#pago").serialize(),
-        success: function(data){
-          // Mostrar a resposta em um alert
-          alert(data);
-          // Ou se preferir fazer o debug pelo console
-          console.log(data);
-        }
-    });
-    
-  });
-  
-});
-
-  //ingresso gratis
-  $(function(){
-  
-  // Ao clicar para mostrar o formulário de login
-  
-  $("button.In-gratis").click(function(){
-    $("#gratis-container").fadeIn("fast");
-    $("#pago-container").fadeOut("fast");
-  });
-  
-  // Ao clicar para fechar o formulário de login
-  
-  $("button.cancelar-gratis").click(function(){
-    $("#gratis-container").fadeOut("fast");
-  });
-  
-  // Se preferir que o login seja por AJAX
-  
-  $("#gratis-container #gratis").submit(function(e){
-    
-    // O e.preventDefault impede do formulário ser enviado para o faz_login.php, recarregando a página imediatamente
-    
-    e.preventDefault();
-
-    $.ajax({
-        type: 'POST',
-        url: 'faz_login.php',
-        data: $("#gratis").serialize(),
-        success: function(data){
-          // Mostrar a resposta em um alert
-          alert(data);
-          // Ou se preferir fazer o debug pelo console
-          console.log(data);
-        }
-    });
-    
-  });
-  
-});
-</script>
-
-</div>
-
+<br>
 
 <!--Local do evento-->
-<section style="background-color: #CCCCCC">
-  <style>
-    #map
-    {
-      height: 400px;
-    }
-  </style>
+<style>
+#map
+{
+	height: 400px;
+}
+</style>
 
+<div class="form-group">
+  <h3 style="margin-left: 0%"><strong>3- Onde será seu evento?</strong></h3>
+</div>
+<br>
 <div class="container">
 <div class="form-group">
-  <h3 style="margin-left: 0%"><strong>4- Onde será seu evento?</strong></h3>
-</div>
-</div>
-  <br>
-<div class="container">
-  <div class="form-group">
   <div class="row">
     <div class="col">
-      <input class="form-control" id="search" type="text" style="margin-left: 0%" placeholder="Pesquisar..." / >
+      <input class="form-control" id="search" type="text" style="margin-left: 0%" placeholder="Pesquisar..." />
     </div>
   </div>
   <div class="row">
@@ -375,48 +136,39 @@
     </div>
   </div>
 </div>
-</section>
+<br>
 
 <!-- Google Maps scripts -->
 <script src="assets/script.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADckTyUM6w3EyFX9a7EbUHq1y2sDq2BOI&callback=createMap&libraries=places" async defer></script>
 
 <!--Descrição do evento-->
-<section style="background-color: #CCCCCC">
 <div class="container">
   <div class="form-group">
-  <h3 style="margin-left: 0%"><strong> 5- Descrição do evento</strong></h3>
+  <h3 style="margin-left: 0%"><strong> 4- Descrição do evento</strong></h3>
     <p  style="margin-left: 0%">Cite os detalhes do seu evento, como a programação e os diferenciais da sua produção!</p>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
 </div>
-</section>
+</div>
+<br>
 
 <!--Sobre o organizador do evento-->
-<section style="background-color: #CCCCCC">
 <div class="container">
-  <div class="form-group">
-    <h3><strong>6- Detalhes do organizador</strong></h3>
-    <span>Conte um pouco sobre você ou a sua empresa. É importante mostrar ao público quem está por trás do evento, dando mais credibilidade à sua produção.</span>
-  </div>
-  <div>
-    <label>Nome:</label>
-   <input type="text" name="Nome" class="form-control" style="width: 50%">
-    </div>
-    <br>
-    <div>
-      <label>Descrição:</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea><br>
-    </div>
+<div class="form-group">
+	<h3><strong>5- Detalhes do organizador</strong></h3>
+	<span>Conte um pouco sobre você ou a sua empresa. É importante mostrar ao público quem está por trás do evento, dando mais credibilidade à sua produção.</span>
+	<label>Nome:</label>
+	<input type="text" name="Nome" class="form-control" style="width: 50%">
+	<br>
+	<label>Descrição:</label>
+	<textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea><br>
 </div>
-</section>
+</div>
 
 <!--Definição de Categoria-->
-<section style="background-color: #CCCCCC">
 <div class="container">
-  <div class="form-group">
-    <h3><strong>7- Definições de categoria</strong></h3>
-  </div>
-  <div class="form-group">
+<div class="form-group">
+	<h3><strong>6- Definições de categoria</strong></h3>
     <label for="exampleFormControlSelect1">Escolha a categoria:</label>
     <select class="form-control" id="exampleFormControlSelect1" style="width: 30%">
       <option>--------------------</option>
@@ -430,32 +182,27 @@
     </select>
 </div>
 </div>
+<br>
+
+<!--Ingressos-->
+<div class="container">
+<div class="form-group">
+    <h3 style="margin-left: 0%"><strong>7- Ingressos</strong></h3>
+      <label for="">Escolha o tipo de ingresso que você deseja criar:</label>
+      <!--<button type="button" class="btn btn-primary" style="padding: 15px 10px">Ingresso pago</button>-->
+      <!--<button type="button" class="btn btn-primary" style="padding: 15px 10px">Ingresso gratuito</button>-->
+      <a class="btn btn-primary btn-sm" href="eventoPago" role="button">Ingresso Pago</a>
+      <a class="btn btn-primary btn-sm" href="eventoGratuito" role="button">Ingresso Gratuito</a>
+	
+<!--##############################################################################################-->
+
+</div>
+</div>
+</form>
+</div>
 </section>
 
-<!--Termo de responsabilidade-->
-<section style="background-color: #CCCCCC">
-<div class="container">
-  <div class="form-group">
-    <h3><strong>8- Termo de responsabilidade</strong></h3>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-      <label class="form-check-label" for="defaultCheck1" style="text-align: left; font-size: 90%">
-      Ao publicar este evento, estou de acordo com os Termos de uso e com o Acordo de Processamento de Dados, bem como declaro estar ciente da Política de Privacidade, da Política de Cookies, e das Obrigatoriedades Legais.
-  </label>
-</div>
-</div>
-</div>
-<section style="background-color: #CCCCCC">
-<div class="container">
-  <div class="form-group" style="text-align: right; margin-top: 5%;">
-    <button class="btn btn-primary" type="submit">Publicar evento</button>
-    <input class="btn btn-primary" type="button" href="" value="Voltar">
-  </div>
-</div>
-</section>
-</section>
-</section>
-
+<!-- Footer -->
 <section class="cid-rHERilnReB" id="footer1-16">
     <div class="container">
         <div class="media-container-row content text-white">

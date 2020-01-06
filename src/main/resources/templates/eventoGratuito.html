@@ -38,9 +38,6 @@
 <body>
 
  <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-w">
-
-    
-
     <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="hamburger">
@@ -73,132 +70,78 @@
 <!--Inicio do formulário-->
 
 <section class="mbr-section form1 cid-rHENz2I6PJ" id="form1-10" style="background-color: #CCCCCC; font-family: 'Questrial', sans-serif;">
+
+<!-- ingresso gratuito-->
 <div class="container">
-<form>
-<div class="form-group">
-	<h3 style="margin-left: 0%"><strong>1- Digite o nome do evento</strong></h3>
-    <p style="margin-left: 0%">Adicione também uma imagem de divulgação com as principais informações do evento!</p>
-    <label style="margin-left: 0%" for="">Nome do evento: </label>
-    <input type="text" style="margin-left: 0%" class="form-control" id="nomeEvento">
-</div>
+<div id="pago-container" class="form-group">
+  <h3 style="margin-left: 0%"><strong>Ingresso Gratuito</strong></h3>
 
+  <form id="gratis">
+      <label style="margin-left: 0%">Nome do ingresso:</label>
+      <input type="text" style="margin-left: 0%" class="form-control" id="nomeEventoGt" placeholder="Ex. Ingresso único, Meia entrada, etc">
+    <br>
+      <label style="margin-left: 0%">Quantidade de Ingressos:</label>
+      <input type="number" name="qtd" placeholder="Ex. 150" style="margin-left: 0%" class="form-control">
+    <br>
+      <label style="margin-left: 0%">Preço:</label>
+      <input type="number" name="dinheiro" placeholder="R$" style="margin-left: 0%" class="form-control" disabled>
+      <br>
+   
+    <h3 style="margin-left: 0%">Periodo de vendas deste ingresso:</h3>
 
-<!--Upload da Imagem-->
-
-<div class="form-group">
-	<label for="">Forneça uma foto para seu evento:</label>
-	<input type="file" class="form-control-file" id="uploadFoto"><br>
-</div>
-
-<!--Dia do evento (HORA, DATA)-->
-
-<div class="form-group">
-	<h3 style="margin-left: 0%"><strong> 2- Escolha o dia do evento!</strong></h3>
-	<p  style="margin-left: 0%">Informe ao público a data de realização do seu evento.</p>
-    
-    <label style="margin-left: 0%">Data de início:</label>
-    <input type="date">
-    &nbsp;&nbsp;
-    <label>Hora de início:</label>
-    <input type="time">
-    &nbsp;&nbsp;
-    <label>Data de Término:</label>
-    <input type="date">
-    &nbsp;&nbsp;
-    <label>Hora de Término:</label>
-    <input type="time">
-  </div>
-<br>
-
-<!--Local do evento-->
-<style>
-#map
-{
-	height: 400px;
-}
-</style>
-
-<div class="form-group">
-  <h3 style="margin-left: 0%"><strong>3- Onde será seu evento?</strong></h3>
-</div>
-<br>
-<div class="container">
-<div class="form-group">
-  <div class="row">
-    <div class="col">
-      <input class="form-control" id="search" type="text" style="margin-left: 0%" placeholder="Pesquisar..." />
+    <br>
+    <div class="form-check">
+      <input type="radio" name="pago" value="data" class="form-check-input"  id="materialChecked">
+      <label class="form-check-label" for="materialChecked">Venda por data</label><br>
+      <input type="radio" name="pago" value="lote" class="form-check-input" id="materialChecked">
+      <label class="form-check-label" for="materialChecked">Venda por lote</label>
     </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div id="map"></div>
-      </div>
-    </div>
-  </div>
+    <br>
+       <!--inicio das vendas-->
+      <label style="margin-left: 0%">Início das vendas:</label>
+      <input type="date" name="data" style="margin-left: 0%" class="form-control">
+    <br>
+      <label style="margin-left: 0%">Hora do início:</label>
+      <input type="time" name="horaInicio" style="margin-left: 0%" class="form-control">
+    <br>
+      <!-- ####-->
+
+      <!--fim das vendas-->
+      <label style="margin-left: 0%">Fim das vendas:</label>
+      <input type="date" name="data" style="margin-left: 0%" class="form-control">
+    <br>
+      <label style="margin-left: 0%">Hora do término:</label>
+      <input type="time" name="horaInicio" style="margin-left: 0%" class="form-control">
+    <br>
+
+
+    <button class="cancelar-gratis btn btn-primary btn-sm">Cancelar</button>
+    <button class="btn btn-primary btn-sm">Criar Ingresso</button>
+  </form>
 </div>
-<br>
 
-<!-- Google Maps scripts -->
-<script src="assets/script.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADckTyUM6w3EyFX9a7EbUHq1y2sDq2BOI&callback=createMap&libraries=places" async defer></script>
 
-<!--Descrição do evento-->
+
+
+<!--Termo de responsabilidade-->
 <div class="container">
   <div class="form-group">
-  <h3 style="margin-left: 0%"><strong> 4- Descrição do evento</strong></h3>
-    <p  style="margin-left: 0%">Cite os detalhes do seu evento, como a programação e os diferenciais da sua produção!</p>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+    <h3><strong>Termo de responsabilidade</strong></h3>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+      <label class="form-check-label" for="defaultCheck1" style="text-align: left; font-size: 90%">
+      Ao publicar este evento, estou de acordo com os Termos de uso e com o Acordo de Processamento de Dados, bem como declaro estar ciente da Política de Privacidade, da Política de Cookies, e das Obrigatoriedades Legais.
+		</label>
+	</div>
 </div>
 </div>
-<br>
 
-<!--Sobre o organizador do evento-->
+<!-- Publicar evento -->
 <div class="container">
-<div class="form-group">
-	<h3><strong>5- Detalhes do organizador</strong></h3>
-	<span>Conte um pouco sobre você ou a sua empresa. É importante mostrar ao público quem está por trás do evento, dando mais credibilidade à sua produção.</span>
-	<label>Nome:</label>
-	<input type="text" name="Nome" class="form-control" style="width: 50%">
-	<br>
-	<label>Descrição:</label>
-	<textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea><br>
-</div>
-</div>
-
-<!--Definição de Categoria-->
-<div class="container">
-<div class="form-group">
-	<h3><strong>6- Definições de categoria</strong></h3>
-    <label for="exampleFormControlSelect1">Escolha a categoria:</label>
-    <select class="form-control" id="exampleFormControlSelect1" style="width: 30%">
-      <option>--------------------</option>
-      <option>Festas e shows</option>
-      <option>Gratuito</option>
-      <option>Teatro e espetáculos</option>
-      <option>Negócios</option>
-      <option>Tecnologia</option>
-      <option>Palestras</option>
-      <option>Esporte</option>
-    </select>
-</div>
-</div>
-<br>
-
-<!--Ingressos-->
-<div class="container">
-<div class="form-group">
-    <h3 style="margin-left: 0%"><strong>7- Ingressos</strong></h3>
-      <label for="">Escolha o tipo de ingresso que você deseja criar:</label>
-      <!--<button type="button" class="btn btn-primary" style="padding: 15px 10px">Ingresso pago</button>-->
-      <!--<button type="button" class="btn btn-primary" style="padding: 15px 10px">Ingresso gratuito</button>-->
-      <a class="btn btn-primary btn-sm" href="eventoPago" role="button">Ingresso Pago</a>
-      <a class="btn btn-primary btn-sm" href="eventoGratuito" role="button">Ingresso Gratuito</a>
-	
-<!--##############################################################################################-->
-
-</div>
-</div>
-</form>
+  <div class="form-group" style="text-align: right; margin-top: 5%;">
+    <button class="btn btn-primary" type="submit">Publicar evento</button>
+    <a class="btn btn-primary" href="criarEvento" role="button">Voltar</a>
+  </div>
 </div>
 </section>
 
