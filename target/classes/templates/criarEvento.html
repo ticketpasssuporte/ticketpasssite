@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html  >
+<html lang="pt-br" xmlns= "http://www.w3.org/1999/xhtml"
+	xmlns:th= "http://www.thymeleaf.org">
 <head>
   <!-- Site made with Mobirise Website Builder v4.11.4, https://mobirise.com -->
   <meta charset="UTF-8">
@@ -74,12 +75,12 @@
 
 <section class="mbr-section form1 cid-rHENz2I6PJ" id="form1-10" style="background-color: #CCCCCC; font-family: 'Questrial', sans-serif;">
 <div class="container">
-<form>
+<form th:action="@{/salvarEvento}" th:object="${evento}" enctype="multipart/form-data" method="post">
 <div class="form-group">
 	<h3 style="margin-left: 0%"><strong>1- Digite o nome do evento</strong></h3>
     <p style="margin-left: 0%">Adicione também uma imagem de divulgação com as principais informações do evento!</p>
     <label style="margin-left: 0%" for="">Nome do evento: </label>
-    <input type="text" style="margin-left: 0%" class="form-control" id="nomeEvento">
+    <input type="text" style="margin-left: 0%" class="form-control" id="nomeEvento" th:field="*{nome}">
 </div>
 
 
@@ -87,7 +88,7 @@
 
 <div class="form-group">
 	<label for="">Forneça uma foto para seu evento:</label>
-	<input type="file" class="form-control-file" id="uploadFoto"><br>
+	<input type="file" name="fileProduto" class="form-control-file" id="uploadFoto"><br>
 </div>
 
 <!--Dia do evento (HORA, DATA)-->
@@ -97,16 +98,16 @@
 	<p  style="margin-left: 0%">Informe ao público a data de realização do seu evento.</p>
     
     <label style="margin-left: 0%">Data de início:</label>
-    <input type="date">
+    <input type="date" th:field="*{dataInicio}">
     &nbsp;&nbsp;
     <label>Hora de início:</label>
-    <input type="time">
+    <input type="time" th:field="*{horaInicio}">
     &nbsp;&nbsp;
     <label>Data de Término:</label>
-    <input type="date">
+    <input type="date" th:field="*{dataFim}">
     &nbsp;&nbsp;
     <label>Hora de Término:</label>
-    <input type="time">
+    <input type="time" th:field="*{horaFim}">
   </div>
 <br>
 
@@ -147,7 +148,7 @@
   <div class="form-group">
   <h3 style="margin-left: 0%"><strong> 4- Descrição do evento</strong></h3>
     <p  style="margin-left: 0%">Cite os detalhes do seu evento, como a programação e os diferenciais da sua produção!</p>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+    <textarea class="form-control" th:field="*{desc_evento}" id="exampleFormControlTextarea1" rows="10"></textarea>
 </div>
 </div>
 <br>
@@ -161,7 +162,7 @@
 	<input type="text" name="Nome" class="form-control" style="width: 50%">
 	<br>
 	<label>Descrição:</label>
-	<textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea><br>
+	<textarea class="form-control" th:field="*{desc_org}" id="exampleFormControlTextarea1" rows="5"></textarea><br>
 </div>
 </div>
 
@@ -170,7 +171,7 @@
 <div class="form-group">
 	<h3><strong>6- Definições de categoria</strong></h3>
     <label for="exampleFormControlSelect1">Escolha a categoria:</label>
-    <select class="form-control" id="exampleFormControlSelect1" style="width: 30%">
+    <select class="form-control" id="exampleFormControlSelect1" th:field="*{categoria}" style="width: 30%">
       <option>--------------------</option>
       <option>Festas e shows</option>
       <option>Gratuito</option>

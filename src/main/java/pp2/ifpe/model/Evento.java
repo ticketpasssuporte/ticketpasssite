@@ -30,7 +30,9 @@ public class Evento {
 	@DateTimeFormat(pattern = "MM/dd/yyyy") @FutureOrPresent
 	private Date dataInicio;
 	@Temporal(value =TemporalType.TIME) @Future
-	private Date horaInicio = Calendar.getInstance().getTime();;
+	private Date horaInicio = Calendar.getInstance().getTime();
+	@DateTimeFormat(pattern = "MM/dd/yyyy") @FutureOrPresent
+	private Date dataFim;
 	@Temporal(value =TemporalType.TIME) @Future
 	private Date horaFim = Calendar.getInstance().getTime();
 	@Column(length = 150)
@@ -38,14 +40,14 @@ public class Evento {
 	@Column(length = 150)
 	private String desc_org;
 	
-	@ManyToOne
-	@JoinColumn(name="id_categoria")
-	private Categoria categoria;
-	
-	@ManyToOne
-	@JoinColumn(name="id_usuario")
-	private Usuario usuario;
-	
+//	@ManyToOne
+//	@JoinColumn(name="id_categoria")
+//	private Categoria categoria;
+//	
+//	@ManyToOne
+//	@JoinColumn(name="id_usuario")
+//	private Usuario usuario;
+//	
 	
 		
 	@Lob @Column(name = "foto_evento", columnDefinition="TEXT")
@@ -148,27 +150,27 @@ public class Evento {
 
 
 
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
-
-
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+//	public Categoria getCategoria() {
+//		return categoria;
+//	}
+//
+//
+//
+//	public void setCategoria(Categoria categoria) {
+//		this.categoria = categoria;
+//	}
+//
+//
+//
+//	public Usuario getUsuario() {
+//		return usuario;
+//	}
+//
+//
+//
+//	public void setUsuario(Usuario usuario) {
+//		this.usuario = usuario;
+//	}
 
 
 
