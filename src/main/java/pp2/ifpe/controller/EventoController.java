@@ -23,6 +23,16 @@ public class EventoController {
 		return"redirect:/criarEvento";
 	}
 	
+	@GetMapping("/eventoCadastro")
+	public String eventoCadastro(Evento evento) {
+		return"/eventoCadastro";
+	}
+	@GetMapping("/lote")
+	public String lote(Evento evento) {
+		return"/lote";
+	}
+	
+	
 	@PostMapping("/salvarEvento")
 	public String salvarEvento(Evento evento,@RequestParam("fileProduto")MultipartFile file) {
 		

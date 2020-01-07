@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html  lang="pt-br" xmlns= "http://www.w3.org/1999/xhtml"
+	xmlns:th= "http://www.thymeleaf.org">
+<head>
+  <!-- Site made with Mobirise Website Builder v4.11.4, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/pass-485x80.png" type="image/x-icon">
+  <meta name="description" content="Nesta página o usuário deverá inserir o código enviado para o seu e-mail, e ativar sua conta.">
+
+<!-- ajax -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+<!-- ******* -->
+
+  <title>TicketPass</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/animatecss/animate.min.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/uploadimage/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/uploadimage/eventoValidacao.js">
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+
+  <!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
+
+
+</head>
+<body>
+
+ <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-w">
+    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        <div class="menu-logo">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="index.html">
+                         <img src="assets/images/pass-485x80.png" alt="Mobirise" title="" style="height: 3.8rem;">
+                    </a>
+                </span>
+                
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
+                    <a class="nav-link link text-white display-7" href="https://mobirise.com">
+                        </a>
+                </li>
+                <li class="nav-item"><a class="nav-link link text-white display-7" href="/login" aria-expanded="false">Meus Eventos</a></li></ul>
+        </div>
+    </nav>
+</section>
+
+<!--Inicio do formulário-->
+
+<section class="mbr-section form1 cid-rHENz2I6PJ" id="form1-10" style="background-color: #CCCCCC; font-family: 'Questrial', sans-serif;">
+
+
+<div class="container">
+<div id="pago-container" class="form-group">
+  <h3 style="margin-left: 0%"><strong>Ingresso Pago</strong></h3>
+
+<div class="form-check">
+      <input type="checkbox" name="Inteira-lote1" class="form-check-input"  id="materialChecked">
+      <label class="form-check-label" for="materialChecked">Inteira - Lote 1</label><br>
+     <input type="checkbox" name="Meia-lote1" class="form-check-input"  id="materialChecked">
+      <label class="form-check-label" for="materialChecked">Meia - Lote 1</label><br>
+      <input type="checkbox" name="Inteira-lote2" class="form-check-input"  id="materialChecked">
+      <label class="form-check-label" for="materialChecked">Inteira - Lote 2</label><br>
+      <input type="checkbox" name="Meia-lote2" class="form-check-input"  id="materialChecked">
+      <label class="form-check-label" for="materialChecked">Inteira - Lote 2</label><br>
+	</div>
+  
+</div>
+<!-- FIM INGRESSO PAGO######## -->
+</div>
+
+<!--Termo de responsabilidade-->
+<div class="container">
+  <div class="form-group">
+    <h3><strong>Termo de responsabilidade</strong></h3>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+      <label class="form-check-label" for="defaultCheck1" style="text-align: left; font-size: 90%">
+      Ao publicar este evento, estou de acordo com os Termos de uso e com o Acordo de Processamento de Dados, bem como declaro estar ciente da Política de Privacidade, da Política de Cookies, e das Obrigatoriedades Legais.
+		</label>
+	</div>
+</div>
+</div>
+
+<!-- Publicar evento -->
+<div class="container">
+  <div class="form-group" style="text-align: right; margin-top: 5%;">
+    <button class="btn btn-primary" type="submit">Salvar</button>
+     <a class="btn btn-primary" href="eventoCadastro" role="button">Voltar</a>
+  </div>
+</div>
+</section>
+
+<!-- Footer -->
+<section class="cid-rHERilnReB" id="footer1-16">
+    <div class="container">
+        <div class="media-container-row content text-white">
+            <div class="col-12 col-md-3">
+                <div class="media-wrap">
+                    <a href="https://mobirise.co/">
+                        <img src="assets/images/asts-1-206x1924.png" alt="Mobirise" title="">
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mbr-fonts-style display-7">
+                <h5 class="pb-3">Endereço</h5>
+                <p class="mbr-text">Rua da Lama, 555<br>Recife-Pernambuco</p>
+            </div>
+            <div class="col-12 col-md-3 mbr-fonts-style display-7">
+                <h5 class="pb-3">Contato</h5>
+                <p class="mbr-text">
+                    Email: ticketpasssuport@gmail.com&nbsp;<br>Telefone: (81) 3022-1019&nbsp;<br>Celular: &nbsp;(81) 98765-6222</p>
+            </div>
+            <div class="col-12 col-md-3 mbr-fonts-style display-7">
+                <h5 class="pb-3">
+                    Sobre Nós
+                </h5>
+                <p class="mbr-text">
+                    <a class="text-primary" href="/quemSomos">Quem Somos</a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-lower">
+            <div class="media-container-row">
+                <div class="col-sm-12">
+                    <hr>
+                </div>
+            </div>
+            <div class="media-container-row mbr-white">
+                <div class="col-sm-6 copyright">
+                    <p class="mbr-text mbr-fonts-style display-7">
+                        © Copyright 2019 TicketPass - Todos dos direitos reservados</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="social-list align-right">
+                        <div class="soc-item">
+                            <a href="https://twitter.com/mobirise" target="_blank">
+                                <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div>
+                        <div class="soc-item">
+                            <a href="https://www.facebook.com/pages/Mobirise/1616226671953247" target="_blank">
+                                <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div>
+                        <div class="soc-item">
+                            <a href="https://www.youtube.com/c/mobirise" target="_blank">
+                                <span class="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div>
+                        <div class="soc-item">
+                            <a href="https://instagram.com/mobirise" target="_blank">
+                                <span class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div>
+                        <div class="soc-item">
+                            <a href="https://plus.google.com/u/0/+Mobirise" target="_blank">
+                                <span class="socicon-googleplus socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div>
+                        <div class="soc-item">
+                            <a href="https://www.behance.net/Mobirise" target="_blank">
+                                <span class="socicon-behance socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/popper/popper.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/tether/tether.min.js"></script>
+  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
+  <script src="assets/dropdown/js/nav-dropdown.js"></script>
+  <script src="assets/dropdown/js/navbar-dropdown.js"></script>
+  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+  
+  
+  <input name="animation" type="hidden">
+  </body>
+</html>
