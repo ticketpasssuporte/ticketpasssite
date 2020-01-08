@@ -21,6 +21,9 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
 		<script type="text/javascript" src="js/validacao.js"></script>
 		
+		<meta name="google-signin-scope" content="tiagochina133@gmail.com">
+   	 	<meta name="google-signin-client_id" content="1009523555689-1ophsjnsooe1n1di3ej8793pca0ln5vf.apps.googleusercontent.com">
+    	<script src="https://apis.google.com/js/platform.js" async defer></script>
 		
 	</head>
 	<body>
@@ -60,7 +63,8 @@
     					<img src='https://developers.google.com/identity/images/g-logo.png'>
     				</div>  
     					<span class='text-container'> 
-      					<span>Entre com o Google</span>
+    					 <span class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" data-width="370" data-height="50" data-longtitle="true" data-lang="pt-BR" ></span>
+      					
     				</span>
             		</div>  
 					</div>	
@@ -70,6 +74,32 @@
 			        </div>
 			</div>
 		</div>
+		<script>
+     		function onSignIn(response) {
+            // Conseguindo as informações do seu usuário:
+            var perfil = response.getBasicProfile();
+ 
+            // Conseguindo o ID do Usuário
+            var userID = perfil.getId();
+ 
+            // Conseguindo o Nome do Usuário
+            var userName = perfil.getName();
+ 
+            // Conseguindo o E-mail do Usuário
+            var userEmail = perfil.getEmail();
+ 
+            // Conseguindo a URL da Foto do Perfil
+            //var userPicture = perfil.getImageUrl();
+ 
+            document.getElementById('user-photo').src = userPicture;
+            document.getElementById('user-name').innerText = userName;
+            document.getElementById('user-email').innerText = userEmail;
+ 
+            // Recebendo o TOKEN que você usará nas demais requisições à API:
+            var LoR = response.getAuthResponse().id_token;
+            console.log("~ le Tolkien: " + LoR);
+        	};
+    	</script>
 		
 		 <script type="text/javascript" src="js/validacao.js"></script>
 		 <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
