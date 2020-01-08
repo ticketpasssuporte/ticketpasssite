@@ -19,8 +19,8 @@ public class EventoService {
 	
 
 	public void salvarEvento(Evento evento)throws ServiceException, MessagingException{
-		if (this.findEventoByNome(evento.getNome()) != null) {
-			throw new ServiceException("Já existe um eventi com este e-mail: " + evento.getNome());
+		if (this.findEventoByNome(evento.getNomeEvento()) != null) {
+			throw new ServiceException("Já existe um eventi com este e-mail: " + evento.getNomeEvento());
 		}
 		evento.setStatus(true);
 		this.eventoDAO.save(evento);

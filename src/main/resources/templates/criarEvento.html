@@ -75,12 +75,14 @@
 
 <section class="mbr-section form1 cid-rHENz2I6PJ" id="form1-10" style="background-color: #CCCCCC; font-family: 'Questrial', sans-serif;">
 <div class="container">
-<form th:action="@{/salvarEvento}" th:object="${evento}" enctype="multipart/form-data" method="post">
+<form th:action="@{/salvarEvento}" th:object="${evento}" enctype="multipart/form-data" method="post" id="formEvento">
+<div th:if="${mensagemErro != null}" th:text="${mensagemErro}" style=color:white; class=""></div>
+
 <div class="form-group">
 	<h3 style="margin-left: 0%"><strong>1- Digite o nome do evento</strong></h3>
     <p style="margin-left: 0%">Adicione também uma imagem de divulgação com as principais informações do evento!</p>
     <label style="margin-left: 0%" for="">Nome do evento: </label>
-    <input type="text" style="margin-left: 0%" class="form-control" id="nomeEvento" th:field="*{nome}">
+    <input type="text" style="margin-left: 0%" class="form-control" name="nomeEvento"  id="nomeEvento" th:field="*{nomeEvento}" required>
 </div>
 
 <!--Upload da Imagem-->
@@ -128,7 +130,7 @@
   <div class="form-group">
   <h3 style="margin-left: 0%"><strong> 3 - Descrição do evento</strong></h3>
     <p  style="margin-left: 0%">Cite os detalhes do seu evento, como a programação e os diferenciais da sua produção!</p>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" th:field="*{desc_evento}"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="desc_evento"  th:field="*{desc_evento}"></textarea>
 </div>
 </div>
 <br>
@@ -172,7 +174,28 @@
 </div>
 
 </section>
+<script>
+$(document).ready(function(){
+		      $("#formEvento").validate({
+		        
+		     rules:{ 
+		    	 nomeEvento: {
+	                   	required: true,
+	                   	maxlength: 25,
+	                   	minlength: 5
 
+	                },
+           	desc_evento: {
+              	required: true,
+              	maxlength: 35,
+              	minlength: 5
+
+           	}
+           	
+ 		   }
+ 	   })
+ })
+</script>
 <!-- Footer -->
 <section class="cid-rHERilnReB" id="footer1-16">
     <div class="container">
@@ -263,7 +286,7 @@
   <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
   <script src="assets/smoothscroll/smooth-scroll.js"></script>
   <script src="assets/theme/js/script.js"></script>
-  
+ 
   
   <input name="animation" type="hidden">
   </body>

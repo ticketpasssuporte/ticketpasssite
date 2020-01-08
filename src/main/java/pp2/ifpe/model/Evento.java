@@ -13,7 +13,7 @@ public class Evento {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Column(length = 50)
-	private String nome;
+	private String nomeEvento;
 	private Boolean status;
 	@Column(length = 255)
 	private String endereco;
@@ -75,14 +75,14 @@ public class Evento {
 
 
 
-	public String getNome() {
-		return nome;
+	public String getNomeEvento() {
+		return nomeEvento;
 	}
 
 
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNomeEvento(String nomeEvento) {
+		this.nomeEvento = nomeEvento;
 	}
 	
 	
