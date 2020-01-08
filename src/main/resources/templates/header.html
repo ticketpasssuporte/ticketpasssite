@@ -57,8 +57,19 @@
             </div>
         </div>
         
-       <div class="dropdown">
-       <a class="nav-link link text-white display-4"><span class="mbrib-user mbr-iconfont mbr-iconfont-btn" 
+       
+        
+         
+ 
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
+                    <a class="nav-link link text-white display-7" href="https://mobirise.com"></a> 
+               
+            </ul>     
+            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+             <div class="dropdown">
+       <a class="nav-link link text-white display-4">
+       <span class="mbrib-user mbr-iconfont mbr-iconfont-btn" 
                     th:text="${session.usuarioLogado.nome}"></span></a>   
         <div class="dropdown-content">
             <li><a href="#">Criar Evento</a></li>
@@ -67,15 +78,8 @@
           
         </div>  
         </div>
-        
-         
- 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
-                    <a class="nav-link link text-white display-7" href="https://mobirise.com"></a>          
-            </ul>     
        
-        
+       </ul> 
         <div class="navbar-buttons mbr-section-btn"><buttom><a class="btn btn-sm btn-primary display-4" href="sair">Sair</a></buttom></div>
         </div>
         
