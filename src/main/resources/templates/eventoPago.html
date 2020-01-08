@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html  lang="pt-br" xmlns= "http://www.w3.org/1999/xhtml"
-	xmlns:th= "http://www.thymeleaf.org">
+<html  >
 <head>
   <!-- Site made with Mobirise Website Builder v4.11.4, https://mobirise.com -->
   <meta charset="UTF-8">
@@ -72,7 +71,7 @@
 
 <section class="mbr-section form1 cid-rHENz2I6PJ" id="form1-10" style="background-color: #CCCCCC; font-family: 'Questrial', sans-serif;">
 
-
+<!-- Formulário de ingresso pago -->
 <div class="container">
 <div id="pago-container" class="form-group">
   <h3 style="margin-left: 0%"><strong>Ingresso Pago</strong></h3>
@@ -87,24 +86,64 @@
       <label style="margin-left: 0%" for="">Preço:</label>
       <input type="number" style="margin-left: 0%" class="form-control" placeholder="R$">
     <br>
-     
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" value="" id="meia-entrada">
+        <label class="form-check-label" for="meia-entrada" style="text-align: left;">Criar meia entrada</label>
+      </div>
+    <br>
+
+      <h3 style="margin-left: 0%">Periodo de vendas deste ingresso:</h3>
+    <br>
+    <div class="form-check">
+      <input type="radio" name="pago" value="data" class="form-check-input"  id="materialChecked">
+      <label class="form-check-label" for="materialChecked">Venda por data</label><br>
+      <input type="radio" name="pago" value="lote" class="form-check-input" id="materialChecked">
+      <label class="form-check-label" for="materialChecked">Venda por lote</label>
+    </div>
+    <br>
+      <!--inicio das vendas-->
+      <label style="margin-left: 0%">Início das vendas:</label>
+      <input type="date" name="data" style="margin-left: 0%" class="form-control">
+    <br>
+      <label style="margin-left: 0%">Hora do início:</label>
+      <input type="time" name="horaInicio" style="margin-left: 0%" class="form-control">
+    <br>
+      <!-- ####-->
+
+      <!--fim das vendas-->
+      <label style="margin-left: 0%">Fim das vendas:</label>
+      <input type="date" name="data" style="margin-left: 0%" class="form-control">
+    <br>
+      <label style="margin-left: 0%">Hora do término:</label>
+      <input type="time" name="horaInicio" style="margin-left: 0%" class="form-control">
+    <br>
 
 
-   <!--  <button class="cancelar-pago btn btn-primary btn-sm">Cancelar</button>
-    <button class="btn btn-primary btn-sm">Criar Ingresso</button>  -->
+    <button class="cancelar-pago btn btn-primary btn-sm">Cancelar</button>
+    <button class="btn btn-primary btn-sm">Criar Ingresso</button>
   </form>
 </div>
 <!-- FIM INGRESSO PAGO######## -->
 </div>
 
-
-
+<!--Termo de responsabilidade-->
+<div class="container">
+  <div class="form-group">
+    <h3><strong>Termo de responsabilidade</strong></h3>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+      <label class="form-check-label" for="defaultCheck1" style="text-align: left; font-size: 90%">
+      Ao publicar este evento, estou de acordo com os Termos de uso e com o Acordo de Processamento de Dados, bem como declaro estar ciente da Política de Privacidade, da Política de Cookies, e das Obrigatoriedades Legais.
+		</label>
+	</div>
+</div>
+</div>
 
 <!-- Publicar evento -->
 <div class="container">
   <div class="form-group" style="text-align: right; margin-top: 5%;">
-    <a class="btn btn-primary" href="lote">Prosseguir</a>
-     <a class="btn btn-primary" href="eventoCadastro" role="button">Voltar</a>
+    <button class="btn btn-primary" type="submit">Publicar evento</button>
+     <a class="btn btn-primary" href="criarEvento" role="button">Voltar</a>
   </div>
 </div>
 </section>

@@ -1,14 +1,13 @@
 package pp2.ifpe.controller;
 
-import java.io.IOException;
+import javax.mail.MessagingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
+import pp2.ifpe.exception.ServiceException;
 import pp2.ifpe.model.Evento;
 import pp2.ifpe.service.EventoService;
 
@@ -16,17 +15,19 @@ import pp2.ifpe.service.EventoService;
 public class EventoController {
 	
 	@Autowired
-	private EventoService evenService;
+	private EventoService eventoService;
 	
-	@GetMapping("/evento")
+
+	@GetMapping("/evento") 
 	public String cadastraEvento(Evento evento) {
-		return"redirect:/criarEvento";
+	
+		return"/criarEvento";
 	}
 	
-	@GetMapping("/eventoCadastro")
+	/*@GetMapping("/eventoCadastro")
 	public String eventoCadastro(Evento evento) {
 		return"/eventoCadastro";
-	}
+	}*/
 	@GetMapping("/lote")
 	public String lote(Evento evento) {
 		return"/lote";
@@ -34,15 +35,15 @@ public class EventoController {
 	
 	
 	@PostMapping("/salvarEvento")
-	public String salvarEvento(Evento evento,@RequestParam("fileProduto")MultipartFile file) {
+	public String salvarEvento(Evento evento) throws ServiceException, MessagingException {
 		
-		try {
+/*		try {
 			evento.setFoto_evento(file.getBytes());
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 		
-		this.evenService.salvarEvento(evento);
+		this.eventoService.salvarEvento(evento);
 		return"redirect:/";
 	}
 	
@@ -58,4 +59,5 @@ public class EventoController {
 //		return"/";
 //	}
 //	
+
 }

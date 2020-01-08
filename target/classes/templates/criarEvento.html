@@ -80,9 +80,8 @@
 	<h3 style="margin-left: 0%"><strong>1- Digite o nome do evento</strong></h3>
     <p style="margin-left: 0%">Adicione também uma imagem de divulgação com as principais informações do evento!</p>
     <label style="margin-left: 0%" for="">Nome do evento: </label>
-    <input type="text" style="margin-left: 0%" class="form-control" id="nomeEvento" >
+    <input type="text" style="margin-left: 0%" class="form-control" id="nomeEvento" th:field="*{nome}">
 </div>
-
 
 <!--Upload da Imagem-->
 
@@ -108,7 +107,7 @@
 <div class="form-group">
   <div class="row">
     <div class="col">
-      <input class="form-control" id="search" type="text" style="margin-left: 0%" placeholder="Pesquisar..." />
+      <input class="form-control" id="search" type="text" th:field="*{endereco}" style="margin-left: 0%" placeholder="Pesquisar..." />
     </div>
   </div>
   <div class="row">
@@ -129,7 +128,7 @@
   <div class="form-group">
   <h3 style="margin-left: 0%"><strong> 3 - Descrição do evento</strong></h3>
     <p  style="margin-left: 0%">Cite os detalhes do seu evento, como a programação e os diferenciais da sua produção!</p>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" th:field="*{desc_evento}"></textarea>
 </div>
 </div>
 <br>
@@ -139,11 +138,11 @@
 <div class="form-group">
 	<h3><strong>4 - Detalhes do organizador</strong></h3>
 	<span>Conte um pouco sobre você ou a sua empresa. É importante mostrar ao público quem está por trás do evento, dando mais credibilidade à sua produção.</span>
-	<br><br><label>Nome:</label>
-	<input type="text" name="Nome" class="form-control" style="width: 50%">
+	<br><br><label>Nome da Empresa:</label>
+	<input type="text" name="Nome" class="form-control" th:field="*{nomeOrganizador}" style="width: 50%">
 	<br>
 	<label>Descrição:</label>
-	<textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea><br>
+	<textarea class="form-control" id="exampleFormControlTextarea1" rows="5" th:field="*{desc_org}"></textarea><br>
 </div>
 </div>
 
@@ -152,22 +151,22 @@
 <div class="form-group">
 	<h3><strong> 5 - Definições de categoria</strong></h3>
     <label for="exampleFormControlSelect1">Escolha a categoria:</label>
-    <select class="form-control" id="exampleFormControlSelect1" style="width: 30%">
-      <option>--------------------</option>
-      <option>Festas e shows</option>
-      <option>Gratuito</option>
-      <option>Teatro e espetáculos</option>
-      <option>Negócios</option>
-      <option>Tecnologia</option>
-      <option>Palestras</option>
-      <option>Esporte</option>
+    <select class="form-control" id="exampleFormControlSelect1" style="width: 30%" th:field="*{categoria}">
+      <option  value="0">--------------------</option>
+      <option value="Festas e shows">Festas e shows</option>
+      <option value="Gratuito">Gratuito</option>
+      <option value="Teatro e espetáculos">Teatro e espetáculos</option>
+      <option value="Negócios">Negócios</option>
+      <option value="Tecnologia">Tecnologia</option>
+      <option value="Palestras">Palestras</option>
+      <option value="Esporte">Esporte</option>
     </select>
 </div>
 </div>
 <br>
 
 <div class="form-group">
-<a class="btn btn-primary " href="eventoCadastro" role="button">Salvar</a>
+<button type="submit" class="btn btn-primary btn-sm" >Cadastrar Evento</button>
 </div>
 </form>
 </div>

@@ -1,8 +1,4 @@
 package pp2.ifpe.model;
-import java.util.Calendar;
-import java.util.Date;
-
-
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,15 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.Future;
-import javax.validation.constraints.FutureOrPresent;
 
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Evento {
@@ -27,31 +15,51 @@ public class Evento {
 	@Column(length = 50)
 	private String nome;
 	private Boolean status;
-	@DateTimeFormat(pattern = "MM/dd/yyyy") @FutureOrPresent
-	private Date dataInicio;
-	@Temporal(value =TemporalType.TIME) @Future
-	private Date horaInicio = Calendar.getInstance().getTime();
-	@DateTimeFormat(pattern = "MM/dd/yyyy") @FutureOrPresent
-	private Date dataFim;
-	@Temporal(value =TemporalType.TIME) @Future
-	private Date horaFim = Calendar.getInstance().getTime();
+	@Column(length = 255)
+	private String endereco;
 	@Column(length = 150)
 	private String desc_evento;
-	@Column(length = 150)
+	@Column(length = 30)
+	private String nomeOrganizador;
+	@Column(length = 500)
 	private String desc_org;
+	@Column
+	private String categoria;
 	
-//	@ManyToOne
-//	@JoinColumn(name="id_categoria")
-//	private Categoria categoria;
-//	
-//	@ManyToOne
-//	@JoinColumn(name="id_usuario")
-//	private Usuario usuario;
-//	
+	
+/*	@ManyToOne
+	@JoinColumn(name="id_categoria")
+	private Categoria categoria;
+	
+	@ManyToOne
+	@JoinColumn(name="id_usuario")
+	private Usuario usuario;
+*/	
 	
 		
-	@Lob @Column(name = "foto_evento", columnDefinition="TEXT")
-	private byte[] foto_evento;
+	//@Lob @Column(name = "foto_evento", columnDefinition="TEXT")
+	//private byte[] foto_evento;
+
+
+	public String getNomeOrganizador() {
+		return nomeOrganizador;
+	}
+
+
+	public void setNomeOrganizador(String nomeOrganizador) {
+		this.nomeOrganizador = nomeOrganizador;
+	}
+
+	
+	public String getCategoria() {
+		return categoria;
+	}
+
+
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
 
 
 
@@ -88,44 +96,16 @@ public class Evento {
 		this.status = status;
 	}
 
+	public String getEndereco() {
+		return endereco;
+	}
+	
 
-
-	public Date getDataInicio() {
-		return dataInicio;
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 
-
-
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
-
-
-
-	public Date getHoraInicio() {
-		return horaInicio;
-	}
-
-
-
-	public void setHoraInicio(Date horaInicio) {
-		this.horaInicio = horaInicio;
-	}
-
-
-
-	public Date getHoraFim() {
-		return horaFim;
-	}
-
-
-
-	public void setHoraFim(Date horaFim) {
-		this.horaFim = horaFim;
-	}
-
-
-
+	
 	public String getDesc_evento() {
 		return desc_evento;
 	}
@@ -150,31 +130,31 @@ public class Evento {
 
 
 
-//	public Categoria getCategoria() {
-//		return categoria;
-//	}
-//
-//
-//
-//	public void setCategoria(Categoria categoria) {
-//		this.categoria = categoria;
-//	}
-//
-//
-//
-//	public Usuario getUsuario() {
-//		return usuario;
-//	}
-//
-//
-//
-//	public void setUsuario(Usuario usuario) {
-//		this.usuario = usuario;
-//	}
+/*	public Categoria getCategoria() {
+		return categoria;
+	}
 
 
 
-	public byte[] getFoto_evento() {
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+*/
+
+
+/*	public byte[] getFoto_evento() {
 		return foto_evento;
 	}
 
@@ -182,8 +162,7 @@ public class Evento {
 
 	public void setFoto_evento(byte[] foto_evento) {
 		this.foto_evento = foto_evento;
-	}
+	}*/
 	
-	
-	
+
 }

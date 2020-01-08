@@ -22,10 +22,24 @@ public class IndexController {
 		return "quemSomos";
 	}
 		
-	
+	@GetMapping("/trocarSenha")
+	public String alterarSenha() {
+		return "/trocarSenha";
+	}
+		
 	@GetMapping("/confirmouConta")
     public String confirmou() {
 		return "confirmouConta";
+	}
+	
+	@GetMapping("/eventoGratuito")
+    public String eventoGratuito() {
+		return "/eventoGratuito";
+	}
+	
+	@GetMapping("/eventoCadastro")
+    public String eventoCadastro() {
+		return "/eventoCadastro";
 	}
 	
 	@GetMapping("/esqueciSenha")
@@ -39,18 +53,11 @@ public class IndexController {
 		return "redefinirSenha";
 	}
 	
-	@GetMapping("/criarEvento")
-	public String criarEvento() {
-	return "criarEvento";	
-	}
+
 	
 	@GetMapping("/eventoPago")
 	public String eventoPago() {
 		return "eventoPago";
 	}
-	
-	@GetMapping("/eventoGratuito")
-	public String eventoGratuito() {
-		return "eventoGratuito";
-	}
+
 }
