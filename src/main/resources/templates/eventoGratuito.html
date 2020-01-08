@@ -76,9 +76,9 @@
 <div id="pago-container" class="form-group">
   <h3 style="margin-left: 0%"><strong>Ingresso Gratuito</strong></h3>
 
-  <form id="gratis">
+  <form id="formEventoGratis">
       <label style="margin-left: 0%">Nome do ingresso:</label>
-      <input type="text" style="margin-left: 0%" class="form-control" id="nomeEventoGt" placeholder="Ex. Ingresso único, Meia entrada, etc">
+      <input type="text" style="margin-left: 0%" class="form-control" name="nomeEventoGt" id="nomeEventoGt" placeholder="Ex. Ingresso único, Meia entrada, etc">
     <br>
       <label style="margin-left: 0%">Quantidade de Ingressos:</label>
       <input type="number" name="qtd" placeholder="Ex. 150" style="margin-left: 0%" class="form-control">
@@ -96,7 +96,7 @@
   <div class="form-group">
     <h3><strong>Termo de responsabilidade</strong></h3>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required>
       <label class="form-check-label" for="defaultCheck1" style="text-align: left; font-size: 90%">
       Ao publicar este evento, estou de acordo com os Termos de uso e com o Acordo de Processamento de Dados, bem como declaro estar ciente da Política de Privacidade, da Política de Cookies, e das Obrigatoriedades Legais.
 		</label>
@@ -203,6 +203,10 @@
   <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
   <script src="assets/smoothscroll/smooth-scroll.js"></script>
   <script src="assets/theme/js/script.js"></script>
+  <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="./js/localization/messages_pt_BR.js"></script>
+  <script type="text/javascript" src="./js/validacao.js"></script>
   
   
   <input name="animation" type="hidden">

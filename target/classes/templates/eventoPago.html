@@ -76,9 +76,9 @@
 <div id="pago-container" class="form-group">
   <h3 style="margin-left: 0%"><strong>Ingresso Pago</strong></h3>
 
-  <form id="pago">
+  <form id="formEventoPago">
       <label style="margin-left: 0%" for="">Nome do ingresso:</label>
-       <input type="text" style="margin-left: 0%" class="form-control" id="nomeEventoPg" placeholder="Ex. Ingresso único, Meia entrada, etc">
+       <input type="text" style="margin-left: 0%" class="form-control"  name="nomeEventoPg" id="nomeEventoPg" placeholder="Ex. Ingresso único, Meia entrada, etc">
     <br>
       <label style="margin-left: 0%" for="">Quantidade de Ingressos:</label>
       <input type="number" style="margin-left: 0%" class="form-control" placeholder="Ex. 150">
@@ -238,7 +238,10 @@
   <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
   <script src="assets/smoothscroll/smooth-scroll.js"></script>
   <script src="assets/theme/js/script.js"></script>
-  
+  <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="./js/localization/messages_pt_BR.js"></script>
+  <script type="text/javascript" src="./js/validacao.js"></script>
   
   <input name="animation" type="hidden">
   </body>

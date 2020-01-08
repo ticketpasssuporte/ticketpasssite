@@ -37,8 +37,8 @@
 					
 						}
 					}
-				})
-			})
+				});
+			});
 		
 //-------------------------------------------------------------//
 
@@ -89,7 +89,99 @@
 				  },
 			});
 		});
-//------------------------------------------------------------//
+//-------------------------------------------------------//
 		 
-		 
-		 
+		 $(document).ready(function(){
+				$('#formEvento').validate({
+					rules:{
+						'nomeEvento': {
+							required:true, 
+							maxlength: 30,
+		                   	minlength: 6	
+						},
+						
+						'desc_evento': {
+							required:true,
+							maxlength: 100,
+							minlength: 15
+							
+						},
+						'endereco': {
+				            required:true,				            
+		                   	minlength: 9
+				            
+							},
+				        
+				        'nomeOrganizador': {
+				            required:true,				            
+		                   	minlength: 4
+				            
+							},
+							'desc_org': {
+					            required:true,				            
+			                   	minlength: 15
+					            
+								},
+					        
+				        },
+						messages:{
+							'nomeEvento':{
+								required:"Este campo é obrigatório!",
+								rangelength:"Este campo deve ter entre 6 e 30 caracteres!",
+								
+						},
+						'desc_evento':{
+							required:"Este campo é obrigatório!"
+						},
+						'endereco':{
+							required:"Este campo é obrigatório!",
+							rangelength:"Digite pelo menos 9 caracteres!"
+						
+							},
+						'nomeOrganizador':{
+							required:"Este campo é obrigatório!"
+							
+						},
+						'desc_org':{
+							required:"Este campo é obrigatório!"
+								
+						}
+					  }
+					});
+				});
+
+//------------------------------------------------------------------------------// 
+			
+		 $(document).ready(function(){
+		      $('#formEventoGratis').validate({
+		        rules:{ 
+		          'nomeEventoGt':{
+		            required:true,
+		            minlength: 6
+		           }
+		         },
+		          messages:{
+					'nomeEventoGt':{
+						required: "Este campo é obrigatório!"
+						
+					  }
+				  },
+			});
+		});
+//-------------------------------------------------------//
+		 $(document).ready(function(){
+		      $('#formEventoPago').validate({
+		        rules:{ 
+		          'nomeEventoPg':{
+		            required:true,
+		            minlength: 6
+		           }
+		         },
+		          messages:{
+					'nomeEventoPg':{
+						required: "Este campo é obrigatório!"
+						
+					  }
+				  },
+			});
+		});

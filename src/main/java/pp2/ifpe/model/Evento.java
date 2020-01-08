@@ -2,16 +2,17 @@ package pp2.ifpe.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
 public class Evento {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@NotNull
 	@Column(length = 50)
 	private String nomeEvento;
 	private Boolean status;
