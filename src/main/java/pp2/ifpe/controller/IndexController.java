@@ -32,10 +32,7 @@ public class IndexController {
 		return "confirmouConta";
 	}
 	
-	@GetMapping("/eventoGratuito")
-    public String eventoGratuito() {
-		return "/eventoGratuito";
-	}
+	
 	
 	@GetMapping("/eventoCadastro")
     public String eventoCadastro() {

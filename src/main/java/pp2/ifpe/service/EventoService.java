@@ -17,6 +17,7 @@ public class EventoService {
 	@Autowired
 	private EventoDAO eventoDAO;
 	
+	
 
 	public void salvarEvento(Evento evento)throws ServiceException, MessagingException{
 		if (this.findEventoByNome(evento.getNomeEvento()) != null) {
@@ -26,9 +27,11 @@ public class EventoService {
 		this.eventoDAO.save(evento);
 	}
 	
-	public void salvarIngresso(Ingresso ingresso) {
+	
+	public void salvarIngresso(Ingresso ingresso){	
 		this.eventoDAO.save(ingresso);
 	}
+	
 	
 	public Evento get(Categoria categoria) {
 		return eventoDAO.findAllBycategoria(categoria);

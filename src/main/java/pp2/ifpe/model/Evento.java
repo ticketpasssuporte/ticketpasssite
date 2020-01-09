@@ -26,6 +26,8 @@ public class Evento {
 	private String desc_org;
 	@Column
 	private String categoria;
+	@Column
+	private int tipoIngresso;
 	
 	
 /*	@ManyToOne
@@ -127,6 +129,16 @@ public class Evento {
 
 	public void setDesc_org(String desc_org) {
 		this.desc_org = desc_org;
+	}
+
+
+	public int getTipoIngresso() {
+		return tipoIngresso;
+	}
+
+
+	public void setTipoIngresso(int tipoIngresso) {
+		this.tipoIngresso = tipoIngresso;
 	}
 
 

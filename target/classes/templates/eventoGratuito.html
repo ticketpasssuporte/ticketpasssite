@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html  >
+<html lang="pt-br" xmlns= "http://www.w3.org/1999/xhtml"
+	xmlns:th= "http://www.thymeleaf.org" >
 <head>
   <!-- Site made with Mobirise Website Builder v4.11.4, https://mobirise.com -->
   <meta charset="UTF-8">
@@ -28,9 +29,7 @@
   <link rel="stylesheet" type="text/css" href="assets/uploadimage/eventoValidacao.js">
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
 
-  <!-- jQuery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+  
 
 
 
@@ -76,19 +75,20 @@
 <div id="pago-container" class="form-group">
   <h3 style="margin-left: 0%"><strong>Ingresso Gratuito</strong></h3>
 
-  <form id="formEventoGratis">
+  <form th:action="@{/salvarIngresso}" th:object="${ingresso}" id="formEventoGratis" method="post">
       <label style="margin-left: 0%">Nome do ingresso:</label>
-      <input type="text" style="margin-left: 0%" class="form-control" name="nomeEventoGt" id="nomeEventoGt" placeholder="Ex. Ingresso único, Meia entrada, etc">
+      <input type="text" style="margin-left: 0%" class="form-control" name="nomeEventoGt" id="nomeEventoGt" th:field="*{nomeIngresso}" placeholder="Ex. Ingresso único, Meia entrada, etc" required>
     <br>
       <label style="margin-left: 0%">Quantidade de Ingressos:</label>
-      <input type="number" name="qtd" placeholder="Ex. 150" style="margin-left: 0%" class="form-control">
+      <input type="number" name="qtd" placeholder="Ex. 150" style="margin-left: 0%" class="form-control" th:field="*{quantidade}" required>
     <br>
       <label style="margin-left: 0%">Preço:</label>
-      <input type="number" name="dinheiro" placeholder="R$" style="margin-left: 0%" class="form-control" disabled>
+      <input type="number" name="dinheiro" placeholder="R$" style="margin-left: 0%" class="form-control" th:field="*{valor}" disabled>
       <br>
    
-    
-
+   </form>
+   </div> 
+</div>
 
 
 <!--Termo de responsabilidade-->
@@ -96,7 +96,7 @@
   <div class="form-group">
     <h3><strong>Termo de responsabilidade</strong></h3>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required>
+      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" >
       <label class="form-check-label" for="defaultCheck1" style="text-align: left; font-size: 90%">
       Ao publicar este evento, estou de acordo com os Termos de uso e com o Acordo de Processamento de Dados, bem como declaro estar ciente da Política de Privacidade, da Política de Cookies, e das Obrigatoriedades Legais.
 		</label>
@@ -107,8 +107,8 @@
 <!-- Publicar evento -->
 <div class="container">
   <div class="form-group" style="text-align: right; margin-top: 5%;">
-    <a class="btn btn-primary" href="#">Salvar</a>
-    <a class="btn btn-primary" href="evento" role="button">Voltar</a>
+    <button class="btn btn-primary btn-sm" type="submit" >Salvar</button>
+    <a class="btn btn-primary btn-sm" href="/evento" role="button">Voltar</a>
   </div>
 </div>
 </section>

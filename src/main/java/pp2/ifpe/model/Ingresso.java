@@ -15,13 +15,12 @@ public class Ingresso {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Column
-	private String tipoIngresso;
+	private String nomeIngresso;
 	@DecimalMin(value = "0.00")
 	private double valor;
 	@Min(value = 0)
 	private int quantidade;
-	@Column(name = "comentarios")
-	private String comentarios;
+	
 	
 	@ManyToOne
 	@JoinColumn(name="id_evento")
@@ -35,12 +34,12 @@ public class Ingresso {
 		this.id = id;
 	}
 
-	public String getTipoIngresso() {
-		return tipoIngresso;
+	public String getNomeIngresso() {
+		return nomeIngresso;
 	}
 
-	public void setTipoIngresso(String tipoIngresso) {
-		this.tipoIngresso = tipoIngresso;
+	public void setNomeIngresso(String nomeIngresso) {
+		this.nomeIngresso = nomeIngresso;
 	}
 
 	public double getValor() {
@@ -59,13 +58,6 @@ public class Ingresso {
 		this.quantidade = quantidade;
 	}
 
-	public String getComentarios() {
-		return comentarios;
-	}
-
-	public void setComentarios(String comentarios) {
-		this.comentarios = comentarios;
-	}
 
 	public Evento getEvento() {
 		return evento;

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import pp2.ifpe.exception.ServiceException;
 import pp2.ifpe.model.Evento;
+import pp2.ifpe.model.Ingresso;
 import pp2.ifpe.service.EventoService;
 
 @Controller
@@ -20,8 +21,37 @@ public class EventoController {
 
 	@GetMapping("/evento") 
 	public String cadastraEvento(Evento evento) {
-	
 		return"/criarEvento";
+	}
+	
+	@PostMapping("/salvarEvento")
+	public String salvarEvento(Evento evento) throws ServiceException, MessagingException {
+		
+/*		try {
+			evento.setFoto_evento(file.getBytes());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}*/
+		this.eventoService.salvarEvento(evento);
+		return"redirect:/";
+	}
+	
+	@GetMapping("/eventoGratuito") 
+	public String cadastraEventoGratuito(Ingresso ingresso) {
+		return"/eventoGratuito";
+	}
+	
+	
+	@PostMapping("/salvarIngresso")
+	public String salvarIngresso(Ingresso ingresso) throws ServiceException, MessagingException {
+		
+/*		try {
+			evento.setFoto_evento(file.getBytes());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}*/
+		this.eventoService.salvarIngresso(ingresso);
+		return"redirect:/index";
 	}
 	
 	/*@GetMapping("/eventoCadastro")
@@ -32,21 +62,6 @@ public class EventoController {
 	public String lote(Evento evento) {
 		return"/lote";
 	}
-	
-	
-	@PostMapping("/salvarEvento")
-	public String salvarEvento(Evento evento) throws ServiceException, MessagingException {
-		
-/*		try {
-			evento.setFoto_evento(file.getBytes());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}*/
-		
-		this.eventoService.salvarEvento(evento);
-		return"redirect:/";
-	}
-	
 //	@GetMapping("")
 //	public String editarEvento(Integer id) {
 //		this.evenService.editarEvento();

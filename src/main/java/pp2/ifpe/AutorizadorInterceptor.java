@@ -10,7 +10,7 @@ import pp2.ifpe.model.Usuario;
 
 public class AutorizadorInterceptor  implements HandlerInterceptor {
 
-	private static final String[] RECURSOS_BLOQUEADOS = { "/upload", "/perfil/editar", "/grupo/novo" };
+	private static final String[] RECURSOS_BLOQUEADOS = { "/evento", "/perfil/editar", "/grupo/novo" };
 	private static final String[] RECURSOS_BLOQUEADOS_USUARIO = { "/login", "/cadastro" };
 	private static final String PAGINA_ACESSO_NEGADO_PADRAO = "/login";
 	private static final String PAGINA_ACESSO_NEGADO_INICIO = "/index";
