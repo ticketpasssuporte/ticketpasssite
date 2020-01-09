@@ -70,12 +70,14 @@
     </nav>
 </section>
 
+<div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
+    <input name="animation" type="hidden">
 <!--Inicio do formulário-->
 
 <section class="mbr-section form1 cid-rHENz2I6PJ" id="form1-10" style="background-color: #CCCCCC; font-family: 'Questrial', sans-serif;">
 <div class="container">
 <form th:action="@{/salvarEvento}" th:object="${evento}" enctype="multipart/form-data" id="formEvento" method="post" >
-			<div th:if="${mensagemErro != null}" th:text="${mensagemErro}" style=color:white; class=""></div>
+	<div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"/>
 <div class="container">
 <div class="form-group">
 	<h3 style="margin-left: 0%"><strong>1- Digite o nome do evento</strong></h3>
@@ -285,6 +287,8 @@
   <script type="text/javascript" src="./js/jquery.validate.min.js"></script>
   <script type="text/javascript" src="./js/localization/messages_pt_BR.js"></script>
   <script type="text/javascript" src="./js/validacao.js"></script>
+  <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
+  
     
   
   <input name="animation" type="hidden">

@@ -40,8 +40,8 @@ public class Evento {
 */	
 	
 		
-	//@Lob @Column(name = "foto_evento", columnDefinition="TEXT")
-	//private byte[] foto_evento;
+	/*@Lob
+	private byte[] foto_evento; */
 
 
 	public String getNomeOrganizador() {
@@ -164,10 +164,10 @@ public class Evento {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-*/
 
+	
 
-/*	public byte[] getFoto_evento() {
+	public byte[] getFoto_evento() {
 		return foto_evento;
 	}
 
@@ -175,7 +175,7 @@ public class Evento {
 
 	public void setFoto_evento(byte[] foto_evento) {
 		this.foto_evento = foto_evento;
-	}*/
-	
+	}
+	*/
 
 }

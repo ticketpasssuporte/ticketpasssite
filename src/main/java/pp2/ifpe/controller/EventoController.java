@@ -1,15 +1,16 @@
 package pp2.ifpe.controller;
 
-import javax.mail.MessagingException;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import pp2.ifpe.exception.ServiceException;
 import pp2.ifpe.model.Evento;
-import pp2.ifpe.model.Ingresso;
+import pp2.ifpe.persistence.EventoDAO;
 import pp2.ifpe.service.EventoService;
 
 @Controller
@@ -18,28 +19,47 @@ public class EventoController {
 	@Autowired
 	private EventoService eventoService;
 	
+	@Autowired
+	private EventoDAO eventoDAO;
+	
 
 	@GetMapping("/evento") 
 	public String cadastraEvento(Evento evento) {
 		return"/criarEvento";
 	}
-	
-	@PostMapping("/salvarEvento")
-	public String salvarEvento(Evento evento) throws ServiceException, MessagingException {
 		
-/*		try {
+		
+	@PostMapping("/salvarEvento")
+	public String salvarEvento(Evento evento, BindingResult result, RedirectAttributes redirectAttributes) {
+		
+		redirectAttributes.addFlashAttribute("message", "Failed");
+		redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
+		if (result.hasErrors()) {
+			return cadastraEvento(evento);
+		}
+		redirectAttributes.addFlashAttribute("message", "Cadastro realizado com sucesso");
+		redirectAttributes.addFlashAttribute("alertClass", "alert-success");
+		/*try {
 			evento.setFoto_evento(file.getBytes());
 		} catch (IOException e) {
 			e.printStackTrace();
-		}*/
-		this.eventoService.salvarEvento(evento);
-		return"redirect:/";
+		} */
+		
+		this.eventoDAO.save(evento);
+		return "redirect:/evento";
+	
 	}
 	
-	@GetMapping("/eventoGratuito") 
-	public String cadastraEventoGratuito(Ingresso ingresso) {
-		return"/eventoGratuito";
+	@GetMapping("/listarEventos")
+	public String listarCandidato(Model model) {
+		model.addAttribute("lista",eventoService.findAll(Sort.by("nome")));
+		return "evento-list";
 	}
+	
+	
+	
+	/*		
+	
 	
 	
 	@PostMapping("/salvarIngresso")
@@ -49,11 +69,11 @@ public class EventoController {
 			evento.setFoto_evento(file.getBytes());
 		} catch (IOException e) {
 			e.printStackTrace();
-		}*/
+		}
 		this.eventoService.salvarIngresso(ingresso);
 		return"redirect:/index";
 	}
-	
+	*/
 	/*@GetMapping("/eventoCadastro")
 	public String eventoCadastro(Evento evento) {
 		return"/eventoCadastro";

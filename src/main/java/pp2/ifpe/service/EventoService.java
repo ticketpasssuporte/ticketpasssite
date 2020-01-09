@@ -3,6 +3,7 @@ package pp2.ifpe.service;
 import javax.mail.MessagingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import pp2.ifpe.exception.ServiceException;
@@ -44,6 +45,12 @@ public class EventoService {
 	
 	public void editarEvento(Evento evento) {
 		this.eventoDAO.save(evento);
+	}
+
+
+	public Evento findAll(Sort by) {
+		
+		return null;
 	}
 	
 //	public void deletarEvento(Evento evento) {

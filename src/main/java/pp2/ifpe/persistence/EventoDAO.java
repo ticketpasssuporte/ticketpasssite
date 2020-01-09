@@ -13,6 +13,7 @@ public interface EventoDAO extends JpaRepository<Evento, Integer> {
 		return null;
 	}
 
+
 	Evento findAllBycategoria(Categoria categoria);
 
 	void save(Ingresso ingresso);
