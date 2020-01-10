@@ -10,19 +10,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pp2.ifpe.model.Evento;
+import pp2.ifpe.model.Ingresso;
 import pp2.ifpe.persistence.EventoDAO;
-import pp2.ifpe.service.EventoService;
 
 @Controller
 public class EventoController {
 	
-	@Autowired
-	private EventoService eventoService;
+	//@Autowired
+	//private EventoService eventoService;
 	
 	@Autowired
 	private EventoDAO eventoDAO;
 	
 
+	
+	
 	@GetMapping("/evento") 
 	public String cadastraEvento(Evento evento) {
 		return"/criarEvento";
@@ -50,14 +52,28 @@ public class EventoController {
 	
 	}
 	
-	@GetMapping("/listarEventos")
-	public String listarCandidato(Model model) {
-		model.addAttribute("lista",eventoService.findAll(Sort.by("nome")));
-		return "evento-list";
+	@GetMapping("/ingresso") 
+	public String configurarIngresso(Ingresso ingresso) {
+		return"/configurarIngresso";
 	}
 	
+	@GetMapping("/listarEventos")
+	public String listarEventos(Model model) {
+		model.addAttribute("lista",eventoDAO.findAll(Sort.by("nomeEvento")));
+		return "listarEventos";
+	}
 	
+	@GetMapping("editarEvento")
+	public String editarEvento(Integer id, Model model) {
+      model.addAttribute("lista", this.eventoDAO.findById(id));
+		return "/criarEvento";
+	}
 	
+	@GetMapping("/removerEvento")
+	public String removerEvento(Integer id) {
+		this.eventoDAO.deleteById(id);
+		return "redirect:/listarEventos";
+	}
 	/*		
 	
 	
@@ -82,11 +98,7 @@ public class EventoController {
 	public String lote(Evento evento) {
 		return"/lote";
 	}
-//	@GetMapping("")
-//	public String editarEvento(Integer id) {
-//		this.evenService.editarEvento();
-//		return"";
-//	}
+//	
 //	
 //	@GetMapping("/removerEvento")
 //	public String removerEventos(Integer id){

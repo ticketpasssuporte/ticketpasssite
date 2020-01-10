@@ -52,6 +52,14 @@ public class EventoService {
 		
 		return null;
 	}
+
+
+	public void save(Evento evento) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	
 //	public void deletarEvento(Evento evento) {
 //		Evento eventochecado = eventoDAO.findById(evento.getId());
