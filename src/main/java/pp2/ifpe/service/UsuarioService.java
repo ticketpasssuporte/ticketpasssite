@@ -10,6 +10,7 @@ import javax.mail.MessagingException;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import pp2.ifpe.enums.TipoUsuarioEnum;
 import pp2.ifpe.model.Usuario;
@@ -174,8 +175,6 @@ public String GeradorDeSenhaAleatorio(int qtdDeLetras){
    }
    return sb.toString();
  }//fim do metodo GeradorDeSenhaAleatorio
-
-
 
 
 }	

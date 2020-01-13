@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pp2.ifpe.model.Evento;
-import pp2.ifpe.model.Ingresso;
 import pp2.ifpe.persistence.EventoDAO;
+import pp2.ifpe.persistence.IngressoDAO;
+import pp2.ifpe.service.EventoService;
 
 @Controller
 public class EventoController {
@@ -22,8 +23,13 @@ public class EventoController {
 	@Autowired
 	private EventoDAO eventoDAO;
 	
-
+	@Autowired
+	private IngressoDAO ingressoDAO;
 	
+	@Autowired
+	private EventoService eventoService;
+	
+		
 	
 	@GetMapping("/evento") 
 	public String cadastraEvento(Evento evento) {
@@ -45,27 +51,26 @@ public class EventoController {
 			evento.setFoto_evento(file.getBytes());
 		} catch (IOException e) {
 			e.printStackTrace();
-		} */
+		} */ 
 		
 		this.eventoDAO.save(evento);
 		return "redirect:/evento";
 	
 	}
 	
-	@GetMapping("/ingresso") 
-	public String configurarIngresso(Ingresso ingresso) {
-		return"/configurarIngresso";
-	}
+	
 	
 	@GetMapping("/listarEventos")
 	public String listarEventos(Model model) {
 		model.addAttribute("lista",eventoDAO.findAll(Sort.by("nomeEvento")));
+		model.addAttribute("listaIng",ingressoDAO.findAll(Sort.by("quantidade")));
 		return "listarEventos";
 	}
 	
 	@GetMapping("editarEvento")
 	public String editarEvento(Integer id, Model model) {
-      model.addAttribute("lista", this.eventoDAO.findById(id));
+	model.addAttribute("evento", this.eventoDAO.findById(id));
+
 		return "/criarEvento";
 	}
 	
@@ -74,30 +79,7 @@ public class EventoController {
 		this.eventoDAO.deleteById(id);
 		return "redirect:/listarEventos";
 	}
-	/*		
 	
-	
-	
-	@PostMapping("/salvarIngresso")
-	public String salvarIngresso(Ingresso ingresso) throws ServiceException, MessagingException {
-		
-/*		try {
-			evento.setFoto_evento(file.getBytes());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		this.eventoService.salvarIngresso(ingresso);
-		return"redirect:/index";
-	}
-	*/
-	/*@GetMapping("/eventoCadastro")
-	public String eventoCadastro(Evento evento) {
-		return"/eventoCadastro";
-	}*/
-	@GetMapping("/lote")
-	public String lote(Evento evento) {
-		return"/lote";
-	}
 //	
 //	
 //	@GetMapping("/removerEvento")

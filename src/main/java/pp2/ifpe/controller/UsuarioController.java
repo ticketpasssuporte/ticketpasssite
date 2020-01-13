@@ -11,6 +11,7 @@ import javax.validation.Valid;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pp2.ifpe.model.Email;
 import pp2.ifpe.model.Usuario;
+import pp2.ifpe.persistence.UsuarioDAO;
 import pp2.ifpe.service.EmailService;
 import pp2.ifpe.service.UsuarioService;
 
@@ -36,6 +38,8 @@ public class UsuarioController {
 	@Autowired
 	private EmailService emailService;
 	
+	@Autowired
+	private UsuarioDAO usuarioDAO;
 	/*
 	 * Cadastro
 	 */
@@ -115,7 +119,7 @@ public class UsuarioController {
 		@RequestMapping("sair")
 		public String sair(HttpSession session) {
 			session.invalidate();
-			return "redirect:index";
+			return "redirect:/index";
 		}
 	
 	
@@ -228,7 +232,6 @@ public class UsuarioController {
 		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
 
 		mv.addObject(usuario);
-
 		return mv;
 	}
 	

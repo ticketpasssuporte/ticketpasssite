@@ -65,7 +65,7 @@
                     <a class="nav-link link text-white display-7" href="https://mobirise.com">
                         </a>
                 </li>
-                <li class="nav-item"><a class="nav-link link text-white display-7" href="/login" aria-expanded="false">Meus Eventos</a></li></ul>
+                <li class="nav-item"><a class="nav-link link text-white display-7" href="/listarEventos" aria-expanded="false">Meus Eventos</a></li></ul>
         </div>
     </nav>
 </section>
@@ -76,14 +76,16 @@
 
 <section class="mbr-section form1 cid-rHENz2I6PJ" id="form1-10" style="background-color: #CCCCCC; font-family: 'Questrial', sans-serif;">
 <div class="container">
-<form th:action="@{/salvarEvento}" th:object="${evento}" enctype="multipart/form-data" id="formEvento" method="post" >
+<form th:action="@{/salvarEvento}" th:object="${evento}"  enctype="multipart/form-data" id="formEvento" method="post" >
 	<div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"/>
+<input type="hidden" th:field="*{id}">
+
 <div class="container">
 <div class="form-group">
 	<h3 style="margin-left: 0%"><strong>1- Digite o nome do evento</strong></h3>
     <p style="margin-left: 0%">Adicione também uma imagem de divulgação com as principais informações do evento!</p>
     <label style="margin-left: 0%" for="">Nome do evento: </label>
-    <input type="text" style="margin-left: 0%" class="form-control" name="nomeEvento"  id="nomeEvento" th:field="*{nomeEvento}" required>
+    <input type="text" style="margin-left: 0%" class="form-control" name="nomeEvento"  id="nomeEvento" th:field="*{nomeEvento}" required >
 <br/>
 </div>
 </div>
@@ -91,9 +93,10 @@
 <!--Upload da Imagem-->
 
 <div class="container">
+<!--<img id="cover-preview" alt="#" class="image capa cover-preview">-->
 <div class="form-group">
 	<label for="">Forneça uma foto para seu evento:</label>
-	<input type="file" name="fileProduto" class="form-control-file" id="uploadFoto"><br>
+	<input type="file" name="fileProduto"  class="form-control-file" id="uploadFoto"><br>
 </div>
 </div>
 
@@ -170,18 +173,6 @@
 </div>   
 </div>
 
-<div class="container">
-<div class="form-group">
-	<h3><strong> 6 - Definição do tipo de ingresso</strong></h3>
-    <label for="exampleFormControlSelect1">Escolha seu tipo de Ingresso: </label>
-    <select class="form-control" id="exampleFormControlSelect1" style="width: 30%" th:field="*{tipoIngresso}" required>
-      <option  value="0">Selecione Ingresso</option>
-      <option value="1">Evento Gratuito</option>
-      <option value="2">Evento Pago</option>
-    </select>
-</div>
-</div>
-<br>
 
 
 <div class="form-group">

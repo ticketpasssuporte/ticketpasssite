@@ -11,6 +11,15 @@ public class IndexController {
 	public String index() {
 		return "index";
 	}
+	
+	
+	@GetMapping("/pag")
+	public String pag() {
+		
+		return "page15";
+	}
+	
+	
 	@GetMapping("/home")
 	public String home() {
 		return "home";

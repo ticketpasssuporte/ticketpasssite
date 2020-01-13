@@ -94,13 +94,28 @@
     							<label class="custom-control-label" for="switch1"></label>
  			 				</div>
 						</form>
+						
 					</th>
+			     
+			   
+				<form  th:action="@{/salvarIngresso}" th:object="${ingresso}"  method="post" >
+      				<input type="hidden" th:field="*{id}">     				
       				<td style="text-align:center;">1° Lote</td>
-      				<td><input type="number" id="qtd" name="qtd" class="qtd form-control" style="display:inline-block" placeholder="Ex: 150"></td>
-      				<td><input type="text" id="dinheiro" name="dinheiro" class="dinheiro form-control" style="display:inline-block" placeholder="Ex: R$ 100,00" /></td>
-      				<td style="text-align:center;">Inteira</td>
-    			</tr>
-    			<tr>
+      				<td><input type="number" id="qtd" name="qtd" class="qtd form-control" style="display:inline-block" placeholder="Ex: 150" th:field="*{quantidade}"></td>
+      				<td><input type="text" id="dinheiro" name="dinheiro" class="dinheiro form-control" style="display:inline-block" placeholder="Ex: 100" th:field="*{valor}" /></td>
+      				<td style="text-align:center;">Inteira</td> 
+      		   
+    			 </tr>
+    			</tbody>
+    			</table>
+    			
+		<hr />
+		<button class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Cadastrar Ingresso</button>
+	</form>
+	</div>
+	
+</section>
+    			<!--<tr>
       				<th scope="row" style="width: 15%;">
       					<form>
   							<div class="custom-control custom-switch" style="text-align:center;">
@@ -143,20 +158,8 @@
       				<td><input type="text" id="dinheiro" name="dinheiro" class="dinheiro form-control" style="display:inline-block" placeholder="Ex: R$ 100,00" /></td>
       				<td style="text-align:center;">Meia</td>
     			</tr>
-  			</tbody>
-				
-			<tr th:each="evt : ${lista}">
-				<td th:text="${evt.nomeEvento}"></td>
-				<td><a th:href="@{/eventoPago(codigo=${evt.codigo})}">Editar</a>&nbsp;&nbsp;
-					<a th:href="@{/eventoGratuito(codigo=${evt.codigo})}">Remover</a></td>
-				<td><a th:href="@{/editarIngresso(codigo=${evt.codigo})}">Editar</a>&nbsp;&nbsp;
-					<a th:href="@{/removerIngresso(codigo=${evt.codigo})}">Remover</a></td>
-			</tr>
-		</table>
-		<hr />
-		<a href="/evento" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Cadastrar Evento</a>
-	</div>
-</section>
+  			</tbody>-->
+		
 
 <!-- Footer -->
 <section class="cid-rHERilnReB" id="footer1-16">

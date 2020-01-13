@@ -1,15 +1,15 @@
 package pp2.ifpe.service;
 
-import javax.mail.MessagingException;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoProperties.Storage;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import pp2.ifpe.exception.ServiceException;
+import pp2.ifpe.exception.StorageException;
 import pp2.ifpe.model.Categoria;
 import pp2.ifpe.model.Evento;
-import pp2.ifpe.model.Ingresso;
 import pp2.ifpe.persistence.EventoDAO;
 
 @Service
@@ -20,18 +20,23 @@ public class EventoService {
 	
 	
 
-	public void salvarEvento(Evento evento)throws ServiceException, MessagingException{
+	/*public void salvarEvento(Evento evento)throws ServiceException, MessagingException{
 		if (this.findEventoByNome(evento.getNomeEvento()) != null) {
-			throw new ServiceException("Já existe um eventi com este e-mail: " + evento.getNomeEvento());
+			throw new ServiceException("Já existe um evento com este evento: " + evento.getNomeEvento());
 		}
 		evento.setStatus(true);
 		this.eventoDAO.save(evento);
-	}
+	}*/
 	
 	
-	public void salvarIngresso(Ingresso ingresso){	
-		this.eventoDAO.save(ingresso);
+	public void salvarEvento(Evento evento) throws StorageException, ServiceException {
+		this.save(evento);
 	}
+
+	public String editarEvento(Integer id, Model model) {
+	      model.addAttribute("lista", this.eventoDAO.findById(id));
+			return "/criarEvento";
+		}
 	
 	
 	public Evento get(Categoria categoria) {

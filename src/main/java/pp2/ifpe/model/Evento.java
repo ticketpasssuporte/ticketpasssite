@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 
@@ -27,18 +28,12 @@ public class Evento {
 	@Column
 	private String categoria;
 	@Column
-	private int tipoIngresso;
-	
-	
-/*	@ManyToOne
-	@JoinColumn(name="id_categoria")
-	private Categoria categoria;
-	
+	private String user;
 	@ManyToOne
-	@JoinColumn(name="id_usuario")
 	private Usuario usuario;
-*/	
-	
+	@ManyToOne
+	private Ingresso ingresso;
+
 		
 	/*@Lob
 	private byte[] foto_evento; */
@@ -104,6 +99,16 @@ public class Evento {
 	}
 	
 
+	public String getUser() {
+		return user;
+	}
+
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
@@ -125,22 +130,29 @@ public class Evento {
 		return desc_org;
 	}
 
-
-
 	public void setDesc_org(String desc_org) {
 		this.desc_org = desc_org;
 	}
 
 
-	public int getTipoIngresso() {
-		return tipoIngresso;
+	public Ingresso getIngresso() {
+		return ingresso;
 	}
 
 
-	public void setTipoIngresso(int tipoIngresso) {
-		this.tipoIngresso = tipoIngresso;
+	public void setIngresso(Ingresso ingresso) {
+		this.ingresso = ingresso;
 	}
 
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 
 /*	public Categoria getCategoria() {

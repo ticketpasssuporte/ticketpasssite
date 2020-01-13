@@ -1,24 +1,26 @@
 package pp2.ifpe.model;
 
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
 
 @Entity
 public class Ingresso {
+	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column
-	private String nomeIngresso;
-	@DecimalMin(value = "0.00")
-	private double valor;
-	@Min(value = 0)
+	
+	//private boolean statusLote;
+	private String valor;
+	
+	//private String tipoIngresso;
+	
+	@Min(value = 1)
 	private int quantidade;
 	
 	
@@ -34,19 +36,11 @@ public class Ingresso {
 		this.id = id;
 	}
 
-	public String getNomeIngresso() {
-		return nomeIngresso;
-	}
-
-	public void setNomeIngresso(String nomeIngresso) {
-		this.nomeIngresso = nomeIngresso;
-	}
-
-	public double getValor() {
+	public String getValor() {
 		return valor;
 	}
 
-	public void setValor(double valor) {
+	public void setValor(String valor) {
 		this.valor = valor;
 	}
 

@@ -37,6 +37,7 @@
 			
 			<form th:action="@{/cadastro}" th:object="${usuario}" id="formCadastro" method="post">			
 			<div th:if="${mensagemErro != null}" th:text="${mensagemErro}" style=color:white; class=""></div>
+						<input type="hidden" th:field="*{id}">
 			
 				<div class="row" id="form-group">
 					<label>Nome: </label>
@@ -87,8 +88,6 @@
 		       </div>
 		          </div>
 			        </div>
-			</div>
-		</div>
 		<script>
      		function onSignIn(response) {
             // Conseguindo as informações do seu usuário:

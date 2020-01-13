@@ -4,7 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import pp2.ifpe.model.Categoria;
 import pp2.ifpe.model.Evento;
-import pp2.ifpe.model.Ingresso;
 
 public interface EventoDAO extends JpaRepository<Evento, Integer> {
 
@@ -16,7 +15,6 @@ public interface EventoDAO extends JpaRepository<Evento, Integer> {
 
 	Evento findAllBycategoria(Categoria categoria);
 
-	void save(Ingresso ingresso);
 
 //	Evento findById();
 //

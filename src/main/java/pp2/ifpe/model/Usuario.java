@@ -27,6 +27,9 @@ public class Usuario {
 	@Column(length = 150)
 	private String email;
 	
+	//@Column(nullable = false)
+	//private Short permissao;
+	
 	@NotNull
 	@Column(length = 255)
 	private String senha;
@@ -45,6 +48,7 @@ public class Usuario {
 	
 	@Enumerated(EnumType.ORDINAL)
 	private TipoUsuarioEnum tipoUsuario = TipoUsuarioEnum.PADRAO;
+	
 	
 	public Integer getId() {
 		return id;
@@ -66,6 +70,15 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+    /*
+	public Short getPermissao() {
+		return permissao;
+	}
+
+	public void setPermissao(Short permissao) {
+		this.permissao = permissao;
+	}*/
+
 	public String getSenha() {
 		return senha;
 	}
@@ -100,8 +113,4 @@ public class Usuario {
 		this.tipoUsuario = tipoUsuario;
 	}
 
-	
-	
-	
-	
 }
