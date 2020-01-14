@@ -27,8 +27,6 @@ public class Evento {
 	private String desc_org;
 	@Column
 	private String categoria;
-	@Column
-	private String user;
 	@ManyToOne
 	private Usuario usuario;
 	@ManyToOne
@@ -98,17 +96,6 @@ public class Evento {
 		return endereco;
 	}
 	
-
-	public String getUser() {
-		return user;
-	}
-
-
-	public void setUser(String user) {
-		this.user = user;
-	}
-
-
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
