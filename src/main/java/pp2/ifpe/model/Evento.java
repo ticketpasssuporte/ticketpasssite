@@ -150,23 +150,11 @@ public class Evento {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
-	}
-
-
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+	}*/
 
 	
 
-	public byte[] getFoto_evento() {
+	/*public byte[] getFoto_evento() {
 		return foto_evento;
 	}
 
