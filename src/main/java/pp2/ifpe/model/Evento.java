@@ -146,6 +146,7 @@ public class Evento {
 	}
 
 
+
 	public String getFotoevento() {
 		return fotoevento;
 	}
