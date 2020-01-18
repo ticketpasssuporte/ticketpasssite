@@ -17,7 +17,7 @@ public class AutorizadorInterceptor implements HandlerInterceptor {
 	private final String[] PAGINAS_DESLOGADO = {"/", "/cadastrar", "/index","/login",
 												"/reenviar-link-ativacao", "/ativarConta", 
 												"/recuperar-senha", "/redefinirSenha"};
-	private final String[] PAGINAS_LOGADO = {"/home", "/configuracoes", "/sair", "/evento", 
+	private final String[] PAGINAS_LOGADO = {"/home", "/configuracoes", "/sair", "/evento","/listarEventos","criarEvento", 
 											 PAGINA_ACESSO_NEGADO};
 	/*
 	@Override

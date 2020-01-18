@@ -1,12 +1,17 @@
 package pp2.ifpe.model;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Range;
 
 
 @Entity
@@ -33,9 +38,8 @@ public class Evento {
 	private Ingresso ingresso;
 
 		
-	/*@Lob
-	private byte[] foto_evento; */
-
+	private String fotoevento; 
+	
 
 	public String getNomeOrganizador() {
 		return nomeOrganizador;
@@ -142,6 +146,53 @@ public class Evento {
 	}
 
 
+	public String getFotoevento() {
+		return fotoevento;
+	}
+
+
+	public void setFotoevento(String fotoevento) {
+		this.fotoevento = fotoevento;
+	}
+
+
+
+
+
+	@Override
+	public String toString() {
+		return "Evento [id=" + id + ", nomeEvento=" + nomeEvento + ", status=" + status + ", endereco=" + endereco
+				+ ", desc_evento=" + desc_evento + ", nomeOrganizador=" + nomeOrganizador + ", desc_org=" + desc_org
+				+ ", categoria=" + categoria + ", usuario=" + usuario + ", ingresso=" + ingresso + ", fotoevento="
+				+ fotoevento + "]";
+	}
+
+
+	public Evento(Integer id, @NotNull String nomeEvento, Boolean status, String endereco, String desc_evento,
+			String nomeOrganizador, String desc_org, String categoria, Usuario usuario, Ingresso ingresso,
+			String fotoevento) {
+		super();
+		this.id = id;
+		this.nomeEvento = nomeEvento;
+		this.status = status;
+		this.endereco = endereco;
+		this.desc_evento = desc_evento;
+		this.nomeOrganizador = nomeOrganizador;
+		this.desc_org = desc_org;
+		this.categoria = categoria;
+		this.usuario = usuario;
+		this.ingresso = ingresso;
+		this.fotoevento = fotoevento;
+
+	}
+
+
+	public Evento() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 /*	public Categoria getCategoria() {
 		return categoria;
 	}
@@ -153,16 +204,6 @@ public class Evento {
 	}*/
 
 	
-
-	/*public byte[] getFoto_evento() {
-		return foto_evento;
-	}
-
-
-
-	public void setFoto_evento(byte[] foto_evento) {
-		this.foto_evento = foto_evento;
-	}
-	*/
+	
 
 }

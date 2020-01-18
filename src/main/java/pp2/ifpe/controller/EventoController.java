@@ -1,14 +1,28 @@
 package pp2.ifpe.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import ch.qos.logback.classic.pattern.Util;
 import pp2.ifpe.model.Evento;
 import pp2.ifpe.persistence.EventoDAO;
 import pp2.ifpe.persistence.IngressoDAO;
@@ -17,8 +31,8 @@ import pp2.ifpe.service.EventoService;
 @Controller
 public class EventoController {
 	
-	//@Autowired
-	//private EventoService eventoService;
+	// Caminho da pasta onde ficam as imagens do evento
+	private static String caminhoImagens ="C:/Users/victo/OneDrive/Imagens/ImgTicketpass/";
 	
 	@Autowired
 	private EventoDAO eventoDAO;
@@ -36,9 +50,9 @@ public class EventoController {
 		return"/criarEvento";
 	}
 		
-		
+		//Metodo para fazer upload da imagem do evento adicionado na hora de salvar, o nome da imagem é salva com o id do evento
 	@PostMapping("/salvarEvento")
-	public String salvarEvento(Evento evento, BindingResult result, RedirectAttributes redirectAttributes) {
+	public String salvarEvento(@Valid Evento evento, BindingResult result, HttpSession session, RedirectAttributes redirectAttributes, @RequestParam("file") MultipartFile arquivo) {
 		
 		redirectAttributes.addFlashAttribute("message", "Failed");
 		redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
@@ -47,24 +61,32 @@ public class EventoController {
 		}
 		redirectAttributes.addFlashAttribute("message", "Cadastro realizado com sucesso");
 		redirectAttributes.addFlashAttribute("alertClass", "alert-success");
-		/*try {
-			evento.setFoto_evento(file.getBytes());
-		} catch (IOException e) {
-			e.printStackTrace();
-		} */ 
-		
 		this.eventoDAO.save(evento);
-		return "redirect:/evento";
-	
+		try {
+			if(!arquivo.isEmpty()) {
+				byte[] bytes = arquivo.getBytes();
+				Path caminho = Paths.get(caminhoImagens+String.valueOf(evento.getId())+arquivo.getOriginalFilename());
+				Files.write(caminho, bytes);
+				
+				evento.setFotoevento(String.valueOf(evento.getId())+arquivo.getOriginalFilename());
+				this.eventoDAO.save(evento);
+			}
+			
+		} catch (Exception e) {
+			
+			
+	}	
+		
+		return "redirect:/listarEventos";	
 	}
 	
 	
 	
 	@GetMapping("/listarEventos")
-	public String listarEventos(Model model) {
+	public String listarEvento(Model model) {
 		model.addAttribute("lista",eventoDAO.findAll(Sort.by("nomeEvento")));
 		model.addAttribute("listaIng",ingressoDAO.findAll(Sort.by("quantidade")));
-		return "listarEventos";
+		return "/listarEventos";
 	}
 	
 	@GetMapping("editarEvento")

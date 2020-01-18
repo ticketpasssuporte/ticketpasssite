@@ -77,15 +77,19 @@
 		<table class="table table-striped table-bordered table-sm">
 			<thead class="table-success">
 				<tr>
+					<th scope="col">Imagem</th>
       				<th scope="col">Nome do evento</th>
       				<th scope="col">Alterar ou Remover</th>
+      				
     			</tr>
   			</thead>
-				
+				 
 			<tr th:each="evt : ${lista}">
 				<td th:text="${evt.nomeEvento}"></td>
 				<td><a th:href="@{/editarEvento(id=${evt.id})}">Editar</a>&nbsp;&nbsp;
 					<a th:href="@{/removerIngresso(id=${evt.id})}">Remover</a></td>
+					<img th:src="@{/mostrarImagemEvento/{imagem}(imagem=${evt.fotoevento})}" width="100"/>
+				
 					
 			</tr>
 			<thead class="table-success">

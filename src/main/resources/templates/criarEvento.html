@@ -76,7 +76,7 @@
 
 <section class="mbr-section form1 cid-rHENz2I6PJ" id="form1-10" style="background-color: #CCCCCC; font-family: 'Questrial', sans-serif;">
 <div class="container">
-<form th:action="@{/salvarEvento}" th:object="${evento}"  enctype="multipart/form-data" id="formEvento" method="post" >
+<form th:action="@{/salvarEvento}" th:object="${evento}" enctype="multipart/form-data" id="formEvento" method="post" >
 	<div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"/>
 <input type="hidden" th:field="*{id}">
 
@@ -95,8 +95,8 @@
 <div class="container">
 <!--<img id="cover-preview" alt="#" class="image capa cover-preview">-->
 <div class="form-group">
-	<label for="">Forneça uma foto para seu evento:</label>
-	<input type="file" name="fileProduto"  class="form-control-file" id="uploadFoto"><br>
+	<label for="inputfoto">Forneça uma foto para seu evento:</label>
+	<input type="file" class="form-control" id="inputfoto" name="file">
 </div>
 </div>
 
