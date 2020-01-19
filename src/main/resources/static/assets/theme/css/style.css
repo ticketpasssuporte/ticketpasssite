@@ -1101,3 +1101,6 @@ body {
 	top: 0;
 	left: -2400px;
 }
+.dropdown-content{
+	font-size:18px;
+}
