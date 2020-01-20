@@ -65,5 +65,15 @@ public class IndexController {
 	public String eventoPago() {
 		return "eventoPago";
 	}
+	
+	@GetMapping("/pagEvento")
+	public String pagEvento() {
+		return "pagEvento";
+	}
+	
+	@GetMapping("/carrinho")
+	public String carrinho() {
+		return "carrinho";
+	}
 
 }

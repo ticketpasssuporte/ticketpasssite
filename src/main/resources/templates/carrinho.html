@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns= "http://www.w3.org/1999/xhtml"
-	xmlns:th= "http://www.thymeleaf.org"> 
+<html>
 <head>
   <!-- Site made with Mobirise Website Builder v4.11.4, https://mobirise.com -->
   <meta charset="UTF-8">
@@ -8,26 +7,31 @@
   <meta name="generator" content="Mobirise v4.11.4, mobirise.com">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="assets/images/pass-485x80.png" type="image/x-icon">
-  <meta name="description" content="Nesta página o usuário deverá inserir o código enviado para o seu e-mail, e ativar sua conta.">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   
-  <title>Ativação de conta</title>
+  <title>Home</title>
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="assets/tether/tether.min.css">
   <link rel="stylesheet" href="assets/socicon/css/styles.css">
-  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
   <link rel="stylesheet" href="assets/animatecss/animate.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <link rel="stylesheet" href="assets/estiloCategorias/style.css">
   
-  
+ <style>
+	@import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
+</style>
   
 </head>
 <body>
-  <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-w">
-
-    
+  <section class="menu cid-rHF8rI3IoO" once="menu" id="menu1-24">
 
     <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,90 +45,103 @@
         <div class="menu-logo">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a href="index.html">
+                    <a href="/">
                          <img src="assets/images/pass-485x80.png" alt="Mobirise" title="" style="height: 3.8rem;">
                     </a>
                 </span>
+                <div>
+        </div>
             </div>
         </div>
+        
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
                     <a class="nav-link link text-white display-7" href="https://mobirise.com">
                         </a>
                 </li>
-                <li class="nav-item"><a class="nav-link link text-white display-7" href="/cadastro"aria-expanded="false">Cadastre-se</a></li><li class="nav-item"><a class="nav-link link text-white display-7" href="/login" aria-expanded="false">Login</a></li></ul>
+                <li class="nav-item"><a class="nav-link link text-white display-7"  href="/cadastro" aria-expanded="false">Cadastre-se</a></li><li class="nav-item"><a class="nav-link link text-white display-7" href="/login" aria-expanded="false">Login</a></li></ul>
             <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="/login">Publicar evento</a></div>
-        	<button style="background-color:transparent; color:white; border:none; font-family:'Questrial', sans-serif;" onClick="fonte('a');">A+</button>
-        	<button style="background-color:transparent; color:white; border:none; font-family:'Questrial', sans-serif;" onClick="fonte('d');">a-</button>
         </div>
     </nav>
 </section>
+<br><br><br>
 
-<section class="engine"><a href="https://mobirise.info/w">html5 templates</a></section><section class="mbr-section form1 cid-rHENz2I6PJ" id="form1-10">
 
-    
+<div class="jumbotron jumbotron-fluid" style="background-color: white">
+    <div class="d-flex justify-content-center" style="text-align:center">
+    	<div class="row">
+		<div id="mainContent" style="font-family:'Questrial', sans-serif;">
+		<form>
+		<h1><strong>Carrinho de compras</strong></h1>
+		<div id="basket">
+		
+		<div class="table-responsive">
+		<table class="table table-dark" id="nomestabela" style="background-color:black;">
+		
+			<thead>
+					<tr style="text-align: center;">
+						<th>Ingresso</th>
+						<th>Preço</th>
+						<th>Quantidade</th>
+						<th>Total unitário</th>
+						<th></th>
+					</tr>
+			</thead>
+			<tbody>
+					<tr>
+						<td>Pista</td>
+						<td>R&#36;<input name="price" class="form-group w-75 price" id="price" value="100.00" style="text-align: center;" /></td>
+						<td>
+							<i class="fa fa-minus" title="Decrease Qty"></i>
+							<input class="form-group w-50 qty" id="qty" value="0" name="qty" maxlength="2" style="text-align: center;"/>
+							<i class="fa fa-plus" title="Increase Qty"></i>
+						</td>
+						<td>R&#36;<input class="form-group w-50 cost" name="cost" id="cost" value="0.00" style="text-align: center;" /></td>
+					</tr>
+					<tr>
+						<td><strong>Total geral: </strong></td>
+						<td id="totalAmount">
+						<div class="left">
+							R&#36;<input class="form-group w-75" name="total" id="total" value="0.00" style="text-align: center;"/>
+						</div>
+						</td>
+					</tr>	
+				</table>
+				<button class="btn btn-primary btn-sm" type="submit">Continuar comprando</button>
+				<button class="btn btn-primary btn-sm" type="submit">Finalizar compra</button>
+				</div>
+				</div>
+				</form>
+			</div>
+			</div>
+			</div>	
+	</div>
 
-    
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="title col-12 col-lg-8">
-                <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">Verifique sua conta</h2>
-                <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-7"><strong class="acessibilidade">Enviamos um código de confirmação para o seu e-mail</strong></h3>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="media-container-column col-lg-8" data-form-type="formoid">
-                <!---Formbuilder Form--->
-                <form th:action="@{/reenviarConfirmacao}" method="post" class="mbr-form form-with-styler">
-                    <div class="row">
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
-                        </div>
-                    </div>
-                            <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-4" ><strong class="acessibilidade">Re-enviar email de confirmação</strong></h2>
-                            <input type="email" id="input" name="email" placeholder="Digite seu email" required data-form-field="Name" class="form-control display-7" >
-                        <br/>
-                        <div class="col-md-12 input-group-btn align-center"><button type="submit" id="botao">Confirmar</button></div>
-                    
-                </form><!---Formbuilder Form--->
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="cid-rHERilnReB" id="footer1-16">
-
-    
-
-    
-
+<section class="cid-rHui50L0v8" id="footer1-s">
     <div class="container">
         <div class="media-container-row content text-white">
             <div class="col-12 col-md-3">
                 <div class="media-wrap">
                     <a href="https://mobirise.co/">
-                        <img src="assets/images/asts-1-206x1924.png" alt="Mobirise" title="">
+                        <img src="assets/images/asts-1-206x192.png" alt="Mobirise" title="">
                     </a>
                 </div>
             </div>
             <div class="col-12 col-md-3 mbr-fonts-style display-7">
                 <h5 class="pb-3">Endereço</h5>
-                <p class="mbr-text">Rua da Lama, 555<br>Recife-Pernambuco</p>
+                <p class="mbr-text">Av. Barão de Lucena, 251 <br>Recife-Pernambuco</p>
             </div>
             <div class="col-12 col-md-3 mbr-fonts-style display-7">
                 <h5 class="pb-3">Contato</h5>
                 <p class="mbr-text">
-                    Email: ticketpasssuport@gmail.com&nbsp;<br>Telefone: (81) 3022-1019&nbsp;<br>Celular: &nbsp;(81) 98765-6222</p>
+                    Email: ticketpasssuporte@gmail.com&nbsp;<br>Telefone: (81) 3131-0000&nbsp;<br>Celular: &nbsp;(81) 93131-0000</p>
             </div>
             <div class="col-12 col-md-3 mbr-fonts-style display-7">
                 <h5 class="pb-3">
-                    Links
+                    Sobre Nós
                 </h5>
                 <p class="mbr-text">
-                    <a class="text-primary" href="https://mobirise.co/">Website builder</a>
-                    <br><a class="text-primary" href="https://mobirise.co/">Download for Windows</a>
-                    <br><a class="text-primary" href="https://mobirise.co/">Download for Mac</a>
+                    <a class="text-primary" href="/quemSomos">Quem somos</a>
                 </p>
             </div>
         </div>
@@ -142,18 +159,8 @@
                 <div class="col-md-6">
                     <div class="social-list align-right">
                         <div class="soc-item">
-                            <a href="https://twitter.com/mobirise" target="_blank">
-                                <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
                             <a href="https://www.facebook.com/pages/Mobirise/1616226671953247" target="_blank">
                                 <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
-                            <a href="https://www.youtube.com/c/mobirise" target="_blank">
-                                <span class="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"></span>
                             </a>
                         </div>
                         <div class="soc-item">
@@ -164,11 +171,6 @@
                         <div class="soc-item">
                             <a href="https://plus.google.com/u/0/+Mobirise" target="_blank">
                                 <span class="socicon-googleplus socicon mbr-iconfont mbr-iconfont-social"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
-                            <a href="https://www.behance.net/Mobirise" target="_blank">
-                                <span class="socicon-behance socicon mbr-iconfont mbr-iconfont-social"></span>
                             </a>
                         </div>
                     </div>
@@ -182,26 +184,29 @@
   <script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/popper/popper.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/ytplayer/jquery.mb.ytplayer.min.js"></script>
+  <script src="assets/vimeoplayer/jquery.mb.vimeo_player.js"></script>
   <script src="assets/tether/tether.min.js"></script>
+  <script src="assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js"></script>
   <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
   <script src="assets/dropdown/js/nav-dropdown.js"></script>
   <script src="assets/dropdown/js/navbar-dropdown.js"></script>
   <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
-  <script src="assets/smoothscroll/smooth-scroll.js"></script>
   <script src="assets/theme/js/script.js"></script>
+  <script src="assets/slidervideo/script.js"></script>
   <script src="/js/acessibilidade/acessibilidade.js"></script>
+  
+  <script src="/js/shopCart/script.js"></script>
+  <!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script><script  src="./script.js"></script>
+  <!--JS-->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  
   
   
   <input name="animation" type="hidden">
-  
-  <script th:if="${contaCriada != null}" type="text/javascript">
-		Swal.fire({
-			title: 'Sucesso!',
-			text: 'Cadastro criado com sucesso, faça o login para ter acesso a sua conta!',
-			type: 'success',
-			showConfirmButton: false,
-			timer: 2000
-		});
-	</script>
   </body>
 </html>
