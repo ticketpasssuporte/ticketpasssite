@@ -1,11 +1,8 @@
 package interceptors;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import pp2.ifpe.model.Usuario;
 
 public class AutorizadorInterceptor implements HandlerInterceptor {
 
