@@ -1,6 +1,5 @@
 package pp2.ifpe.service;
 
-import java.util.List;
 
 import javax.mail.MessagingException;
 
