@@ -120,7 +120,7 @@ public class UsuarioController {
 		return redirect;
 	}
 	//logout
-		@RequestMapping("sair")
+		@RequestMapping("/sair")
 		public String sair(HttpSession session) {
 			session.invalidate();
 			return "redirect:/index";

@@ -13,10 +13,12 @@ public interface EventoDAO extends JpaRepository<Evento, Integer> {
 	}
 
 
+
 	Evento findAllBycategoria(Categoria categoria);
 
+	
 
-//	Evento findById();
+	
 //
 //	Evento findByNome(String nome);
 //

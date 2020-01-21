@@ -8,10 +8,13 @@ import javax.persistence.Id;
 
 @Entity
 public class Categoria {
+	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	@Column(length = 12)
 	private String nomeCategoria;
+	
 	public Integer getId() {
 		return id;
 	}

@@ -1,7 +1,5 @@
 package pp2.ifpe.controller;
 
-import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -15,17 +13,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import ch.qos.logback.classic.pattern.Util;
 import pp2.ifpe.model.Evento;
 import pp2.ifpe.persistence.EventoDAO;
 import pp2.ifpe.persistence.IngressoDAO;
+import pp2.ifpe.persistence.UsuarioDAO;
 import pp2.ifpe.service.EventoService;
 
 @Controller
@@ -39,6 +36,9 @@ public class EventoController {
 	
 	@Autowired
 	private IngressoDAO ingressoDAO;
+	
+	@Autowired
+	private UsuarioDAO usuarioDAO;
 	
 	@Autowired
 	private EventoService eventoService;
@@ -83,9 +83,9 @@ public class EventoController {
 	
 	
 	@GetMapping("/listarEventos")
-	public String listarEvento(Model model) {
+	public String listarEvento(Model model,Integer id) {
 		model.addAttribute("lista",eventoDAO.findAll(Sort.by("nomeEvento")));
-		model.addAttribute("listaIng",ingressoDAO.findAll(Sort.by("quantidade")));
+		//model.addAttribute("listaIng",ingressoDAO.findAll(Sort.by("quantidade")));
 		return "/listarEventos";
 	}
 	
@@ -101,6 +101,7 @@ public class EventoController {
 		this.eventoDAO.deleteById(id);
 		return "redirect:/listarEventos";
 	}
+	
 	
 //	
 //	
