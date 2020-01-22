@@ -104,31 +104,32 @@
 			<thead class="table-success">
 				<tr>
 					<th scope="col">Imagem</th>
-					<th scope="col">id</th>
+					<!--<th scope="col">id</th>-->
       				<th scope="col">Nome do evento</th>
       				<th scope="col">Alterar ou Remover</th>
       				
     			</tr>
   			</thead> 
-			<!--  <tr th:each="evt : ${lista}" >
+		  <tr th:each="evt : ${lista}" >
 	
 			<td><img th:src="@{/mostrarImagemEvento/{imagem}(imagem=${evt.fotoevento})}" width="70"/></td>
-				<td th:text="${evt.usuario.id}"></td>
 				<td th:text="${evt.nomeEvento}"></td>
 				<td><a th:href="@{/editarEvento(id=${evt.id})}">Editar</a>&nbsp;&nbsp;
 					<a th:href="@{/removerIngresso(id=${evt.id})}">Remover</a></td>
 					
 				
 					
-			</tr>-->
+			</tr>
 			<thead class="table-success">
 				<tr>
       				<th scope="col">Quantidade Ingresso</th>
+      				<th scope="col">Preço</th>
       				<th scope="col">Alterar ou Remover</th>
     			</tr>
   			</thead>
 			<tr th:each="ing : ${listaIng}">
 				<td th:text="${ing.quantidade}"></td>
+					<td th:text="${ing.valor}"></td>
 				<td><a th:href="@{/editarIngresso(id=${ing.id})}">Editar</a>&nbsp;&nbsp;
 					<a th:href="@{/removerIngresso(id=${ing.id})}">Remover</a></td>
 					

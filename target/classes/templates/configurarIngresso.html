@@ -86,36 +86,8 @@
   			</thead>
   			
   			<tbody>
-				<tr>
-					<th scope="row">
-						<form>
-  							<div class="custom-control custom-switch" style="text-align:center;">
-    							<input type="checkbox" class="custom-control-input" id="switch1">
-    							<label class="custom-control-label" for="switch1"></label>
- 			 				</div>
-						</form>
-						
-					</th>
-			     
-			   
-				<form  th:action="@{/salvarIngresso}" th:object="${ingresso}"  method="post" >
-      				<input type="hidden" th:field="*{id}">     				
-      				<td style="text-align:center;">1° Lote</td>
-      				<td><input type="number" id="qtd" name="qtd" class="qtd form-control" style="display:inline-block" placeholder="Ex: 150" th:field="*{quantidade}"></td>
-      				<td><input type="text" id="dinheiro" name="dinheiro" class="dinheiro form-control" style="display:inline-block" placeholder="Ex: 100" th:field="*{valor}" /></td>
-      				<td style="text-align:center;">Inteira</td> 
-      		   
-    			 </tr>
-    			</tbody>
-    			</table>
-    			
-		<hr />
-		<button class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Cadastrar Ingresso</button>
-	</form>
-	</div>
-	
-</section>
-    			<!--<tr>
+				
+			     <tr>
       				<th scope="row" style="width: 15%;">
       					<form>
   							<div class="custom-control custom-switch" style="text-align:center;">
@@ -124,7 +96,7 @@
  			 				</div>
  			 			</form>
       				</th>
-      				<td style="text-align:center;">1° Lote</td>
+      			<!--	<td style="text-align:center;">1° Lote</td>
       				<td><input type="number" id="qtd" name="qtd" class="qtd form-control" style="display:inline-block" placeholder="Ex: 150"></td>
       				<td><input type="text" id="dinheiro" name="dinheiro" class="dinheiro form-control" style="display:inline-block" placeholder="Ex: R$ 100,00" /></td>
       				<td style="text-align:center;">Meia</td>
@@ -158,7 +130,37 @@
       				<td><input type="text" id="dinheiro" name="dinheiro" class="dinheiro form-control" style="display:inline-block" placeholder="Ex: R$ 100,00" /></td>
       				<td style="text-align:center;">Meia</td>
     			</tr>
-  			</tbody>-->
+    			<tr>
+    				<th scope="row" style="width: 20%;">
+    					<form>
+  							<div class="custom-control custom-switch" style="text-align:center;">
+    							<input type="checkbox" class="custom-control-input" id="switch4">
+    							<label class="custom-control-label" for="switch4"></label>
+ 			 				</div>
+ 			 			</form>
+ 			 		
+    				</th>-->
+  		
+			   
+				<form  th:action="@{/salvarIngresso}" th:object="${ingresso}"  method="post" >
+      				<input type="hidden" th:field="*{id}">     				
+      				<td style="text-align:center;">1° Lote</td>
+      				<td><input type="number" id="qtd" name="qtd" class="qtd form-control" style="display:inline-block" placeholder="Ex: 150" th:field="*{quantidade}"></td>
+      				<td><input type="text" id="dinheiro" name="dinheiro" class="dinheiro form-control" style="display:inline-block" placeholder="Ex: 100" th:field="*{valor}" /></td>
+      				<td style="text-align:center;">Inteira</td> 
+      		   
+    			 </tr>
+    			</tbody>
+    			</table>
+    			
+		<hr />
+		<button class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Cadastrar Ingresso</button>
+	
+	</form>
+	</div>
+	
+</section>
+    			
 		
 
 <!-- Footer -->

@@ -96,19 +96,19 @@
 					rules:{
 						'nomeEvento': {
 							required:true, 
-							maxlength: 30,
+							maxlength: 100,
 		                   	minlength: 6	
 						},
 						
 						'desc_evento': {
 							required:true,
 							maxlength: 100,
-							minlength: 15
+							minlength: 10
 							
 						},
 						'endereco': {
 				            required:true,				            
-		                   	minlength: 9
+		                   	minlength: 3
 				            
 							},
 				        
@@ -119,7 +119,7 @@
 							},
 							'desc_org': {
 					            required:true,				            
-			                   	minlength: 15
+			                   	minlength: 10
 					            
 								},
 					        
@@ -127,7 +127,7 @@
 						messages:{
 							'nomeEvento':{
 								required:"Este campo é obrigatório!",
-								rangelength:"Este campo deve ter entre 6 e 30 caracteres!",
+								rangelength:"Este campo deve ter entre 6 e 100 caracteres!",
 								
 						},
 						'desc_evento':{
@@ -135,7 +135,7 @@
 						},
 						'endereco':{
 							required:"Este campo é obrigatório!",
-							rangelength:"Digite pelo menos 9 caracteres!"
+							rangelength:"Digite pelo menos 3 caracteres!"
 						
 							},
 						'nomeOrganizador':{

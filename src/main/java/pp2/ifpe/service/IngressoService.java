@@ -25,5 +25,5 @@ public class IngressoService {
 	      model.addAttribute("listaIng", this.ingressoDAO.findById(id));
 			return "/configurarIngresso";
 		}
-	
+
 }

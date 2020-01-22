@@ -21,16 +21,7 @@ public class EventoService {
 	@Autowired
 	private EventoDAO eventoDAO;
 	
-	
 
-	/*public void salvarEvento(Evento evento)throws ServiceException, MessagingException{
-		if (this.findEventoByNome(evento.getNomeEvento()) != null) {
-			throw new ServiceException("Já existe um evento com este evento: " + evento.getNomeEvento());
-		}
-		evento.setStatus(true);
-		this.eventoDAO.save(evento);
-	}*/
-	
 	public void salvarEvento(Evento evento)throws ServiceException, MessagingException{
 		evento.setStatus(true);
 		this.eventoDAO.save(evento);
@@ -79,5 +70,6 @@ public class EventoService {
 //			this.eventoDAO.save(evento);		
 //		}
 //	}
+
 
 }

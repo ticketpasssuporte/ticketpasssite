@@ -10,7 +10,7 @@ public class IndexController {
 	
 	
 	
-		
+	
 	@GetMapping("/quemSomos")
 	public String quemSomos() {
 		return "quemSomos";
@@ -60,5 +60,6 @@ public class IndexController {
 	public String carrinho() {
 		return "carrinho";
 	}
+
 
 }

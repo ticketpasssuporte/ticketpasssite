@@ -28,9 +28,11 @@ public class IngressoController {
 	@PostMapping("/salvarIngresso")
 	public String salvarIngresso(Ingresso ingresso) {
 		this.ingressoDAO.save(ingresso);
-		return "redirect:/listarEventos";
+		return "redirect:/listarMeusEventos";
 	
 	}
+
+	
 	
 	@GetMapping("editarIngresso")
 	public String editarIngresso(Integer id, Model model) {
@@ -38,4 +40,11 @@ public class IngressoController {
 
 		return "/configurarIngresso";
 	}
+	
+	@GetMapping("/removerIngresso")
+	public String removerIngresso(Integer id) {
+		this.ingressoDAO.deleteById(id);
+		return "redirect:/listarMeusEventos";
+	}
+
 }

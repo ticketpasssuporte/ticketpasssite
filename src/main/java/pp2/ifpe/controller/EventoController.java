@@ -44,12 +44,13 @@ public class EventoController {
 	
 		
 	
+
 	@GetMapping("/evento") 
 	public String cadastraEvento(Evento evento) {
 		return"/criarEvento";
 	}
 		
-		//Metodo para fazer upload da imagem do evento adicionado na hora de salvar, o nome da imagem é salva com o id do evento
+		//Metodo para fazer upload da imagem do evento adicionado na hora de salvar, o nome da imagem Ã© salva com o id do evento
 	@PostMapping("/salvarEvento")
 	public String salvarEvento(@Valid Evento evento, BindingResult result, HttpSession session, RedirectAttributes redirectAttributes, @RequestParam("file") MultipartFile arquivo) {
 		
@@ -89,8 +90,14 @@ public class EventoController {
 	@GetMapping("/home")
 	public String listarEvento(Model model) {
 		model.addAttribute("lista",eventoDAO.findAll());
-		//model.addAttribute("listaIng",ingressoDAO.findAll(Sort.by("quantidade")));
 		return "/home";
+	}
+	
+	@GetMapping("/listarMeusEventos")
+	public String listarMeusEventos (Model model) {
+		model.addAttribute("lista",eventoDAO.findAll());
+		model.addAttribute("listaIng",ingressoDAO.findAll());
+		return "/listarEventos";
 	}
 	
 	@GetMapping("editarEvento")
@@ -113,6 +120,8 @@ public class EventoController {
 	    modelAndView.addObject("eventoobj", new Evento());
 	    return modelAndView;
     }
+    
+    
 //	
 //	
 //	@GetMapping("/removerEvento")
@@ -121,5 +130,6 @@ public class EventoController {
 //		return"/";
 //	}
 //	
+
 
 }

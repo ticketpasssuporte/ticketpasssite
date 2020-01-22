@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class Evento {
+	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@NotNull
@@ -30,8 +31,7 @@ public class Evento {
 	private String categoria;
 	@ManyToOne
 	private Usuario usuario;
-	@ManyToOne
-	private Ingresso ingresso;
+	
 
 		
 	private String fotoevento; 
@@ -122,15 +122,6 @@ public class Evento {
 	}
 
 
-	public Ingresso getIngresso() {
-		return ingresso;
-	}
-
-
-	public void setIngresso(Ingresso ingresso) {
-		this.ingresso = ingresso;
-	}
-
 
 	public Usuario getUsuario() {
 		return usuario;
@@ -160,13 +151,12 @@ public class Evento {
 	public String toString() {
 		return "Evento [id=" + id + ", nomeEvento=" + nomeEvento + ", status=" + status + ", endereco=" + endereco
 				+ ", desc_evento=" + desc_evento + ", nomeOrganizador=" + nomeOrganizador + ", desc_org=" + desc_org
-				+ ", categoria=" + categoria + ", usuario=" + usuario + ", ingresso=" + ingresso + ", fotoevento="
-				+ fotoevento + "]";
+				+ ", categoria=" + categoria + ", usuario=" + usuario + ", fotoevento=" + fotoevento + "]";
 	}
 
 
 	public Evento(Integer id, @NotNull String nomeEvento, Boolean status, String endereco, String desc_evento,
-			String nomeOrganizador, String desc_org, String categoria, Usuario usuario, Ingresso ingresso,
+			String nomeOrganizador, String desc_org, String categoria, Usuario usuario,
 			String fotoevento) {
 		super();
 		this.id = id;
@@ -178,7 +168,6 @@ public class Evento {
 		this.desc_org = desc_org;
 		this.categoria = categoria;
 		this.usuario = usuario;
-		this.ingresso = ingresso;
 		this.fotoevento = fotoevento;
 
 	}
@@ -199,6 +188,8 @@ public class Evento {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}*/
+
+
 
 	
 	
