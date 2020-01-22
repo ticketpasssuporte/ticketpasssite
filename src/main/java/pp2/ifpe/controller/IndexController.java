@@ -19,11 +19,6 @@ public class IndexController {
 		return "page15";
 	}
 	
-	
-	@GetMapping("/home")
-	public String home() {
-		return "home";
-	}
 
 	
 	@GetMapping("/quemSomos")

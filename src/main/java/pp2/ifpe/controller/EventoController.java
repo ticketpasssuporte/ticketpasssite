@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -81,11 +80,11 @@ public class EventoController {
 	
 	
 	
-	@GetMapping("/listarEventos")
-	public String listarEvento(Model model,Integer id) {
-		model.addAttribute("lista",eventoDAO.findAll(Sort.by("nomeEvento")));
+	@GetMapping("/home")
+	public String listarEvento(Model model) {
+		model.addAttribute("lista",eventoDAO.findAll());
 		//model.addAttribute("listaIng",ingressoDAO.findAll(Sort.by("quantidade")));
-		return "/listarEventos";
+		return "/home";
 	}
 	
 	@GetMapping("editarEvento")
