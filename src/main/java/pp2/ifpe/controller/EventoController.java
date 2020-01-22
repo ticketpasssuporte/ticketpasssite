@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pp2.ifpe.model.Evento;
@@ -75,10 +76,15 @@ public class EventoController {
 			
 	}	
 		
-		return "redirect:/listarEventos";	
+		return "redirect:/home";	
 	}
 	
-	
+	@GetMapping("/")
+	public String listarEventoIndex(Model model) {
+		model.addAttribute("lista",eventoDAO.findAll());
+		//model.addAttribute("listaIng",ingressoDAO.findAll(Sort.by("quantidade")));
+		return "/index";
+	}
 	
 	@GetMapping("/home")
 	public String listarEvento(Model model) {
@@ -100,7 +106,13 @@ public class EventoController {
 		return "redirect:/listarEventos";
 	}
 	
-	
+    @PostMapping("/pesquisar")
+	public ModelAndView pesquisar(@RequestParam("nomePesquisa") String nomePesquisa) {
+		ModelAndView modelAndView = new ModelAndView("index");
+		modelAndView.addObject("lista", eventoDAO.findEventoByNome(nomePesquisa));
+	    modelAndView.addObject("eventoobj", new Evento());
+	    return modelAndView;
+    }
 //	
 //	
 //	@GetMapping("/removerEvento")

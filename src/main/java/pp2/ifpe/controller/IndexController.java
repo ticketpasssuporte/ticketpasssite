@@ -7,20 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class IndexController {
 		
-	@GetMapping("/index")
-	public String index() {
-		return "index";
-	}
 	
 	
-	@GetMapping("/pag")
-	public String pag() {
+	
 		
-		return "page15";
-	}
-	
-
-	
 	@GetMapping("/quemSomos")
 	public String quemSomos() {
 		return "quemSomos";

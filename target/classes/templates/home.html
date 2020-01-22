@@ -30,8 +30,27 @@
 </head>
 <body>
   
+ <!-- search box -->
+<div class="main">
+  
+  <!-- Actual search box -->
+  <div class="form-group has-search">
+    <span class="fa fa-search form-control-feedback"></span>
+    <input type="text" class="form-control" placeholder="Search">
+  </div>
+  
+  <!-- Another variation with a button -->
+  <form method="post" th:action="@{/pesquisar}">
+  <div class="input-group">
+    <input type="search"  name="nomePesquisa"class="form-control" placeholder="Pesquisar evento" style="background-color:white;">
+    <div class="input-group-append">
+      <button type="button" class="btn btn-primary btn-sm">Pesquisar</button>
+    </div>
+  </div>
+  </form>  
+</div> 
+  
 <div th:replace="header :: navBar"></div>
-
 <section class="engine"><a href="https://mobirise.info/s">free bootstrap themes</a></section><section class="carousel slide cid-rHuohw46dW" data-interval="false" id="slider1-v">
 
     
@@ -103,7 +122,7 @@
 
 	<div class="media-container-row mx-md-n6">
 	
-    	<div class="inner">
+    	<div class="inner" >
     		<ul>
         		<img src="cssPaginasSoltas/imgHome/miniatura1.jpeg" height="120" width="130" alt="Festas e shows" class="img-circle" style="border-radius: 50%;"><p style="font-family: 'Questrial', sans-serif; font-size: 15px;" ><span style="margin-left: 10%"><strong class="acessibilidade">Festas e shows</strong></span>
     		</ul>
@@ -163,7 +182,9 @@
                 <div class="card-wrapper" >
                     <div class="card-img">
                     <h1 class="d-md-none d-block"></h1>
+                    <a href="/pagEvento">
                         <img th:src="@{/mostrarImagemEvento/{imagem}(imagem=${evt.fotoevento})}" alt="Mobirise" title="">
+                    </a>
                     </div>
                     <div class="card-box">
                         <h4 class="card-title pb-1 mt-3 mbr-fonts-style display-7"><strong class="acessibilidade" th:text="${evt.nomeEvento}"></strong></h4>

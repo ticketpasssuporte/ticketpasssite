@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns= "http://www.w3.org/1999/xhtml"
+   xmlns:th= "http://www.thymeleaf.org">
 <head>
   <!-- Site made with Mobirise Website Builder v4.11.4, https://mobirise.com -->
   <meta charset="UTF-8">
@@ -71,12 +72,14 @@
   </div>
   
   <!-- Another variation with a button -->
+  <form method="post" th:action="@{/pesquisar}">
   <div class="input-group">
-    <input type="text" class="form-control" placeholder="Pesquisar evento" style="background-color:white;">
+    <input type="search"  name="nomePesquisa"class="form-control" placeholder="Pesquisar evento" style="background-color:white;">
     <div class="input-group-append">
       <button type="button" class="btn btn-primary btn-sm">Pesquisar</button>
     </div>
-  </div>  
+  </div>
+  </form>  
 </div>
 
 <section class="engine"><a href="https://mobirise.info/s">free bootstrap themes</a></section><section class="carousel slide cid-rHuohw46dW" data-interval="false" id="slider1-v">
@@ -206,20 +209,26 @@
 
     
     <div class="container">
-        <div class="media-container-row">
-            <div class="card p-3 col-12 col-md-6 col-lg-3">
-                <div class="card-wrapper">
+        <div class="media-container-row" >
+            <div  th:each="evt : ${lista}" class="card p-3 col-12 col-md-6 col-lg-3">
+                <div class="card-wrapper" >
                     <div class="card-img">
-                        <img src="cssPaginasSoltas/imgHome/festVerao.jpeg" alt="Mobirise" title="">
+                    <h1 class="d-md-none d-block"></h1>
+                    <a href="/pagEvento">
+                        <img th:src="@{/mostrarImagemEvento/{imagem}(imagem=${evt.fotoevento})}" alt="Mobirise" title="">
+                    </a>
                     </div>
                     <div class="card-box">
-                        <h4 class="card-title pb-1 mt-3 mbr-fonts-style display-7"><strong class="acessibilidade">Fest Verão Paraíba - 2020</strong></h4>
-                        <p class="mbr-text mbr-fonts-style display-7">Cabedelo - PB</p>
+                        <h4 class="card-title pb-1 mt-3 mbr-fonts-style display-7"><strong class="acessibilidade" th:text="${evt.nomeEvento}"></strong></h4>
+                        <p class="mbr-text mbr-fonts-style display-7" th:text="${evt.endereco}"></p>
                     </div>
                 </div>
             </div>
+          </div>
+       </div>
+       
 
-            <div class="card p-3 col-12 col-md-6 col-lg-3">
+           <!-- <div class="card p-3 col-12 col-md-6 col-lg-3">
                 <div class="card-wrapper">
                     <div class="card-img">
                         <img src="cssPaginasSoltas/imgHome/carnatal.jpeg" alt="Mobirise" title="">
@@ -313,7 +322,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 <section class="cid-rHui50L0v8" id="footer1-s">

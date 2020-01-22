@@ -118,7 +118,7 @@ public class UsuarioController {
 		@RequestMapping("/sair")
 		public String sair(HttpSession session) {
 			session.invalidate();
-			return "redirect:/index";
+			return "redirect:/";
 		}
 	
 	
