@@ -137,6 +137,10 @@ public class UsuarioController {
 		return "/confirmouConta";
 	}
 
+	@GetMapping("faq")
+	public String faq() {
+		return "/faq";
+	}
 	// Ativar conta no bd
 	@GetMapping("/ativarConta")
 	public String ativarConta(@RequestParam(name = "token", required = false) String token, RedirectAttributes ra) {

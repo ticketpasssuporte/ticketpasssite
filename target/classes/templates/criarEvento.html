@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="assets/images/pass-485x80.png" type="image/x-icon">
   <meta name="description" content="Nesta página o usuário deverá inserir o código enviado para o seu e-mail, e ativar sua conta.">
-
+	<div th:replace="header :: headerBlock"></div>
 <!-- ajax -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
@@ -36,7 +36,7 @@
 
 </head>
 <body>
-
+<!--  
  <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-w">
 
     
@@ -74,6 +74,7 @@
     <input name="animation" type="hidden">
 <!--Inicio do formulário-->
 
+<div th:replace="header :: navBar"></div>
 <section class="mbr-section form1 cid-rHENz2I6PJ" id="form1-10" style="background-color: #CCCCCC; font-family: 'Questrial', sans-serif;">
 <div class="container">
 <form th:action="@{/salvarEvento}" th:object="${evento}" enctype="multipart/form-data" id="formEvento" method="post" >

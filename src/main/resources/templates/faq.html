@@ -13,7 +13,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 
-<!-- *** -->
+<!-- ******* -->
 
   <title>TicketPass</title>
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -30,148 +30,107 @@
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
 
   <!-- jQuery -->
-  
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+ 		
+
 <div th:replace="header :: headerBlock"></div>
 
 </head>
 <body>
-<!-- 
- <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-w">
 
-    
-
-    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </button>
-        <div class="menu-logo">
-            <div class="navbar-brand">
-                <span class="navbar-logo">
-                    <a href="index.html">
-                         <img src="assets/images/pass-485x80.png" alt="Mobirise" title="" style="height: 3.8rem;">
-                    </a>
-                </span>
-                
-            </div>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
-                    <a class="nav-link link text-white display-7" href="https://mobirise.com">
-                        </a>
-                </li>
-                <li class="nav-item"><a class="nav-link link text-white display-7" href="/login" aria-expanded="false">Meus Eventos</a></li></ul>
-        </div>
-    </nav>
-</section>
-
+<div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
+    <input name="animation" type="hidden">
 <!--Inicio do formulário-->
+
 <div th:replace="header :: navBar"></div>
+
+
 <section class="mbr-section form1 cid-rHENz2I6PJ" id="form1-10" style="background-color: #CCCCCC; font-family: 'Questrial', sans-serif;">
+<div class="container">
+
+<div class="container">
+<div class="form-group">
+	<h3 style="margin-left: 0%">
+		<strong>PERGUNTAS FREQUENTES</strong>
+	</h3>
+	<br>
+   
+</div>
+</div>
+
+<div class="container">
+<div class="form-group">
+  <h3 style="margin-left: 0%">
+  	<strong>1 - O que é o TicketPass?</strong>
+  </h3>
+  <p  style="margin-left: 0%">é um site para compra e venda de ingressos que facilita a vida de muita gente que não tem tempo, além de poder publicar eventos</p>
+  <br>
+</div>
+
+
+<div class="container">
+  <div class="form-group">
+  <h3 style="margin-left: 0%">
+  	<strong> 2 - Quem pode publicar eventos?</strong>
+  </h3>
+    <p  style="margin-left: 0%">Pessoas que trabalhem com eventos como produtores entre outros e pessoas que trabalhem com eventos beneficiente</p>
+   <!-- <textarea class="form-control"  rows="10" name="desc_evento" id="desc_evento" th:field="*{desc_evento}" required></textarea>-->
+</div>
+</div>
+
+
+<div class="container">
+<div class="form-group">
+	<h3 style="margin-left: 0%">
+    <strong>3 - Perdi meu ingresso, como faço para acessar o evento? </strong>
+  </h3>
+  <p  style="margin-left: 0%">Não terá problemas, pois assim que o pagamento for efetuado você receberá o ingresso no seu email, podendo imprimir ele a qualquer momento.</p>
 	
-	
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-           <p  th:text="#{evento.nomeEvento}"> 
-          
-           </p>
-        </div>
-	
-	
-	<div class="container col-12 col-md-10 col-md-offset-12">
-		<table class="table table-striped table-bordered table-sm">
-			<thead class="table-success">
-				<tr>
-      				<th scope="col" style="text-align:center;">Status do lote</th>
-      				<th scope="col" style="text-align:center;">Lote</th>
-      				<th scope="col" style="text-align:center;">Quantidade de ingressos</th>
-      				<th scope="col" style="text-align:center;">Valor do ingresso</th>
-      				<th scope="col" style="text-align:center;">Tipo do ingresso</th>
-    			</tr>
-  			</thead>
-  			
-  			<tbody>
-				
-			     <tr>
-      				<th scope="row" style="width: 15%;">
-      					<form>
-  							<div class="custom-control custom-switch" style="text-align:center;">
-    							<input type="checkbox" class="custom-control-input" id="switch2">
-    							<label class="custom-control-label" for="switch2"></label>
- 			 				</div>
- 			 			</form>
-      				</th>
-      			<!--	<td style="text-align:center;">1° Lote</td>
-      				<td><input type="number" id="qtd" name="qtd" class="qtd form-control" style="display:inline-block" placeholder="Ex: 150"></td>
-      				<td><input type="text" id="dinheiro" name="dinheiro" class="dinheiro form-control" style="display:inline-block" placeholder="Ex: R$ 100,00" /></td>
-      				<td style="text-align:center;">Meia</td>
-    			</tr>
-    			<tr>
-      				<th scope="row" >
-      					<form>
-  							<div class="custom-control custom-switch" style="text-align:center;">
-    							<input type="checkbox" class="custom-control-input" id="switch3">
-    							<label class="custom-control-label" for="switch3"></label>
- 			 				</div>
- 			 			</form>
-      				</th>
-      				<td style="text-align:center;">2° Lote</td>
-      				<td><input type="number" id="qtd" name="qtd" class="qtd form-control" style="display:inline-block" placeholder="Ex: 150"></td>
-      				<td><input type="text" id="dinheiro" name="dinheiro" class="dinheiro form-control" style="display:inline-block"placeholder="Ex: R$ 100,00" /></td>
-      				<td style="text-align:center;">Inteira</td>
-    			</tr>
-    			<tr>
-    				<th scope="row" style="width: 20%;">
-    					<form>
-  							<div class="custom-control custom-switch" style="text-align:center;">
-    							<input type="checkbox" class="custom-control-input" id="switch4">
-    							<label class="custom-control-label" for="switch4"></label>
- 			 				</div>
- 			 			</form>
- 			 		
-    				</th>
-      				<td style="text-align:center;">2° Lote</td>
-      				<td><input type="number" id="qtd" name="qtd" class="qtd form-control" style="display:inline-block" placeholder="Ex: 150"></td>
-      				<td><input type="text" id="dinheiro" name="dinheiro" class="dinheiro form-control" style="display:inline-block" placeholder="Ex: R$ 100,00" /></td>
-      				<td style="text-align:center;">Meia</td>
-    			</tr>
-    			<tr>
-    				<th scope="row" style="width: 20%;">
-    					<form>
-  							<div class="custom-control custom-switch" style="text-align:center;">
-    							<input type="checkbox" class="custom-control-input" id="switch4">
-    							<label class="custom-control-label" for="switch4"></label>
- 			 				</div>
- 			 			</form>
- 			 		
-    				</th>-->
-  		
-			   
-				<form  th:action="@{/salvarIngresso}" th:object="${ingresso}"  method="post" >
-      				<input type="hidden" th:field="*{id}">     				
-      				<td style="text-align:center;">1° Lote</td>
-      				<td><input type="number" id="qtd" name="qtd" class="qtd form-control" style="display:inline-block" placeholder="Ex: 150" th:field="*{quantidade}"></td>
-      				<td><input type="text" id="dinheiro" name="dinheiro" class="dinheiro form-control" style="display:inline-block" placeholder="Ex: 100" th:field="*{valor}" /></td>
-      				<td style="text-align:center;">Inteira</td> 
-      		   
-    			 </tr>
-    			</tbody>
-    			</table>
-    			
-		<hr />
-		<button class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Cadastrar Ingresso</button>
-	
-	</form>
-	</div>
-	
+</div>
+</div>
+
+<div class="container">
+<div class="form-group">
+	<h3 style="margin-left: 0%">
+    <strong> 4 - Preciso criar um evento, porém não quero que esse evento seja pago, posso fazer isso? </strong>
+  </h3>
+  <p  style="margin-left: 0%">Poderá sim, na hora que estiver criando o evento, só selecionar a opção de evento gratuito.</p>
+  
+</div>   
+</div>
+
+
+<div class="container">
+  <div class="form-group">
+  <h3 style="margin-left: 0%">
+    <strong> 5 - Posso comprar e criar eventos usando a mesma conta de email??</strong>
+  </h3>
+    <p  style="margin-left: 0%">Sim, está disponivel tanto a publicação quanto a compra de algum ingresso.</p>
+   
+</div>
+</div>
+
+
+<div class="container">
+  <div class="form-group">
+  <h3 style="margin-left: 0%">
+    <strong> Ainda tem duvidas ou problemas? Entre em contato com a gente. Só deixar sua mensagem abaixo!</strong>
+  </h3>
+    <label>Email:</label>
+  <input type="email" name="nomeOrganizador"  id="nomeOrganizador" class="form-control"  required style="width: 50%">
+  <br>
+  <label>Assunto:</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" name="desc_org" rows="5"  required></textarea><br>
+   
+</div>
+</div>
+
+
+<button type="submit" class="btn btn-primary btn-sm" >Enviar</button>
+</div>
+</form>
+</div>
+
 </section>
-    			
-		
 
 <!-- Footer -->
 <section class="cid-rHERilnReB" id="footer1-16">
@@ -252,7 +211,7 @@
     </div>
 </section>
 
-<!-- JS -->
+
   <script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/popper/popper.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
@@ -263,11 +222,15 @@
   <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
   <script src="assets/smoothscroll/smooth-scroll.js"></script>
   <script src="assets/theme/js/script.js"></script>
-  <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
-  <script type="text/javascript" src="js/validacao.js"></script>
-  <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
-  <script> $('.dinheiro').mask('#.##0,00', {reverse: true}); </script>           
-		 
+  <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
+  <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="./js/localization/messages_pt_BR.js"></script>
+  <script type="text/javascript" src="./js/validacao.js"></script>
+  <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
+  
+    
+  
   <input name="animation" type="hidden">
   </body>
 </html>
