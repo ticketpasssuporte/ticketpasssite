@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import pp2.ifpe.model.Ingresso;
 import pp2.ifpe.persistence.EventoDAO;
@@ -21,7 +22,8 @@ public class IngressoController {
 	private EventoDAO eventoDAO;
 	
 	@GetMapping("/ingresso") 
-	public String configurarIngresso(Ingresso ingresso){
+	public String configurarIngresso(Model model,Ingresso ingresso, @RequestParam("id") Integer idevento){
+		model.addAttribute("evento",eventoDAO.findById(idevento));
 		return"/configurarIngresso";
 	}
 	

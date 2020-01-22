@@ -107,15 +107,18 @@
 					<!--<th scope="col">id</th>-->
       				<th scope="col">Nome do evento</th>
       				<th scope="col">Alterar ou Remover</th>
+      				<th scope="col">Adicionar Ingresso</th>
       				
     			</tr>
   			</thead> 
-		  <tr th:each="evt : ${lista}" >
+		  <tr th:each="evt : ${lista}">
 	
 			<td><img th:src="@{/mostrarImagemEvento/{imagem}(imagem=${evt.fotoevento})}" width="70"/></td>
 				<td th:text="${evt.nomeEvento}"></td>
 				<td><a th:href="@{/editarEvento(id=${evt.id})}">Editar</a>&nbsp;&nbsp;
 					<a th:href="@{/removerIngresso(id=${evt.id})}">Remover</a></td>
+					<td><a th:href="@{/ingresso(id=${evt.id})}">Adicionar Ingresso</a>&nbsp;&nbsp;
+					</td>
 					
 				
 					
