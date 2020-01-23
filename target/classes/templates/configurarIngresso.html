@@ -83,13 +83,14 @@
         </div>
 	
 	
-	<div class="container col-12 col-md-10 col-md-offset-12">
+	<div class="container col-md-auto">
 		<table class="table table-striped table-bordered table-sm">
 			<thead class="table-success">
 				<tr>
       				<th scope="col" style="text-align:center;">Status do lote</th>
       				<th scope="col" style="text-align:center;">Lote</th>
-      				<th scope="col" style="text-align:center;">Quantidade de ingressos</th>
+      				<th scope="col" style="text-align:center;">Nome do ingresso</th>
+      				<!-- <th scope="col" style="text-align:center;">Quantidade</th> -->
       				<th scope="col" style="text-align:center;">Valor do ingresso</th>
       				<th scope="col" style="text-align:center;">Tipo do ingresso</th>
     			</tr>
@@ -154,18 +155,30 @@
 			   
 				<form  th:action="@{/salvarIngresso}" th:object="${ingresso}"  method="post" >
       				<input type="hidden" th:field="*{id}">     				
-      				<td style="text-align:center;">1° Lote</td>
-      				<td><input type="number" id="qtd" name="qtd" class="qtd form-control" style="display:inline-block" placeholder="Ex: 150" th:field="*{quantidade}"></td>
-      				<td><input type="text" id="dinheiro" name="dinheiro" class="dinheiro form-control" style="display:inline-block" placeholder="Ex: 100" th:field="*{valor}" /></td>
-      				<td style="text-align:center;">Inteira</td> 
-      		   
+      				<td style="text-align:center;">
+      				<div class="form-group">
+					  <select class="form-control" id="sel1">
+					    <option>1</option>
+					    <option>2</option>
+					    <option>3</option>
+					  </select>
+					</div></td>
+					<td><input type="text" id="eventoNome" name="eventoNome" class="form-control" style="display:inline-block"></td>
+      				<!-- <td><input type="number" id="qtd" name="qtd" class="qtd form-control" style="display:inline-block" placeholder="Ex: 150" th:field="*{quantidade}"></td> -->
+      				<td><input type="text" id="dinheiro" name="dinheiro" class="dinheiro form-control" style="display:inline-block" placeholder="Ex:R$ 100" th:field="*{valor}" /></td>
+      				<td style="text-align:center;"><div class="form-group">
+					  <select class="form-control" id="sel1">
+					    <option>Inteira</option>
+					    <option>Meia</option>
+					  </select>
+					</div></td> 
     			 </tr>
     			</tbody>
     			</table>
     			
 		<hr />
+		<a class="btn btn-primary btn-sm active" href="/listarMeusEventos" role="button" aria-pressed="true">Voltar</a>
 		<button class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Cadastrar Ingresso</button>
-	
 	</form>
 	</div>
 	

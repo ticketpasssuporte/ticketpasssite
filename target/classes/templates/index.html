@@ -62,25 +62,6 @@
     </nav>
 </section>
 
-<!-- search box -->
-<div class="main">
-  
-  <!-- Actual search box -->
-  <div class="form-group has-search">
-    <span class="fa fa-search form-control-feedback"></span>
-    <input type="text" class="form-control" placeholder="Search">
-  </div>
-  
-  <!-- Another variation with a button -->
-  <form method="post" th:action="@{/pesquisar}">
-  <div class="input-group">
-    <input type="search"  name="nomePesquisa"class="form-control" placeholder="Pesquisar evento" style="background-color:white;">
-    <div class="input-group-append">
-      <button type="button" class="btn btn-primary btn-sm">Pesquisar</button>
-    </div>
-  </div>
-  </form>  
-</div>
 
 <section class="engine"><a href="https://mobirise.info/s">free bootstrap themes</a></section><section class="carousel slide cid-rHuohw46dW" data-interval="false" id="slider1-v">
 
@@ -133,10 +114,26 @@
     <span aria-hidden="true" class="mbri-right mbr-iconfont"></span>
     <span class="sr-only">Next</span></a></div></div>
 
-
 </section>
+<br><br>
 
+<!-- search box -->
+<div class="col-md-10" style="margin-left:7.5%;">
+<div class="main">
+  
+  <!-- Another variation with a button -->
+  <form method="post" th:action="@{/pesquisar}">
+  <div class="input-group">
+    <input type="search"  name="nomePesquisa"class="form-control" placeholder="Pesquisar evento" style="background-color:white;">
+    <div class="input-group-append">
+      <button type="button" class="btn btn-primary btn-sm">Pesquisar</button>
+    </div>
+  </div>
+  </form>  
+</div>
+</div>
 
+<!--  
 <section class="mbr-section content4 cid-rHulWTdZPj" id="content4-u">
     <div class="container">
         <div class="media-container-row mx-md-n3">
@@ -193,7 +190,7 @@
     	
 	</div>
 </div>
-
+-->
 
 
 

@@ -117,7 +117,7 @@
 			<td><img th:src="@{/mostrarImagemEvento/{imagem}(imagem=${evt.fotoevento})}" width="70"/></td>
 				<td th:text="${evt.nomeEvento}"></td>
 				<td><a th:href="@{/editarEvento(id=${evt.id})}">Editar</a>&nbsp;&nbsp;
-					<a th:href="@{/removerIngresso(id=${evt.id})}">Remover</a></td>
+					<a th:href="@{/removerEvento(id=${evt.id})}">Remover</a></td>
 					<td><a th:href="@{/ingresso(id=${evt.id})}">Adicionar Ingresso</a>&nbsp;&nbsp;
 					</td>
 					
@@ -133,15 +133,14 @@
   			</thead>
 			<tr th:each="ing : ${listaIng}">
 				<td th:text="${ing.quantidade}"></td>
-					<td th:text="${ing.valor}"></td>
+				<td th:text="${ing.valor}"></td>
 				<td><a th:href="@{/editarIngresso(id=${ing.id})}">Editar</a>&nbsp;&nbsp;
-					<a th:href="@{/removerIngresso(id=${ing.id})}">Remover</a></td>
-					
+					<a th:href="@{/removerIngresso(id=${ing.id})}">Remover</a></td>	
 			</tr>
 		</table>
 		<hr />
-		<a href="/evento" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Cadastrar Evento</a>
-	    <a href="/ingresso" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Cadastrar Ingresso</a>
+		<a href="/home" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Voltar</a>
+		<a href="/evento" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Cadastrar Evento</a> 
 	</div>
 </section>
 
