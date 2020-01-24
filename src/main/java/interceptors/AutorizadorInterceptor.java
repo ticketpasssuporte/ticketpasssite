@@ -8,14 +8,14 @@ public class AutorizadorInterceptor implements HandlerInterceptor {
 
     private final boolean CONTROLAR_ACESSO = true;
 	
-	private final String PAGINA_ACESSO_NEGADO = "/acesso-negado";
+	//private final String PAGINA_ACESSO_NEGADO = "/acesso-negado";
 	
-	private final String[] PAGINAS_ESTATICAS = {"/css/", "/js/", "/img/", "/fonts/", "/util/"};
-	private final String[] PAGINAS_DESLOGADO = {"/", "/cadastrar", "/index","/login",
-												"/reenviar-link-ativacao", "/ativarConta", 
-												"/recuperar-senha", "/redefinirSenha"};
-	private final String[] PAGINAS_LOGADO = {"/home", "/configuracoes", "/sair", "/evento","/listarEventos","criarEvento", 
-											 PAGINA_ACESSO_NEGADO};
+	//private final String[] PAGINAS_ESTATICAS = {"/css/", "/js/", "/img/", "/fonts/", "/util/"};
+	//private final String[] PAGINAS_DESLOGADO = {"/", "/cadastrar", "/index","/login",
+												//"/reenviar-link-ativacao", "/ativarConta", 
+												//"/recuperar-senha", "/redefinirSenha"};
+	//private final String[] PAGINAS_LOGADO = {"/home", "/configuracoes", "/sair", "/evento","/listarEventos","criarEvento", 
+											 //PAGINA_ACESSO_NEGADO};
 	/*
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)

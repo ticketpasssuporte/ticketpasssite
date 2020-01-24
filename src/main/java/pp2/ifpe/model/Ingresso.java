@@ -1,13 +1,15 @@
 package pp2.ifpe.model;
 
 
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.validation.constraints.Min;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Ingresso {
@@ -15,18 +17,23 @@ public class Ingresso {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	//private boolean statusLote;
+	@NotNull
+	@Column(nullable = false)
+	private Boolean statusLote = false;
+	
+    @NotNull
+	private int lote;
+	
+    @NotNull
+	private String nomeIngresso;
+	
+    @NotNull
 	private String valor;
 	
-	//private String tipoIngresso;
+	private String tipoIngresso;
 	
-	@Min(value = 1)
-	private int quantidade;
-	
-	
-	@ManyToOne
-	@JoinColumn(name="id_evento")
-	private Evento evento;
+	@OneToMany
+	private List<Evento> evento;
 
 	public Integer getId() {
 		return id;
@@ -34,6 +41,14 @@ public class Ingresso {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Boolean getStatusLote() {
+		return statusLote;
+	}
+
+	public void setStatusLote(Boolean statusLote) {
+		this.statusLote = statusLote;
 	}
 
 	public String getValor() {
@@ -44,22 +59,39 @@ public class Ingresso {
 		this.valor = valor;
 	}
 
-	public int getQuantidade() {
-		return quantidade;
+	public int getLote() {
+		return lote;
 	}
 
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
+	public void setLote(int lote) {
+		this.lote = lote;
 	}
 
+	public String getNomeIngresso() {
+		return nomeIngresso;
+	}
 
-	public Evento getEvento() {
+	public void setNomeIngresso(String nomeIngresso) {
+		this.nomeIngresso = nomeIngresso;
+	}
+
+	public String getTipoIngresso() {
+		return tipoIngresso;
+	}
+
+	public void setTipoIngresso(String tipoIngresso) {
+		this.tipoIngresso = tipoIngresso;
+	}
+
+	public List<Evento> getEvento() {
 		return evento;
 	}
 
-	public void setEvento(Evento evento) {
+	public void setEvento(List<Evento> evento) {
 		this.evento = evento;
 	}
+
+	
 	
 
 }

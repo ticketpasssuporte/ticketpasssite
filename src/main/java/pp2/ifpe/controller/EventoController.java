@@ -83,7 +83,6 @@ public class EventoController {
 	@GetMapping("/")
 	public String listarEventoIndex(Model model) {
 		model.addAttribute("lista",eventoDAO.findAll());
-		//model.addAttribute("listaIng",ingressoDAO.findAll(Sort.by("quantidade")));
 		return "/index";
 	}
 	
@@ -92,6 +91,8 @@ public class EventoController {
 		model.addAttribute("lista",eventoDAO.findAll());
 		return "/home";
 	}
+	
+	
 	
 	@GetMapping("/listarMeusEventos")
 	public String listarMeusEventos (Model model) {
@@ -110,16 +111,17 @@ public class EventoController {
 	@GetMapping("/removerEvento")
 	public String removerEvento(Integer id) {
 		this.eventoDAO.deleteById(id);
-		return "redirect:/listarEventos";
+		return "redirect:/listarMeusEventos";
 	}
 	
     @PostMapping("/pesquisar")
 	public ModelAndView pesquisar(@RequestParam("nomePesquisa") String nomePesquisa) {
-		ModelAndView modelAndView = new ModelAndView("index");
+		ModelAndView modelAndView = new ModelAndView("/home");
 		modelAndView.addObject("lista", eventoDAO.findEventoByNome(nomePesquisa));
 	    modelAndView.addObject("eventoobj", new Evento());
 	    return modelAndView;
     }
+    
     
     
 //	

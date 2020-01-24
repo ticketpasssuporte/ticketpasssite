@@ -101,7 +101,7 @@
 </div>
 </div>
 
-<!-- 
+
 <section class="mbr-section content4 cid-rHulWTdZPj" id="content4-u">
     <div class="container">
         <div class="media-container-row mx-md-n3">
@@ -116,12 +116,13 @@
 
 <div class = "container col-lg-12 col-md-12 col-sm-12">
 
-	<div class="media-container-row mx-md-n6">
+	<div class="media-container-row mx-md-n6" >
 	
-    	<div class="inner" >
+    	<div class="inner">
     		<ul>
-        		<img src="cssPaginasSoltas/imgHome/miniatura1.jpeg" height="120" width="130" alt="Festas e shows" class="img-circle" style="border-radius: 50%;"><p style="font-family: 'Questrial', sans-serif; font-size: 15px;" ><span style="margin-left: 10%"><strong class="acessibilidade">Festas e shows</strong></span>
+        		<img src="cssPaginasSoltas/imgHome/miniatura1.jpeg"  height="120" width="130" alt="Festas e shows" class="img-circle" style="border-radius: 50%;"><p style="font-family: 'Questrial', sans-serif; font-size: 15px;" ><span style="margin-left: 10%"><strong class="acessibilidade">Festas e shows</strong></span>
     		</ul>
+    		
 		</div>
      	<div class="inner">
      		<ul>
@@ -157,7 +158,7 @@
     	</div>
 	</div>
 </div>
- -->
+
 
 
 
@@ -178,9 +179,9 @@
                 <div class="card-wrapper" >
                     <div class="card-img">
                     <h1 class="d-md-none d-block"></h1>
-    --                <a href="/pagEvento">
+    --                <!--<a href="pagEvento?id=${evt.id}">-->
                         <img th:src="@{/mostrarImagemEvento/{imagem}(imagem=${evt.fotoevento})}" alt="Mobirise" title="">
-                    </a>
+                    
                     </div>
                     <div class="card-box">
                         <h4 class="card-title pb-1 mt-3 mbr-fonts-style display-7"><strong class="acessibilidade" th:text="${evt.nomeEvento}"></strong></h4>
