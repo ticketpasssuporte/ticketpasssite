@@ -118,9 +118,9 @@
 			<td><img th:src="@{/mostrarImagemEvento/{imagem}(imagem=${evt.fotoevento})}" width="70"/></td>
 				<td th:text="${evt.nomeEvento}"></td>
 				<td th:text="${evt.endereco}"></td>
-				<td><a th:href="@{/editarEvento(id=${evt.id})}">Editar</a>&nbsp;&nbsp;
-					<a th:href="@{/removerEvento(id=${evt.id})}">Remover</a></td>
-					<td><a th:href="@{/ingresso(id=${evt.id})}">Adicionar Ingresso</a>&nbsp;&nbsp;
+				<td><a th:href="@{/editarEvento(idEvento=${evt.idEvento})}">Editar</a>&nbsp;&nbsp;
+					<a th:href="@{/removerEvento(idEvento=${evt.idEvento})}">Remover</a></td>
+					<td><a th:href="@{/ingresso(idEvento=${evt.idEvento})}">Adicionar Ingresso</a>&nbsp;&nbsp;
 					</td>
 					
 				

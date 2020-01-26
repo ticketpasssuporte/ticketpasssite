@@ -22,8 +22,8 @@ public class IngressoController {
 	private EventoDAO eventoDAO;
 	
 	@GetMapping("/ingresso") 
-	public String configurarIngresso(Model model,Ingresso ingresso, @RequestParam("id") Integer idevento){
-		model.addAttribute("evento",eventoDAO.findById(idevento));
+	public String configurarIngresso(Model model,Ingresso ingresso, @RequestParam("id") Integer id){
+		model.addAttribute("evento",eventoDAO.findById(id));
 		return"/configurarIngresso";
 	}
 	

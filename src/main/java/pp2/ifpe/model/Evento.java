@@ -1,16 +1,21 @@
 package pp2.ifpe.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 
-
 @Entity
+@Table(name="evento")
 public class Evento {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,10 +37,22 @@ public class Evento {
 	@ManyToOne
 	private Usuario usuario;
 	
-
 		
+	@OneToMany(mappedBy = "evento")
+	//@JoinColumn(name="id_evento", referencedColumnName="id")
+	private List<Ingresso> ingresso;
+	
 	private String fotoevento; 
 	
+	
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getNomeOrganizador() {
 		return nomeOrganizador;
@@ -56,19 +73,6 @@ public class Evento {
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
-
-
-
-	public Integer getId() {
-		return id;
-	}
-
-
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
 
 
 	public String getNomeEvento() {
@@ -147,16 +151,21 @@ public class Evento {
 
 
 
-	@Override
-	public String toString() {
-		return "Evento [id=" + id + ", nomeEvento=" + nomeEvento + ", status=" + status + ", endereco=" + endereco
-				+ ", desc_evento=" + desc_evento + ", nomeOrganizador=" + nomeOrganizador + ", desc_org=" + desc_org
-				+ ", categoria=" + categoria + ", usuario=" + usuario + ", fotoevento=" + fotoevento + "]";
+	public List<Ingresso> getIngresso() {
+		return ingresso;
 	}
 
 
+	public void setIngresso(List<Ingresso> ingresso) {
+		this.ingresso = ingresso;
+	}
+
+	public Evento() {
+		
+	}
+	
 	public Evento(Integer id, @NotNull String nomeEvento, Boolean status, String endereco, String desc_evento,
-			String nomeOrganizador, String desc_org, String categoria, Usuario usuario,
+			String nomeOrganizador, String desc_org, String categoria, Usuario usuario, List<Ingresso> ingresso,
 			String fotoevento) {
 		super();
 		this.id = id;
@@ -168,30 +177,21 @@ public class Evento {
 		this.desc_org = desc_org;
 		this.categoria = categoria;
 		this.usuario = usuario;
+		this.ingresso = ingresso;
 		this.fotoevento = fotoevento;
-
 	}
-
-
-	public Evento() {
-		super();
-		// TODO Auto-generated constructor stub
+	
+	
+	@Override
+	public String toString() {
+		return "Evento [id=" + id + ", nomeEvento=" + nomeEvento + ", status=" + status + ", endereco="
+				+ endereco + ", desc_evento=" + desc_evento + ", nomeOrganizador=" + nomeOrganizador + ", desc_org="
+				+ desc_org + ", categoria=" + categoria + ", usuario=" + usuario + ", ingresso=" + ingresso
+				+ ", fotoevento=" + fotoevento + "]";
 	}
-
-
-/*	public Categoria getCategoria() {
-		return categoria;
-	}
-
-
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}*/
-
 
 
 	
-	
+
 
 }

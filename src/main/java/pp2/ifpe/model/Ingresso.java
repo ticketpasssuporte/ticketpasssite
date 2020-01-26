@@ -1,14 +1,14 @@
 package pp2.ifpe.model;
 
 
-import java.util.List;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -32,8 +32,11 @@ public class Ingresso {
 	
 	private String tipoIngresso;
 	
-	@OneToMany
-	private List<Evento> evento;
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="id_evento", referencedColumnName="id",nullable=false)
+	private Evento evento;
+	
 
 	public Integer getId() {
 		return id;
@@ -83,15 +86,13 @@ public class Ingresso {
 		this.tipoIngresso = tipoIngresso;
 	}
 
-	public List<Evento> getEvento() {
+	public Evento getEvento() {
 		return evento;
 	}
 
-	public void setEvento(List<Evento> evento) {
+	public void setEvento(Evento evento) {
 		this.evento = evento;
 	}
 
-	
-	
 
 }
