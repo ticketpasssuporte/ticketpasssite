@@ -1,5 +1,7 @@
 package pp2.ifpe.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -7,7 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import pp2.ifpe.model.Evento;
 import pp2.ifpe.model.Ingresso;
 import pp2.ifpe.persistence.EventoDAO;
 import pp2.ifpe.persistence.IngressoDAO;
@@ -21,14 +25,20 @@ public class IngressoController {
 	@Autowired
 	private EventoDAO eventoDAO;
 	
+	Integer idevento;
+	
 	@GetMapping("/ingresso") 
-	public String configurarIngresso(Model model,Ingresso ingresso, @RequestParam("id") Integer id){
-		model.addAttribute("evento",eventoDAO.findById(id));
-		return"/configurarIngresso";
+	public ModelAndView configurarIngresso(Ingresso ingresso, @RequestParam("id") Integer id){
+		ModelAndView mv= new ModelAndView("configurarIngresso");
+		this.idevento = id;
+		mv.addObject("evento",eventoDAO.findById(id));
+	    return mv;
 	}
 	
 	@PostMapping("/salvarIngresso")
 	public String salvarIngresso(Ingresso ingresso) {
+		Evento evento = eventoDAO.findByCodigo(idevento);
+		ingresso.setEvento(evento);
 		this.ingressoDAO.save(ingresso);
 		return "redirect:/listarMeusEventos";
 	

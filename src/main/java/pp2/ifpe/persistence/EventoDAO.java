@@ -30,7 +30,8 @@ public interface EventoDAO extends JpaRepository<Evento, Integer> {
 
 	
 //
-//	Evento findByNome(String nome);
+   @Query("select e from Evento e where e.id = ?1")
+   Evento findByCodigo(Integer id);
 //
 //	Evento findByStatus();
 //
