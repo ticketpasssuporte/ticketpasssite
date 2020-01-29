@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import pp2.ifpe.model.Categoria;
 import pp2.ifpe.model.Evento;
-import pp2.ifpe.model.Usuario;
 
 @Repository
 @Transactional
@@ -29,7 +28,7 @@ public interface EventoDAO extends JpaRepository<Evento, Integer> {
 	@Query(value = "SELECT * FROM evento u WHERE u.usuario_id = ?1", nativeQuery = true) 		 
 	List<Evento> findAllByUsuario(Integer id);
 	
-//
+
    @Query("select e from Evento e where e.id = ?1")
    Evento findByCodigo(Integer id);
    

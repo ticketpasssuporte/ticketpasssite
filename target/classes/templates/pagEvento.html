@@ -43,7 +43,7 @@
             <div class="navbar-brand">
                 <span class="navbar-logo">
                     <a href="/">
-                         <img src="assets/images/pass-485x80.png" alt="Mobirise" title="" style="height: 3.8rem;">
+                         <img th:if="${session.admLogado != null}" th:text="${session.admLogado.imagem}" src="assets/images/pass-485x80.png" alt="Mobirise" title="" style="height: 3.8rem;">
                     </a>
                 </span>
             </div>

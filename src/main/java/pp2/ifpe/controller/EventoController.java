@@ -79,8 +79,8 @@ public class EventoController {
 	}
 	
 	@GetMapping("/")
-	public String listarEventoIndex(Model model, Integer id) {
-		model.addAttribute("lista",eventoDAO.findAllByUsuario(id));
+	public String listarEventoIndex(Model model) {
+		model.addAttribute("lista",eventoDAO.findAll());
 		return "/index";
 	}
 	
@@ -99,6 +99,8 @@ public class EventoController {
 		model.addAttribute("lista",eventoDAO.findAllByUsuario(usuariologado.getId()));
 		return "/listarEventos";
 	}
+	
+	
 	
 	@GetMapping("editarEvento")
 	public String editarEvento(Integer id, Model model) {
