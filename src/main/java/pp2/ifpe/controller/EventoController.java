@@ -21,7 +21,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pp2.ifpe.model.Evento;
 import pp2.ifpe.persistence.EventoDAO;
 import pp2.ifpe.persistence.IngressoDAO;
-import pp2.ifpe.persistence.UsuarioDAO;
 import pp2.ifpe.service.EventoService;
 
 @Controller
@@ -36,8 +35,6 @@ public class EventoController {
 	@Autowired
 	private IngressoDAO ingressoDAO;
 	
-	@Autowired
-	private UsuarioDAO usuarioDAO;
 	
 	@Autowired
 	private EventoService eventoService;
@@ -103,16 +100,10 @@ public class EventoController {
 	
 	@GetMapping("editarEvento")
 	public String editarEvento(Integer id, Model model) {
-	model.addAttribute("evento", this.eventoDAO.findById(id));
-
+	model.addAttribute("evento", this.eventoService.findById(id));
 		return "/criarEvento";
 	}
 	
-	@GetMapping("/removerEvento")
-	public String removerEvento(Integer id) {
-		this.eventoDAO.deleteById(id);
-		return "redirect:/listarMeusEventos";
-	}
 	
     @PostMapping("/pesquisar")
 	public ModelAndView pesquisar(@RequestParam("nomePesquisa") String nomePesquisa) {

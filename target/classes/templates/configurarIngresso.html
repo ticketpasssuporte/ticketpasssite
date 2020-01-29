@@ -97,8 +97,7 @@
   			</thead>
 
 				<form  th:action="@{/salvarIngresso}" th:object="${ingresso}"  method="post" >
-      				
-      				
+      				<input type="hidden" th:field="*{id}">     				
       				<tbody>
       				 <tr>
       				<th scope="row" style="width: 15%;">
@@ -136,13 +135,38 @@
 		<button class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Cadastrar Ingresso</button>
 	
 	</form>
-	
 	</div>
 	
 </section>
-
-			
-		
+<!--Inicio do formulário-->
+<div th:replace="header :: navBar"></div>
+<section class="mbr-section form1 cid-rHENz2I6PJ" id="form1-10" style="background-color: #CCCCCC; font-family: 'Questrial', sans-serif;">
+	<div class="container col-12 col-md-10 col-md-offset-12">
+		<table class="table table-striped table-bordered table-sm">
+			<thead class="table-success">
+				<tr>
+				<th scope="col">Nome Ingresso</th>
+      				<th scope="col">Lote</th>
+      				<th scope="col">Entreda</th>
+      				<th scope="col">Preço</th>
+      				<th scope="col">Alterar ou Remover</th>
+    			</tr>
+  			</thead>
+			<tr th:each="ing : ${listaIng}">
+			<td th:text="${ing.nomeIngresso}"></td>
+			<td th:text="${ing.lote}"></td>
+			<td th:text="${ing.tipoIngresso}"></td>
+			<td th:text="${ing.valor}"></td>
+			<td><a th:href="@{/editarIngresso(id=${ing.id})}">Editar</a>&nbsp;&nbsp;
+					<a th:href="@{/removerIngresso(id=${ing.id})}">Remover</a></td>		
+				
+					
+			</tr>
+			</table>
+		<hr />
+	</div>
+</section>
+	
 
 <!-- Footer -->
 <section class="cid-rHERilnReB" id="footer1-16">

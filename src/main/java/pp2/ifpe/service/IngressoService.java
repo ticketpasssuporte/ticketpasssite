@@ -5,7 +5,6 @@ import javax.mail.MessagingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import pp2.ifpe.exception.ServiceException;
 import pp2.ifpe.model.Ingresso;
@@ -21,9 +20,12 @@ public class IngressoService {
 		this.ingressoDAO.save(ingresso);
 	}
 	
-	public String editarIngresso(Integer id, Model model) {
-	      model.addAttribute("listaIng", this.ingressoDAO.findById(id));
-			return "/configurarIngresso";
-		}
+	public void editarIngresso(Ingresso ingresso) {
+		this.ingressoDAO.save(ingresso);
+	}
 
+	public Ingresso findById(Integer id) {
+		return ingressoDAO.findById(id).orElse(null);
+	}
+      
 }

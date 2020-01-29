@@ -1,13 +1,10 @@
 package pp2.ifpe.service;
 
-
-
 import javax.mail.MessagingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import pp2.ifpe.exception.ServiceException;
 import pp2.ifpe.model.Categoria;
@@ -27,12 +24,6 @@ public class EventoService {
 		this.eventoDAO.save(evento);
 	}
 
-	public String editarEvento(Integer id, Model model) {
-	      model.addAttribute("lista", this.eventoDAO.findById(id));
-			return "/criarEvento";
-		}
-	
-	
 	public Evento get(Categoria categoria) {
 		return eventoDAO.findAllBycategoria(categoria);
 		}
@@ -46,6 +37,9 @@ public class EventoService {
 		this.eventoDAO.save(evento);
 	}
 
+	/*public void remover(Integer id) {
+		this.eventoDAO.deleteById(id);
+	}*/
 
 	public Evento findAll(Sort by) {
 		

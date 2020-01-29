@@ -88,10 +88,6 @@
         <button style="background-color:transparent; color:white; border:none; font-family:'Questrial', sans-serif;" onClick="fonte('a');">A+</button>
         	<button style="background-color:transparent; color:white; border:none; font-family:'Questrial', sans-serif;" onClick="fonte('d');">a-</button>
         </div>
-        
-         
-         
-        
          
     </nav>
     
@@ -105,10 +101,9 @@
 			<thead class="table-success">
 				<tr>
 					<th scope="col">Imagem</th>
-					<!--<th scope="col">id</th>-->
       				<th scope="col">Nome do evento</th>
       				<th scope="col">Endereço</th>
-      				<th scope="col">Alterar ou Remover</th>
+      				<th scope="col">Alterar</th>
       				<th scope="col">Adicionar Ingresso</th>
       				
     			</tr>
@@ -118,32 +113,12 @@
 			<td><img th:src="@{/mostrarImagemEvento/{imagem}(imagem=${evt.fotoevento})}" width="70"/></td>
 				<td th:text="${evt.nomeEvento}"></td>
 				<td th:text="${evt.endereco}"></td>
-				<td><a th:href="@{/editarEvento(id=${evt.id})}">Editar</a>&nbsp;&nbsp;
-					<a th:href="@{/removerEvento(id=${evt.id})}">Remover</a></td>
+				<td><a th:href="@{/editarEvento(id=${evt.id})}">Editar</a>&nbsp;&nbsp;</td>
 					<td><a th:href="@{/ingresso(id=${evt.id})}">Adicionar Ingresso</a>&nbsp;&nbsp;
-					</td>
-					
+					</td>					
 				
-					
 			</tr>
-			<thead class="table-success">
-				<tr>
-      				<th scope="col">Nome Ingresso</th>
-      				<th scope="col">Lote</th>
-      				<th scope="col">Entreda</th>
-      				<th scope="col">Preço</th>
-      				<th scope="col">Alterar ou Remover</th>
-    			</tr>
-  			</thead>
-			<tr th:each="ing : ${listaIng}">
-			<td th:text="${ing.nomeIngresso}"></td>
-			<td th:text="${ing.lote}"></td>
-			<td th:text="${ing.tipoIngresso}"></td>
-				<td th:text="${ing.valor}"></td>
-				<td><a th:href="@{/editarIngresso(id=${ing.id})}">Editar</a>&nbsp;&nbsp;
-					<a th:href="@{/removerIngresso(id=${ing.id})}">Remover</a></td>	
-			</tr>
-		</table>
+			</table>
 		<hr />
 		<a href="/home" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Voltar</a>
 		<a href="/evento" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Cadastrar Evento</a> 
