@@ -1,5 +1,7 @@
 package pp2.ifpe.service;
 
+import java.util.List;
+
 import javax.mail.MessagingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Service;
 import pp2.ifpe.exception.ServiceException;
 import pp2.ifpe.model.Categoria;
 import pp2.ifpe.model.Evento;
+import pp2.ifpe.model.Usuario;
 import pp2.ifpe.persistence.EventoDAO;
 
 @Service
@@ -37,6 +40,8 @@ public class EventoService {
 		this.eventoDAO.save(evento);
 	}
 
+	
+	
 	/*public void remover(Integer id) {
 		this.eventoDAO.deleteById(id);
 	}*/

@@ -108,8 +108,7 @@
       				
     			</tr>
   			</thead> 
-		  <tr th:each="evt : ${lista}">
-	
+		  <tr th:each="evt : ${lista}">	
 			<td><img th:src="@{/mostrarImagemEvento/{imagem}(imagem=${evt.fotoevento})}" width="70"/></td>
 				<td th:text="${evt.nomeEvento}"></td>
 				<td th:text="${evt.endereco}"></td>

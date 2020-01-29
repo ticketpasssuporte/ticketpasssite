@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pp2.ifpe.model.Evento;
+import pp2.ifpe.model.Usuario;
 import pp2.ifpe.persistence.EventoDAO;
 import pp2.ifpe.persistence.IngressoDAO;
 import pp2.ifpe.service.EventoService;
@@ -78,8 +79,8 @@ public class EventoController {
 	}
 	
 	@GetMapping("/")
-	public String listarEventoIndex(Model model) {
-		model.addAttribute("lista",eventoDAO.findAll());
+	public String listarEventoIndex(Model model, Integer id) {
+		model.addAttribute("lista",eventoDAO.findAllByUsuario(id));
 		return "/index";
 	}
 	
@@ -92,9 +93,10 @@ public class EventoController {
 	
 	
 	@GetMapping("/listarMeusEventos")
-	public String listarMeusEventos (Model model) {
-		model.addAttribute("lista",eventoDAO.findAll());
-		model.addAttribute("listaIng",ingressoDAO.findAll());
+	public String listarMeusEventos (Model model, Usuario usuario, HttpSession sessao) {
+		
+		Usuario usuariologado = (Usuario) sessao.getAttribute("usuarioLogado");
+		model.addAttribute("lista",eventoDAO.findAllByUsuario(usuariologado.getId()));
 		return "/listarEventos";
 	}
 	
