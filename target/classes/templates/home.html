@@ -29,10 +29,24 @@
   
 </head>
 <body>
+
+<!-- search box -->
+<br><br><br>
+
+<div class="main">
+<form action="pesquisar" method="POST">
+  <div class="input-group">
+    <input type="text" name="nomePesquisa" class="form-control" placeholder="Pesquisar evento" style="background-color:white;">
+    <div class="input-group-append">
+      <input class="btn btn-primary btn-sm" type="submit" value="Pesquisar">
+    </div>
+  </div> 
+  </form>
+</div>
+
   
 <div th:replace="header :: navBar"></div>
 <section class="engine"><a href="https://mobirise.info/s">free bootstrap themes</a></section><section class="carousel slide cid-rHuohw46dW" data-interval="false" id="slider1-v">
-
     
 
     <div class="full-screen"><div class="mbr-slider slide carousel" data-pause="true" data-keyboard="false" data-ride="carousel" data-interval="4000">
@@ -85,21 +99,6 @@
 
 </section>
  
-<!-- search box -->
-<div class="col-md-10" style="margin-left:7.5%; margin-top:3%;">
-<div class="main">
-  
-  <!-- Another variation with a button -->
-  <form method="post" th:action="@{/pesquisar}">
-  <div class="input-group">
-    <input type="search"  name="nomePesquisa"class="form-control" placeholder="Pesquisar evento" style="background-color:white;">
-    <div class="input-group-append">
-      <button type="button" class="btn btn-primary btn-sm">Pesquisar</button>
-    </div>
-  </div>
-  </form>  
-</div>
-</div>
 
 
 <section class="mbr-section content4 cid-rHulWTdZPj" id="content4-u">
@@ -171,27 +170,26 @@
         </div>
     </div>
 </section>
-    
-    
+       
     <div class="container">
-        <div class="media-container-row" >
-            <div  th:each="evt : ${lista}" class="card p-3 col-12 col-md-6 col-lg-3">
-                <div class="card-wrapper" >
+        <div class="row">
+            <div  th:each="evt : ${lista}" class="col-sm-3 col-lg-3 d-flex align-items-stretch" style="text-align:center; margin-bottom:15px;">
+                <div class="card-wrapper" style="background-color:#000000; border-radius: 20px;">
                     <div class="card-img">
                     <h1 class="d-md-none d-block"></h1>
-    --                <!--<a href="pagEvento?id=${evt.id}">-->
-                        <img th:src="@{/mostrarImagemEvento/{imagem}(imagem=${evt.fotoevento})}" alt="Mobirise" title="">
+	                <!--<a href="pagEvento?id=${evt.id}">-->
+                        <img th:src="@{/mostrarImagemEvento/{imagem}(imagem=${evt.fotoevento})}" style="border-top-left-radius:20px; border-top-right-radius:20px;" alt="Mobirise" title="">
                     
                     </div>
                     <div class="card-box">
-                        <h4 class="card-title pb-1 mt-3 mbr-fonts-style display-7"><strong class="acessibilidade" th:text="${evt.nomeEvento}"></strong></h4>
-                        <p class="mbr-text mbr-fonts-style display-7" th:text="${evt.endereco}"></p>
+                        <h4 class="card-title pb-1 mt-3 mbr-fonts-style display-7"><strong class="acessibilidade" style="color:white;" th:text="${evt.nomeEvento}"></strong></h4>
+                        <p class="mbr-text mbr-fonts-style display-7" style="color:white;" th:text="${evt.endereco}"></p>
                     </div>
                 </div>
             </div>
           </div>
        </div>
-           
+<br>
 <!-- 
             <div class="card p-3 col-12 col-md-6 col-lg-3">
                 <div class="card-wrapper">
