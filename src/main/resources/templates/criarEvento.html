@@ -161,15 +161,7 @@
 	<h3><strong> 5 - Definições de categoria</strong></h3>
     <label for="exampleFormControlSelect1">Escolha a categoria:</label>
     <select class="form-control" id="exampleFormControlSelect1" style="width: 30%" th:field="*{categoria}" required>
-      <option  value="selecione">Selecione Categoria</option>
-      <option value="Festas e shows">Festas e shows</option>
-      <option value="Gratuito">Gratuito</option>
-      <option value="Teatro e espetáculos">Teatro e espetáculos</option>
-      <option value="Negócios">Negócios</option>
-      <option value="Tecnologia">Tecnologia</option>
-      <option value="Palestras">Palestras</option>
-      <option value="Esporte">Esporte</option>
-      <option  th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nome}"></option>
+      <option th:each="cat:${categoria}" th:value="${cat.id}" th:text="${cat.nomeCategoria}">Selecione Categoria</option>
     </select>
 </div>   
 </div>

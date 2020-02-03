@@ -3,6 +3,7 @@ package pp2.ifpe.controller;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -18,10 +19,13 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import pp2.ifpe.model.Categoria;
 import pp2.ifpe.model.Evento;
 import pp2.ifpe.model.Usuario;
 import pp2.ifpe.persistence.EventoDAO;
 import pp2.ifpe.persistence.IngressoDAO;
+import pp2.ifpe.persistence.UsuarioDAO;
+import pp2.ifpe.service.CategoriaService;
 import pp2.ifpe.service.EventoService;
 
 @Controller
@@ -36,15 +40,21 @@ public class EventoController {
 	@Autowired
 	private IngressoDAO ingressoDAO;
 	
+	@Autowired
+	private UsuarioDAO usuarioDAO;
 	
 	@Autowired
 	private EventoService eventoService;
 	
+	@Autowired
+	private CategoriaService categoriaService;
+	
 		
 	
-
 	@GetMapping("/evento") 
-	public String cadastraEvento(Evento evento) {
+	public String cadastraEvento(Evento evento, Model model) {
+		List<Categoria> categoria1 = categoriaService.listaCategoria();
+		model.addAttribute("categoria", categoria1);
 		return"/criarEvento";
 	}
 		
@@ -55,7 +65,7 @@ public class EventoController {
 		redirectAttributes.addFlashAttribute("message", "Failed");
 		redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
 		if (result.hasErrors()) {
-			return cadastraEvento(evento);
+			return cadastraEvento(evento, redirectAttributes);
 		}
 		redirectAttributes.addFlashAttribute("message", "Cadastro realizado com sucesso");
 		redirectAttributes.addFlashAttribute("alertClass", "alert-success");
