@@ -69,8 +69,8 @@ public class EmailMensagem {
 		
 		// Gerando link token
 		if ((comTolken == true)) {
-		mensagem.append("<html><body><a href=\"localhost:9090" + this.getController() + "?token=" + this.getTokenEmail()
-				+ "\">" + "localhost:9090" + this.getController() + "?token=" + this.getTokenEmail() + "</a></body></html>");
+		mensagem.append("<html><body><a href=\"http://localhost:9090" + this.getController() + "?token=" + this.getTokenEmail()
+		+ "\">" +"<button>Confirmar!</button>" + "</a></body></html>");
 		}
 
 		return mensagem.toString();

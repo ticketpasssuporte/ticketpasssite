@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class IndexController {
 		
-	@GetMapping("/index")
+	@GetMapping("index.html")
 	public String index() {
-		return "index";
+		return "redirect:/home";
 	}
 	
 	
@@ -59,10 +59,6 @@ public class IndexController {
 		return "pagEvento";
 	}
 	
-	@GetMapping("/carrinho")
-	public String carrinho() {
-		return "carrinho";
-	}
 
 
 }
