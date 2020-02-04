@@ -31,6 +31,11 @@ public interface EventoDAO extends JpaRepository<Evento, Integer> {
 
    @Query("select e from Evento e where e.id = ?1")
    Evento findByCodigo(Integer id);
+
+   @Query(value = "SELECT * FROM evento WHERE categoria_id = ?1", nativeQuery = true) 
+   List<Evento> buscaPorCategoria(Integer id);
+
+
    
    
 //

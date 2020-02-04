@@ -1,14 +1,22 @@
 package pp2.ifpe.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import pp2.ifpe.service.CategoriaService;
 
 
 @Controller
 public class IndexController {
+	
+	@Autowired
+	private CategoriaService categoriaService;
 		
 	@GetMapping("index.html")
-	public String index() {
+	public String index(Model model) {
+		model.addAttribute("listaCat",categoriaService.listaCategoria());
 		return "redirect:/home";
 	}
 	

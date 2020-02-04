@@ -31,7 +31,8 @@ import pp2.ifpe.service.EventoService;
 public class ImagemController {
 	
 	// Caminho da pasta onde ficam as imagens do evento
-	private static String caminhoImagens ="C:/Users/Hugo-PC/Pictures";
+	private static String caminhoImagens ="/home/aluno/imagem2";
+	private static String caminhoImagemCategoria ="/home/aluno/Imagens1";
 	
 	
 	
@@ -46,5 +47,16 @@ public class ImagemController {
 		return Files.readAllBytes(imagemArquivoFile.toPath());
 	}
 	
+	//Metodo de mostrar Imagem do evento
+		@GetMapping("/mostrarImagemCategoria/{imagem}")
+		@ResponseBody
+		public byte[] retornarImagem2(@PathVariable("imagem")String imagem) throws IOException {
+			File imagemArquivoFile = new File(caminhoImagemCategoria+imagem);
+			if(imagem!=null || imagem.trim().length()>0) {
+				return Files.readAllBytes(imagemArquivoFile.toPath());
+			}
+			return Files.readAllBytes(imagemArquivoFile.toPath());
+		}
+		
 
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns= "http://www.w3.org/1999/xhtml"
+   xmlns:th= "http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+</head>
+<body>
+	
+	<div class="row">
+    <form class="col s12" th:action="@{/salvarCategoria}" th:object="${categoria}" enctype="multipart/form-data" method="post" >
+      	<div class="container">
+		<div class="form-group">
+		    <label style="margin-left: 0%" for="">Nome do Categoria: </label>
+		    <input type="text" style="margin-left: 0%" class="form-control" name="nomeEvento"  id="nomeEvento" th:field="*{nomeCategoria}" required >
+		<br/>
+		</div>
+	
+      <div class="container">
+	<div class="form-group">
+	<label for="inputfot">Forneça uma foto para sua categoria:</label>
+	<input type="file" class="form-control" id="inputfot" name="file" required>
+	</div>
+	</div>
+      
+      
+      <button type="submit" class="btn btn-primary btn-sm" >Cadastrar</button>
+      
+      </div>
+    </form>
+  	</div>
+  	
+</body>
+</html>

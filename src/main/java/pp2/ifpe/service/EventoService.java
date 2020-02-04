@@ -40,7 +40,9 @@ public class EventoService {
 		this.eventoDAO.save(evento);
 	}
 
-	
+	public List<Evento> listEventoCategoria(Integer id){
+		return eventoDAO.buscaPorCategoria(id);
+	}
 	
 	/*public void remover(Integer id) {
 		this.eventoDAO.deleteById(id);

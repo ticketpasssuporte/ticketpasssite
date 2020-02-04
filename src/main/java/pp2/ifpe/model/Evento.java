@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -32,8 +33,8 @@ public class Evento {
 	private String nomeOrganizador;
 	@Column(length = 500)
 	private String desc_org;
-	@Column
-	private String categoria;
+	@OneToOne
+	private Categoria categoria;
 	@ManyToOne
 	private Usuario usuario;
 	
@@ -64,17 +65,6 @@ public class Evento {
 	}
 
 	
-	public String getCategoria() {
-		return categoria;
-	}
-
-
-
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
-	}
-
-
 	public String getNomeEvento() {
 		return nomeEvento;
 	}
@@ -90,6 +80,16 @@ public class Evento {
 		return status;
 	}
 
+
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
 
 
 	public void setStatus(Boolean status) {
@@ -165,7 +165,7 @@ public class Evento {
 	}
 	
 	public Evento(Integer id, @NotNull String nomeEvento, Boolean status, String endereco, String desc_evento,
-			String nomeOrganizador, String desc_org, String categoria, Usuario usuario, List<Ingresso> ingresso,
+			String nomeOrganizador, String desc_org, Categoria categoria, Usuario usuario, List<Ingresso> ingresso,
 			String fotoevento) {
 		super();
 		this.id = id;

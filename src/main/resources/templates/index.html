@@ -132,44 +132,13 @@
 
 <div class="media-container-row mx-md-n6" >
 	
-    	<div class="inner">
+    	<div class="inner" th:each="cat : ${listaCat}">
     		<ul>
-        		<img src="cssPaginasSoltas/imgHome/miniatura1.jpeg"   height="120" width="130" alt="Festas e shows" class="img-circle" style="border-radius: 50%;"><p style="font-family: 'Questrial', sans-serif; font-size: 15px;" ><span style="margin-left: 10%"><strong class="acessibilidade">Festas e shows</strong></span>
+        		<a href="|/pesquisar/categoria/${cat.id}|"><img th:src="@{/mostrarImagemCategoria/{imagem}(imagem=${cat.fotocategoria})}"  height="120" width="130" alt="Festas e shows" class="img-circle" style="border-radius: 50%;">
+        		<p style="font-family: 'Questrial', sans-serif; font-size: 15px;" ><span style="margin-left: 10%"><strong class="acessibilidade" th:text="${cat.nomeCategoria}"></strong></span></a>
     		</ul>
 		</div>
-     	<div class="inner">
-     		<ul>
-       			<img src="cssPaginasSoltas/imgHome/miniatura2.jpeg" height="120" width="130" alt="Gratuito" class="img-circle" style="border-radius: 50%;"><p style="font-family: 'Questrial', sans-serif; font-size: 15px;" ><span style="margin-left: 28%"><strong class="acessibilidade">Gratuito</strong></span>
-    		</ul>
-        </div>
-        <div class="inner">
-    		<ul>
-        		<img src="cssPaginasSoltas/imgHome/miniatura3.jpeg" height="120" width="130" alt="Teatro" class="img-circle" style="border-radius: 50%;"><p style="font-family: 'Questrial', sans-serif; font-size: 15px;" ><span style="margin-left: -4%"><strong class="acessibilidade">Teatro e espetáculos</strong></span>
-    		</ul>
-    	</div>
-    	<div class="inner">
-    		<ul>
-        		<img src="cssPaginasSoltas/imgHome/miniatura5.jpeg" height="120" width="130" alt="Negócios" class="img-circle" style="border-radius: 50%;"><p style="font-family: 'Questrial', sans-serif; font-size: 15px;" ><span style="margin-left: 25%"><strong class="acessibilidade">Negócios</strong></span>
-    		</ul>
-    	</div>
-    	<div class="inner">
-    		<ul>
-        		<img src="cssPaginasSoltas/imgHome/miniatura4.jpeg" height="120" width="130" alt="Tecnologia e games" class="img-circle" style="border-radius: 50%;"><p style="font-family: 'Questrial', sans-serif; font-size: 15px;" ><span style="margin-left: 20%"><strong class="acessibilidade">Tecnologia</strong></span>
-    		</ul>
- 		</div>
- 		<div class="inner">
-    		<ul>
-       			<img src="cssPaginasSoltas/imgHome/miniatura6.jpeg" height="120" width="130" alt="Palestras e workshops" class="img-circle" style="border-radius: 50%;"><p style="font-family: 'Questrial', sans-serif; font-size: 15px;">
-        		<span style="margin-left: 25%"><strong class="acessibilidade">Palestras</strong></span>
-    		</ul>
-    	</div>
-    	<div class="inner">
-    		<ul>
-       			<img src="cssPaginasSoltas/imgHome/miniatura7.jpg" height="120" width="130" alt="Esporte" class="img-circle" style="border-radius: 50%;"><p style="font-family: 'Questrial', sans-serif; font-size: 15px;">
-        		<span style="margin-left: 30%"><strong class="acessibilidade">Esporte</strong></span>
-    		</ul>
-    	</div>
-    	
+		
 	</div>
 </div>
 

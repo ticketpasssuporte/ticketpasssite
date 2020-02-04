@@ -90,12 +90,14 @@ public class EventoController {
 	
 	@GetMapping("/")
 	public String listarEventoIndex(Model model) {
+		model.addAttribute("listaCat",categoriaService.listaCategoria());
 		model.addAttribute("lista",eventoDAO.findAll());
 		return "/index";
 	}
 	
 	@GetMapping("/home")
 	public String listarEvento(Model model) {
+		model.addAttribute("listaCat",categoriaService.listaCategoria());
 		model.addAttribute("lista",eventoDAO.findAll());
 		return "/home";
 	}

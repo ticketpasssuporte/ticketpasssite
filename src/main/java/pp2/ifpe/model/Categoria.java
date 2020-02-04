@@ -11,10 +11,18 @@ public class Categoria {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	@Column(length = 12)
+	@Column(length = 30)
 	private String nomeCategoria;
 	
+	private String fotocategoria; 
+	
+	
+	public String getFotocategoria() {
+		return fotocategoria;
+	}
+	public void setFotocategoria(String fotocategoria) {
+		this.fotocategoria = fotocategoria;
+	}
 	public Integer getId() {
 		return id;
 	}
