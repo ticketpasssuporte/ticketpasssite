@@ -10,6 +10,7 @@
   <link rel="shortcut icon" href="assets/images/pass-485x80.png" type="image/x-icon">
   <meta name="description" content="">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   
@@ -89,15 +90,21 @@
           	<br><br>
          <div class="row">
 			<div class="col">
-            	<p th:text="${evento.desc_evento}">
-                 	
-                  </p>
+            	<p th:text="${evento.desc_evento}">                	
+                  </p>           
               </div>
           </div>
     	</div>
-    </div>
+    </div><br/>
+    <h1 class="display-4">Valores:</h1><br/>
+        <p th:text="${ingresso.tipoIngresso}"></p>
+        <label th:text="${ingresso.valor}"><i class="fas fa-dollar-sign"></i></label> <br/><br/>
+     <a class="btn display-4 btn-secondary" th:href="@{/adicionarCarrinho(id=${evento.id})}">Comprar</a>
 </div>
 </div>
+
+          
+
 
 
 <!-- Localização e criador evento -->

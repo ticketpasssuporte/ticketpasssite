@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pp2.ifpe.model.Categoria;
-import pp2.ifpe.model.Usuario;
 import pp2.ifpe.persistence.CategoriaDAO;
 
 @Service

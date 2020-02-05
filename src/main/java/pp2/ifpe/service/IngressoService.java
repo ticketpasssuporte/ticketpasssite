@@ -1,6 +1,8 @@
 package pp2.ifpe.service;
 
 
+import java.util.Optional;
+
 import javax.mail.MessagingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,14 @@ public class IngressoService {
 
 	@Autowired
 	private IngressoDAO ingressoDAO;
+	
+	public Ingresso findByIdIngresso(Integer id) throws Exception {
+		Optional<Ingresso> ingresso = this.ingressoDAO.findById(id);
+		if (ingresso.isPresent()) {
+			return ingresso.get();
+		}
+		throw new Exception("Evento não encontrado!");
+	}
 	
 	public void salvarIngresso(Ingresso ingresso)throws ServiceException, MessagingException{
 		this.ingressoDAO.save(ingresso);

@@ -21,12 +21,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pp2.ifpe.model.Categoria;
 import pp2.ifpe.model.Evento;
+import pp2.ifpe.model.Ingresso;
 import pp2.ifpe.model.Usuario;
 import pp2.ifpe.persistence.EventoDAO;
 import pp2.ifpe.persistence.IngressoDAO;
 import pp2.ifpe.persistence.UsuarioDAO;
 import pp2.ifpe.service.CategoriaService;
 import pp2.ifpe.service.EventoService;
+import pp2.ifpe.service.IngressoService;
 
 @Controller
 public class EventoController {
@@ -48,6 +50,8 @@ public class EventoController {
 	
 	@Autowired
 	private CategoriaService categoriaService;
+	@Autowired
+	private IngressoService ingressoService;
 	
 		
 	
@@ -105,8 +109,7 @@ public class EventoController {
 	
 	
 	@GetMapping("/listarMeusEventos")
-	public String listarMeusEventos (Model model, Usuario usuario, HttpSession sessao) {
-		
+	public String listarMeusEventos (Model model, Usuario usuario, HttpSession sessao) {		
 		Usuario usuariologado = (Usuario) sessao.getAttribute("usuarioLogado");
 		model.addAttribute("lista",eventoDAO.findAllByUsuario(usuariologado.getId()));
 		return "/listarEventos";
@@ -122,9 +125,11 @@ public class EventoController {
 	
 	
 	@GetMapping("/pagEvento")
-	public String descricaoEvento2( @RequestParam("id") Integer codigo,HttpSession session,Model model) throws Exception {
+	public String descricaoEvento2(@RequestParam("id") Integer codigo,HttpSession session,Model model) throws Exception {
 		Evento evento = this.eventoService.findByIdEvento(codigo);
+		Ingresso ingresso = this.ingressoService.findByIdIngresso(codigo);
 		model.addAttribute("evento", evento);
+		model.addAttribute("ingresso", ingresso);
 		return "/pagEvento";
 	}	
 
