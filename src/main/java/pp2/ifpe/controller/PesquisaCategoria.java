@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import pp2.ifpe.model.Evento;
+import pp2.ifpe.service.CategoriaService;
 import pp2.ifpe.service.EventoService;
 
 @Controller
@@ -19,9 +21,13 @@ public class PesquisaCategoria {
 	@Autowired
 	private EventoService eventoService;
 	
-	@GetMapping("/categoria/{id}")
-	public String eventosCategoria(Model model, @PathVariable("id")Integer id) {
-		List<Evento> eventos = eventoService.listEventoCategoria(id);
+	@Autowired
+	private CategoriaService categoriaService;
+	
+	@GetMapping("/categoria")
+	public String eventosCategoria(Model model, @RequestParam("id")Integer id) {
+		model.addAttribute("listaCat",categoriaService.listaCategoria());
+		model.addAttribute("lista", eventoService.listEventoCategoria(id));
 		return "listarCategoria";
 	}
 }

@@ -23,7 +23,9 @@ public class IngressoService {
 		if (ingresso.isPresent()) {
 			return ingresso.get();
 		}
-		throw new Exception("Evento não encontrado!");
+		
+		return null;
+		//throw new Exception("Evento não encontrado!");
 	}
 	
 	public void salvarIngresso(Ingresso ingresso)throws ServiceException, MessagingException{

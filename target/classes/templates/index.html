@@ -128,14 +128,12 @@
 
 
 
-<div class = "container col-lg-12 col-md-12 col-sm-12">
-
-<div class="media-container-row mx-md-n6" >
-	
-    	<div class="inner" th:each="cat : ${listaCat}">
+<div class = "container col-lg-12 col-md-12 col-sm-12" style="padding-right:0px; margin:0px;">
+	<div class="media-container-row mx-md-n6" style="padding:0px;" >
+    	<div align="center" class="inner" th:each="cat : ${listaCat}">
     		<ul>
-        		<a href="|/pesquisar/categoria/${cat.id}|"><img th:src="@{/mostrarImagemCategoria/{imagem}(imagem=${cat.fotocategoria})}"  height="120" width="130" alt="Festas e shows" class="img-circle" style="border-radius: 50%;">
-        		<p style="font-family: 'Questrial', sans-serif; font-size: 15px;" ><span style="margin-left: 10%"><strong class="acessibilidade" th:text="${cat.nomeCategoria}"></strong></span></a>
+        		<a th:href="@{/pesquisar/categoria(id=${cat.id})}" style="padding:0px;"><img th:src="@{/mostrarImagemCategoria/{imagem}(imagem=${cat.fotocategoria})}" height="120" width="130" alt="Festas e shows" class="img-circle" style="border-radius: 50%; padding: center;">
+        		<p style="font-family: 'Questrial', sans-serif; font-size: 15px;text-align: center; padding-left:0px;" th:text="${cat.nomeCategoria}"></a>
     		</ul>
 		</div>
 		
