@@ -20,6 +20,8 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	private int permissao;
+
 	@Column(length = 50)
 	@NotNull
 	private String nome;
@@ -57,6 +59,15 @@ public class Usuario {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+		
+	public int getPermissao() {
+		return permissao;
+	}
+
+	public void setPermissao(int permissao) {
+		this.permissao = permissao;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -70,14 +81,7 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-    /*
-	public Short getPermissao() {
-		return permissao;
-	}
-
-	public void setPermissao(Short permissao) {
-		this.permissao = permissao;
-	}*/
+   
 
 	public String getSenha() {
 		return senha;

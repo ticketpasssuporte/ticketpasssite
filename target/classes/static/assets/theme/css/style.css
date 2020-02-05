@@ -1111,7 +1111,7 @@ body {
 	font-family: 'Questrial', sans-serif;
 }
 
-
+/*card home - index **/
 .card
 {
 	background-color: #F0F0F0;
@@ -1119,6 +1119,13 @@ body {
 	font-family: 'Questrial', sans-serif;
 }
 
+.card-box{
+	display:inline-block;
+	width:230px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 .container
 {
 	font-family: 'Questrial', sans-serif;

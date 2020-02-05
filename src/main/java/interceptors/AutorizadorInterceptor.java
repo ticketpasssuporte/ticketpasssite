@@ -1,83 +1,77 @@
 package interceptors;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
+
+import pp2.ifpe.model.Usuario;
 
 
 public class AutorizadorInterceptor implements HandlerInterceptor {
 
-    private final boolean CONTROLAR_ACESSO = true;
+
+	private static final boolean CONTROLAR_ACESSO = true;
+
+	private static final String[] RECURSOS_LIVRES = {"/","/sair", "/login", "/acesso-negado","/cadastro","/ativarConta","/confirmouConta","/Quem Somos"};
+
+	private static final String PAGINA_ACESSO_NEGADO = "/acesso-negado";
 	
-	//private final String PAGINA_ACESSO_NEGADO = "/acesso-negado";
+	private static final String[] RECURSOS_USUARIO = {"/login","/cadastro","/home","listarMeusEvento","sair"};
 	
-	//private final String[] PAGINAS_ESTATICAS = {"/css/", "/js/", "/img/", "/fonts/", "/util/"};
-	//private final String[] PAGINAS_DESLOGADO = {"/", "/cadastrar", "/index","/login",
-												//"/reenviar-link-ativacao", "/ativarConta", 
-												//"/recuperar-senha", "/redefinirSenha"};
-	//private final String[] PAGINAS_LOGADO = {"/home", "/configuracoes", "/sair", "/evento","/listarEventos","criarEvento", 
-											 //PAGINA_ACESSO_NEGADO};
-	/*
+	private static final String[] RECURSOS_ADMIN = {"/adicionar_materiais","/salvarMaterial"};
+
+	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-			throws Exception { 
-	
-	String urlRequisitada = request.getServletPath();
-	Usuario usuarioLogado = (Usuario) request.getSession().getAttribute("usuarioLogado");
-	boolean estaLogado = usuarioLogado != null ? true : false;
-	
-	if (!CONTROLAR_ACESSO) {
-		return true;
-	}
-	
-	if (urlRequisitada.contains("/admin/")) {
-		if (estaLogado) {
-			if (usuarioLogado.getPermissao() == 2) {
-				return true;
-			} else {
-				request.getRequestDispatcher(PAGINA_ACESSO_NEGADO).forward(request, response);
-				return false;
-			}
-		} else {
-			response.sendRedirect("/login?destino="+urlRequisitada);
-			return false;
-		}
-	}
-	for (String paginaLogado : PAGINAS_LOGADO) {
-		if (urlRequisitada.contains(paginaLogado)) {
-			if (estaLogado) {
-				//System.out.println("Permitido (logado): "+urlRequisitada);
-				return true;
-			} else {
-				//System.out.println("Negado (deslogado): "+urlRequisitada);
-				if (!urlRequisitada.equals("/home") && !urlRequisitada.equals("/sair")) {
-					response.sendRedirect("/login?destino="+urlRequisitada);
-					return false;
-				} else {
-					response.sendRedirect("/login");
-					return false;
-				}
-			}
-		}
-	}
-	for (String paginaDeslogado : PAGINAS_DESLOGADO) {
-		if (urlRequisitada.equals(paginaDeslogado)) {
-			if (!estaLogado) {
-				//System.out.println("Permitido (deslogado): "+urlRequisitada);
-				return true;
-			} else {
-				//System.out.println("Negado (logado): "+urlRequisitada);
-				response.sendRedirect("/home");
-				return false;
-			}
-		}
-	}
-	for (String paginaEstatica : PAGINAS_ESTATICAS) {
-		if (urlRequisitada.contains(paginaEstatica)) {
-			//System.out.println("Permitido (estática): "+urlRequisitada);
+			throws Exception {
+		System.out.println(" >>> INFO:: Interceptor antes da chamada <<< ");
+		
+		//libera todos arquivos da pasta static
+		if(handler instanceof ResourceHttpRequestHandler) {
 			return true;
 		}
+
+		if (!CONTROLAR_ACESSO) {
+			return true;
+		}
+		
+		// Para acessar qualquer pagina dessa aplicaÃƒÂ§ÃƒÂ£o, o usuÃƒÂ¡rio precisa estar
+		// autenticado
+		
+		for (String recurso : RECURSOS_LIVRES) {
+			if (request.getRequestURL().toString().endsWith(recurso)) {
+				return true;
+			}
+		}
+		
+		
+
+		if (request.getSession().getAttribute("usuarioLogado") == null) {
+			request.getRequestDispatcher(PAGINA_ACESSO_NEGADO).forward(request, response);
+			return false;
+		} else {
+			
+			Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioLogado");
+			
+			for (String recurso : RECURSOS_ADMIN) {
+				if (request.getRequestURL().toString().contains(recurso) && usuario.getPermissao() == 1) {
+					return true;
+				}
+			}
+			
+			for (String recurso : RECURSOS_USUARIO) {
+				if (request.getRequestURL().toString().contains(recurso) && usuario.getPermissao() == 0) {
+					return true;
+				}
+			}
+		
+			request.getRequestDispatcher(PAGINA_ACESSO_NEGADO).forward(request, response);
+			return false;
+		}
+
 	}
-	
-	return true;
-   }*/
+
 }

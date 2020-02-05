@@ -1,6 +1,7 @@
 package pp2.ifpe.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.mail.MessagingException;
 
@@ -11,7 +12,6 @@ import org.springframework.stereotype.Service;
 import pp2.ifpe.exception.ServiceException;
 import pp2.ifpe.model.Categoria;
 import pp2.ifpe.model.Evento;
-import pp2.ifpe.model.Usuario;
 import pp2.ifpe.persistence.EventoDAO;
 
 @Service
@@ -21,6 +21,14 @@ public class EventoService {
 	@Autowired
 	private EventoDAO eventoDAO;
 	
+	public Evento findByIdEvento(Integer id) throws Exception {
+		Optional<Evento> evento = this.eventoDAO.findById(id);
+		if (evento.isPresent()) {
+			return evento.get();
+		}
+		throw new Exception("Evento não encontrado!");
+	}
+
 
 	public void salvarEvento(Evento evento)throws ServiceException, MessagingException{
 		evento.setStatus(true);

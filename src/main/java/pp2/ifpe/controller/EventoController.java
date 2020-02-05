@@ -32,7 +32,7 @@ import pp2.ifpe.service.EventoService;
 public class EventoController {
 	
 	// Caminho da pasta onde ficam as imagens do evento
-	private static String caminhoImagens ="C:/Users/Hugo-PC/Pictures";
+	private static String caminhoImagens ="C:/Users/thuane/Pictures/teste/";
 	
 	@Autowired
 	private EventoDAO eventoDAO;
@@ -120,6 +120,14 @@ public class EventoController {
 		return "/criarEvento";
 	}
 	
+	
+	@GetMapping("/pagEvento")
+	public String descricaoEvento2( @RequestParam("id") Integer codigo,HttpSession session,Model model) throws Exception {
+		Evento evento = this.eventoService.findByIdEvento(codigo);
+		model.addAttribute("evento", evento);
+		return "/pagEvento";
+	}	
+
 	
     @PostMapping("/pesquisar")
 	public ModelAndView pesquisar(@RequestParam("nomePesquisa") String nomePesquisa) {

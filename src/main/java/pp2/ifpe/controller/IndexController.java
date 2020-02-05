@@ -62,10 +62,7 @@ public class IndexController {
 		return "eventoPago";
 	}
 	
-	@GetMapping("/pagEvento")
-	public String pagEvento() {
-		return "pagEvento";
-	}
+	
 	
 
 
