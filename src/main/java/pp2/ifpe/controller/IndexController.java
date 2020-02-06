@@ -20,7 +20,10 @@ public class IndexController {
 		return "redirect:/home";
 	}
 	
-	
+	@GetMapping("/index")
+	public String inicio(Model model) {
+		return "index";
+	}
 	
 	@GetMapping("/quemSomos")
 	public String quemSomos() {
