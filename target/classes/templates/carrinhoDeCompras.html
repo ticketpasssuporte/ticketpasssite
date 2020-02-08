@@ -26,72 +26,77 @@
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
 
+
 <style>
 
 .quantity {
-    float: left;
-    margin-right: 15px;
-    background-color: #eee;
-    position: relative;
-    width: 80px;
-    overflow: hidden
+  position: relative;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number]
+{
+  -moz-appearance: textfield;
 }
 
 .quantity input {
-    margin: 0;
-    text-align: center;
-    width: 15px;
-    height: 15px;
-    padding: 0;
-    float: right;
-    color: #000;
-    font-size: 20px;
-    border: 0;
-    outline: 0;
-    background-color: #F6F6F6
+  width: 65px;
+  height: 42px;
+  line-height: 1.65;
+  float: left;
+  display: block;
+  padding: 0;
+  margin: 0;
+  padding-left: 20px;
+  border: 1px solid #eee;
 }
 
-.quantity input.qty {
-    position: relative;
-    border: 0;
-    width: 100%;
-    height: 40px;
-    padding: 10px 25px 10px 10px;
-    text-align: center;
-    font-weight: 400;
-    font-size: 15px;
-    border-radius: 0;
-    background-clip: padding-box
+.quantity input:focus {
+  outline: 0;
 }
 
-.quantity .minus, .quantity .plus {
-    line-height: 0;
-    background-clip: padding-box;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-    -webkit-background-size: 6px 30px;
-    -moz-background-size: 6px 30px;
-    color: #bbb;
-    font-size: 20px;
-    position: absolute;
-    height: 50%;
-    border: 0;
-    right: 0;
-    padding: 0;
-    width: 25px;
-    z-index: 3
+.quantity-nav {
+  float: left;
+  position: relative;
+  height: 42px;
 }
 
-.quantity .minus:hover, .quantity .plus:hover {
-    background-color: #dad8da
+.quantity-button {
+  position: relative;
+  cursor: pointer;
+  border-left: 1px solid #eee;
+  width: 20px;
+  text-align: center;
+  color: #333;
+  font-size: 13px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+  line-height: 1.7;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
-.quantity .minus {
-    bottom: 0
+.quantity-button.quantity-up {
+  position: absolute;
+  height: 50%;
+  top: 0;
+  border-bottom: 1px solid #eee;
 }
-.shopping-cart {
-    margin-top: 20px;
+
+.quantity-button.quantity-down {
+  position: absolute;
+  bottom: -1px;
+  height: 50%;
 }
 
 </style>
@@ -129,6 +134,7 @@
             <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="https://mobirise.com">Publicar evento</a></div>
         </div>
     </nav>
+
 </section>
 
 <br>
@@ -162,15 +168,14 @@
                         </div>
                         <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
                             <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-                                <h6 style=font-family:Questrial,sans-serif;><strong>R$ 25,00 <span class="text-muted">x</span></strong></h6>
+                                <h6 style=font-family:Questrial,sans-serif;><strong>R$ 25,00</h6>
                             </div>
                             <div class="col-4 col-sm-4 col-md-4">
                                 <div class="quantity">
-                                    <input type="button" value="+" class="plus">
-                                    <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
-                                           size="4">
-                                    <input type="button" value="-" class="minus">
+                                    <input type="number" step="1" max="20" min="1" value="1" size="4">
                                 </div>
+                                
+                             
                             </div>
                             <div class="col-2 col-sm-2 col-md-2 text-right">
                                 <button type="button" class="btn btn-outline-danger btn-xs">
@@ -181,38 +186,7 @@
                     </div>
                     <hr>
                     <!-- END PRODUCT -->
-                    <!-- PRODUCT -->
-                    <div class="row">
-                        <div class="col-12 col-sm-12 col-md-2 text-center">
-                                <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
-                        </div>
-                        <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-                            <h4 class="product-name" style=font-family:Questrial,sans-serif;><strong>Produto</strong></h4>
-                            <h4>
-                                <small style=font-family:Questrial,sans-serif;>Descrição</small>
-                            </h4>
-                        </div>
-                        <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
-                            <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-                                <h6 style=font-family:Questrial,sans-serif;><strong>R$ 25,00 <span class="text-muted" style=font-family:Questrial,sans-serif;>x</span></strong></h6>
-                            </div>
-                            <div class="col-4 col-sm-4 col-md-4">
-                                <div class="quantity">
-                                    <input type="button" value="+" class="plus">
-                                    <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
-                                           size="4">
-                                    <input type="button" value="-" class="minus">
-                                </div>
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 text-right">
-                                <button type="button" class="btn btn-outline-danger btn-xs">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <!-- END PRODUCT -->
+
                 <div class="pull-right" style=font-family:Questrial,sans-serif;>
                     <a href="" class="btn btn-outline-dark pull-right">
                         Adicionar ao carrinho
@@ -257,21 +231,19 @@
             </div>
             <div class="col-12 col-md-3 mbr-fonts-style display-7">
                 <h5 class="pb-3">Endereço</h5>
-                <p class="mbr-text">Rua da Lama, 555<br>Recife-Pernambuco</p>
+                <p class="mbr-text">Av. Barão de Lucena, 251 <br>Recife-Pernambuco</p>
             </div>
             <div class="col-12 col-md-3 mbr-fonts-style display-7">
                 <h5 class="pb-3">Contato</h5>
                 <p class="mbr-text">
-                    Email: ticketpasssuport@gmail.com&nbsp;<br>Telefone: (81) 3022-1019&nbsp;<br>Celular: &nbsp;(81) 98765-6222</p>
+                    Email: ticketpasssuport@gmail.com&nbsp;<br>Telefone: (81) 3131-0000&nbsp;<br>Celular: &nbsp;(81) 93131-0000</p>
             </div>
             <div class="col-12 col-md-3 mbr-fonts-style display-7">
                 <h5 class="pb-3">
-                    Links
+                    Sobre Nós
                 </h5>
                 <p class="mbr-text">
-                    <a class="text-primary" href="https://mobirise.co/">Website builder</a>
-                    <br><a class="text-primary" href="https://mobirise.co/">Download for Windows</a>
-                    <br><a class="text-primary" href="https://mobirise.co/">Download for Mac</a>
+                    <a class="text-primary" href="/quemSomos">Quem Somos</a>
                 </p>
             </div>
         </div>
@@ -341,6 +313,40 @@
   <script src="assets/theme/js/script.js"></script>
   <script src="assets/slidervideo/script.js"></script>
   
+  <script>
+  jQuery('<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>').insertAfter('.quantity input');
+  jQuery('.quantity').each(function() {
+    var spinner = jQuery(this),
+      input = spinner.find('input[type="number"]'),
+      btnUp = spinner.find('.quantity-up'),
+      btnDown = spinner.find('.quantity-down'),
+      min = input.attr('min'),
+      max = input.attr('max');
+
+    btnUp.click(function() {
+      var oldValue = parseFloat(input.val());
+      if (oldValue >= max) {
+        var newVal = oldValue;
+      } else {
+        var newVal = oldValue + 1;
+      }
+      spinner.find("input").val(newVal);
+      spinner.find("input").trigger("change");
+    });
+
+    btnDown.click(function() {
+      var oldValue = parseFloat(input.val());
+      if (oldValue <= min) {
+        var newVal = oldValue;
+      } else {
+        var newVal = oldValue - 1;
+      }
+      spinner.find("input").val(newVal);
+      spinner.find("input").trigger("change");
+    });
+
+  });
+  </script>
   
   <input name="animation" type="hidden">
 
