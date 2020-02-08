@@ -10,7 +10,6 @@ import javax.mail.MessagingException;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import pp2.ifpe.enums.TipoUsuarioEnum;
 import pp2.ifpe.model.Usuario;
@@ -30,10 +29,20 @@ public class UsuarioService {
 	public Usuario findUsuarioByEmail(String email) {
 		return usuarioDAO.findByEmailIgnoreCase(email);
 	}
-
+	
 	public Usuario findByEmail(String email) {
-		return usuarioDAO.findByEmailIgnoreCase(email);
+		Usuario usuario = this.usuarioDAO.findByEmail(email);
+		if (usuario != null) {
+			return usuario;
+		}
+		return null;
 	}
+	
+
+
+	/*public Usuario findByEmail(String email) {
+		return usuarioDAO.findByEmailIgnoreCase(email);
+	}*/
 
 	public Usuario findById(Integer id) {
 		return this.usuarioDAO.findByID(id);
@@ -48,10 +57,11 @@ public class UsuarioService {
 	}
 	
 	public void criarUsuario(Usuario usuario) throws ServiceException, MessagingException {
-		if (this.findUsuarioByEmail(usuario.getEmail()) != null) {
-			throw new ServiceException("Já existe um usuário com este e-mail: " + usuario.getEmail());
-		}
 		
+		if (this.usuarioDAO.findByEmail(usuario.getEmail()) != null) {
+			throw new ServiceException("Já existe um usuário com este e-mail: ");
+		}
+
 		usuario.setTipoUsuario(TipoUsuarioEnum.PADRAO);
 		usuario.setToken(UUID.randomUUID().toString());
 		System.out.println(UUID.randomUUID().toString());
@@ -176,5 +186,5 @@ public String GeradorDeSenhaAleatorio(int qtdDeLetras){
    return sb.toString();
  }//fim do metodo GeradorDeSenhaAleatorio
 
-
+   
 }	

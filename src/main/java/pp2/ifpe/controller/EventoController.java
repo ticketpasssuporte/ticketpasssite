@@ -34,7 +34,7 @@ import pp2.ifpe.service.IngressoService;
 public class EventoController {
 	
 	// Caminho da pasta onde ficam as imagens do evento
-	private static String caminhoImagens ="/home/aluno/Documentos/ImageEvent";
+	private static String caminhoImagens ="C:/Users/thuane/Pictures/teste/";
 	
 	@Autowired
 	private EventoDAO eventoDAO;

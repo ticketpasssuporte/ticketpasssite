@@ -1,6 +1,9 @@
 package pp2.ifpe.controller;
 
 
+import javax.mail.MessagingException;
+
+import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +32,8 @@ public class IngressoController {
 	
 	Integer idevento;
 	
+	
+	
 	@GetMapping("/ingresso") 
 	public ModelAndView configurarIngresso(Model model, Ingresso ingresso, @RequestParam("id") Integer id){
 		ModelAndView mv= new ModelAndView("configurarIngresso");
@@ -40,15 +45,24 @@ public class IngressoController {
 	
 	
 	@PostMapping("/salvarIngresso")
-	public String salvarIngresso(Ingresso ingresso) {
+	public String salvarIngresso(Ingresso ingresso)throws ServiceException, MessagingException {
 		Evento evento = eventoDAO.findByCodigo(idevento);
 		ingresso.setEvento(evento);
+		if(this.ingressoDAO.findByTipo(ingresso.getTipoIngresso()) != null) {
+		throw new ServiceException("Já existe Ingresso com desse tipo ");		
+		}else{
 		this.ingressoDAO.save(ingresso);
 		return "redirect:/listarMeusEventos";
-	
 	}
+}
 	
 	
+	private Object ingressoDAO(String tipoIngresso) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	@GetMapping("editarIngresso")
 	public String editarIngresso(Integer id, Model model) {
 	model.addAttribute("ingresso", this.ingressoService.findById(id));

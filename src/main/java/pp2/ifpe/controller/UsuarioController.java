@@ -11,6 +11,7 @@ import javax.validation.Valid;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -237,6 +238,18 @@ public class UsuarioController {
 	}
 	
 	
+	@GetMapping("editarUsuario")
+	public String editarUsuario(Integer id, Model model) {
+	model.addAttribute("usuario", this.usuarioService.findById(id));
+		return "/cadastro";
+	}
+	
+	@GetMapping("/listarUsuario")
+	public String listarUsuario (Model model, Usuario usuario, HttpSession sessao) {		
+		Usuario usuariologado = (Usuario) sessao.getAttribute("usuarioLogado");
+		model.addAttribute("lista",usuarioDAO.findAllByUsuario(usuariologado.getId()));
+		return "/listaUsuarios";
+	}
 	
 	
 	

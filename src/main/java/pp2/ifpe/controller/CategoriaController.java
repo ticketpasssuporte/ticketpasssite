@@ -20,7 +20,7 @@ import pp2.ifpe.service.CategoriaService;
 @Controller
 public class CategoriaController {
 	
-	private static String caminhoImagemCategoria ="/home/aluno/Documentos/ImageCat";
+	private static String caminhoImagemCategoria ="C:/Users/thuane/Pictures/teste/categorias";
 	
 	@Autowired
 	private CategoriaService categoriaService;
