@@ -34,7 +34,7 @@ import pp2.ifpe.service.IngressoService;
 public class EventoController {
 	
 	// Caminho da pasta onde ficam as imagens do evento
-	private static String caminhoImagens ="C:/Users/thuane/Pictures/teste/";
+	private static String caminhoImagens ="/home/victor/git/ImagensTicketPass/ImagemEvento/";
 	
 	@Autowired
 	private EventoDAO eventoDAO;
@@ -64,16 +64,15 @@ public class EventoController {
 		
 		//Metodo para fazer upload da imagem do evento adicionado na hora de salvar, o nome da imagem Ã© salva com o id do evento
 	@PostMapping("/salvarEvento")
-	public String salvarEvento(@Valid Evento evento, BindingResult result, HttpSession session, RedirectAttributes redirectAttributes, @RequestParam("file") MultipartFile arquivo) {
+	public String salvarEvento(@Valid Evento evento, BindingResult result, HttpSession session, RedirectAttributes redirectAttributes, @RequestParam("file") MultipartFile arquivo) throws Exception{
 		
-		redirectAttributes.addFlashAttribute("message", "Failed");
-		redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
 		if (result.hasErrors()) {
-			return cadastraEvento(evento, redirectAttributes);
+			redirectAttributes.addFlashAttribute("message", "Failed");
+			redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
+			return "redirect:/evento";
+			
 		}
-		redirectAttributes.addFlashAttribute("message", "Cadastro realizado com sucesso");
-		redirectAttributes.addFlashAttribute("alertClass", "alert-success");
-		this.eventoDAO.save(evento);
+		
 		try {
 			if(!arquivo.isEmpty()) {
 				byte[] bytes = arquivo.getBytes();
@@ -81,14 +80,16 @@ public class EventoController {
 				Files.write(caminho, bytes);
 				
 				evento.setFotoevento(String.valueOf(evento.getId())+arquivo.getOriginalFilename());
-				this.eventoDAO.save(evento);
+				this.eventoService.salvar(evento);
+				redirectAttributes.addFlashAttribute("message", "Cadastro realizado com sucesso");
+				redirectAttributes.addFlashAttribute("alertClass", "alert-success");
 			}
 			
 		} catch (Exception e) {
 			
-			
+			redirectAttributes.addFlashAttribute("mensagemErro2", "Não foi possível salvar evento: " + e.getMessage());
+			return "redirect:/evento";
 	}	
-		
 		return "redirect:/home";	
 	}
 	

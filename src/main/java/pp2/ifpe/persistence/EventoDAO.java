@@ -19,7 +19,7 @@ public interface EventoDAO extends JpaRepository<Evento, Integer> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	public boolean existsByNomeEvento(String nomeEvento);
 	Evento findAllBycategoria(Categoria categoria);
 
 	@Query("select e from Evento e where e.nomeEvento like %?1%")

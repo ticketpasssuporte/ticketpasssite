@@ -28,6 +28,13 @@ public class EventoService {
 		}
 		throw new Exception("Evento não encontrado!");
 	}
+	
+	public Evento salvar(Evento evento) throws Exception {
+		if (eventoDAO.existsByNomeEvento(evento.getNomeEvento()) != false) {
+			throw new Exception("Já existe um Evento com este nome");
+		}
+		return eventoDAO.saveAndFlush(evento);
+	}
 
 
 	public void salvarEvento(Evento evento)throws ServiceException, MessagingException{
