@@ -34,7 +34,7 @@ import pp2.ifpe.service.IngressoService;
 public class EventoController {
 	
 	// Caminho da pasta onde ficam as imagens do evento
-	private static String caminhoImagens ="/home/victor/git/ImagensTicketPass/ImagemEvento/";
+	private static String caminhoImagens ="/home/aluno/git/ticketpasssite/src/main/resources/static/ImagemEvent/";
 	
 	@Autowired
 	private EventoDAO eventoDAO;
@@ -137,7 +137,7 @@ public class EventoController {
 	
     @PostMapping("/pesquisar")
 	public ModelAndView pesquisar(@RequestParam("nomePesquisa") String nomePesquisa) {
-		ModelAndView modelAndView = new ModelAndView("/home");
+		ModelAndView modelAndView = new ModelAndView("redirect:/home");
 		modelAndView.addObject("lista", eventoDAO.findEventoByNome(nomePesquisa));
 	    modelAndView.addObject("eventoobj", new Evento());
 	    return modelAndView;

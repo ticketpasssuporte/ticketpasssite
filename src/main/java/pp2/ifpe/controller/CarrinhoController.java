@@ -13,14 +13,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class CarrinhoController {
-
+ 
+	//Chamar Carrinho
 	
 	@GetMapping("/carrinho")
 	public ModelAndView ChamaCarrinho() {
 	 ModelAndView mv = new ModelAndView("carrinhoDeCompras");
 	 return mv;
 	}
-	
+	// Adicionar carrinho
 	@GetMapping("/adicionarCarrinho")
 	public ModelAndView adicionarCarrinho(@RequestParam("id") Integer codigo,HttpSession session,Model model) throws Exception  {
 		ModelAndView mv = new ModelAndView("carrinhoDeCompras");

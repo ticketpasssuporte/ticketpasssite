@@ -20,7 +20,7 @@ import pp2.ifpe.service.CategoriaService;
 @Controller
 public class CategoriaController {
 	
-	private static String caminhoImagemCategoria ="/home/victor/git/ImagensTicketPass/Categorias/";
+	private static String caminhoImagemCategoria ="/home/aluno/git/ticketpasssite/src/main/resources/static/ImagemCat/";
 	
 	@Autowired
 	private CategoriaService categoriaService;

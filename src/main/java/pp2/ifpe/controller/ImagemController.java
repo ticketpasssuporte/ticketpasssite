@@ -31,8 +31,8 @@ import pp2.ifpe.service.EventoService;
 public class ImagemController {
 	
 	// Caminho da pasta onde ficam as imagens do evento
-	private static String caminhoImagens ="/home/victor/git/ImagensTicketPass/ImagemEvento/";
-	private static String caminhoImagemCategoria ="/home/victor/git/ImagensTicketPass/Categorias/";
+	private static String caminhoImagens ="/home/aluno/git/ticketpasssite/src/main/resources/static/ImagemEvent/";
+	private static String caminhoImagemCategoria ="/home/aluno/git/ticketpasssite/src/main/resources/static/ImagemCat/";
 	
 	
 	
