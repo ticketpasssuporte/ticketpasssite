@@ -47,6 +47,7 @@ public class IngressoController {
 	@PostMapping("/salvarIngresso")
 	public String salvarIngresso(Ingresso ingresso)throws ServiceException, MessagingException {
 		Evento evento = eventoDAO.findByCodigo(idevento);
+		ingresso.setId(0);
 		ingresso.setEvento(evento);
 		if(this.ingressoDAO.findByTipo(ingresso.getTipoIngresso()) != null) {
 		throw new ServiceException("Já existe Ingresso com desse tipo ");		
