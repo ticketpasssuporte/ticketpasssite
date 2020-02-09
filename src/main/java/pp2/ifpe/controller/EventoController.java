@@ -34,7 +34,7 @@ import pp2.ifpe.service.IngressoService;
 public class EventoController {
 	
 	// Caminho da pasta onde ficam as imagens do evento
-	private static String caminhoImagens ="/home/aluno/git/ticketpasssite/src/main/resources/static/ImagemEvent/";
+	private static String caminhoImagens ="/home/victor/git/ticketpasssite/src/main/resources/static/ImagemEvent/";
 	
 	@Autowired
 	private EventoDAO eventoDAO;
@@ -144,7 +144,14 @@ public class EventoController {
     }
     
     
-    
+    @GetMapping("/descEvento2")
+    public String DescricaoEvento (@RequestParam("id") Integer codigo,Model model) throws Exception {
+		Evento evento = this.eventoService.findByIdEvento(codigo);
+		Ingresso ingresso = this.ingressoService.findByIdIngresso(codigo);
+		model.addAttribute("evento", evento);
+		model.addAttribute("ingresso", ingresso);
+		return "descEvento2";
+	}
 //	
 //	
 //	@GetMapping("/removerEvento")

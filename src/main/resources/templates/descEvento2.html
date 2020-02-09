@@ -10,7 +10,9 @@
   <link rel="shortcut icon" href="assets/images/pass-485x80.png" type="image/x-icon">
   <meta name="description" content="">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   
   <title>Home</title>
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
@@ -27,7 +29,7 @@
   
 </head>
 <body>
-  <section class="menu cid-rHF8rI3IoO" once="menu" id="menu1-24">
+   <section class="menu cid-rHF8rI3IoO" once="menu" id="menu1-24">
 
     <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,118 +63,76 @@
         </div>
     </nav>
 </section>
-<div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"/>
-<section class="engine"><a href="https://mobirise.info/s">free bootstrap themes</a></section><section class="carousel slide cid-rHuohw46dW" data-interval="false" id="slider1-v">
 
-    
+<!-- IMAGEM -->
+<div id="demo" class="carousel slide" data-ride="carousel">
 
-    <div class="full-screen"><div class="mbr-slider slide carousel" data-pause="true" data-keyboard="false" data-ride="carousel" data-interval="4000">
-    <div class="carousel-inner" role="listbox">
-    <div class="carousel-item slider-fullscreen-image active" data-bg-video-slide="false" style="background-image: url(assets/images/shawn2-1260x630.jpg);">
-    <div class="container container-slide">
-    <div class="image_wrapper">
-    <img src="assets/images/shawn2-1260x630.jpg" alt="" title="">
-    <div class="carousel-caption justify-content-center">
-    <div class="col-10 align-left">
-    <div class="mbr-section-btn" buttons="0"><a class="btn display-4 btn-secondary" href="https://mobirise.com">Comprar</a> <a class="btn  display-4 btn-warning" href="https://mobirise.com">Saiba mais</a>
+  <!-- Indicators -->
+  <ul class="carousel">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+  </ul>
+  
+ <!-- The slideshow -->
+ <div  class="carousel-inner">
+    <div class="carousel-item active">
+      <img th:src="@{/mostrarImagemEvento/{imagem}(imagem=${evento.fotoevento})}" style="width:100%; height:100% "alt="">
     </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="carousel-item slider-fullscreen-image" data-bg-video-slide="false" style="background-image: url(assets/images/1230x650-1256e1cdec-1230x650.png);">
-    <div class="container container-slide">
-    <div class="image_wrapper">
-    <div class="mbr-overlay" style="opacity: 0;">
-    </div><img src="assets/images/1230x650-1256e1cdec-1230x650.png" alt="" title=""><div class="carousel-caption justify-content-center">
-    <div class="col-10 align-left"><div class="mbr-section-btn" buttons="0"><a class="btn display-4 btn-secondary" href="https://mobirise.com">Comprar</a> <a class="btn  display-4 btn-warning" href="https://mobirise.com">Saiba mais</a></div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="carousel-item slider-fullscreen-image" data-bg-video-slide="false" style="background-image: url(assets/images/banner-67-ze-neto-e-cristiano-183943-1920x580.png);">
-    <div class="container container-slide">
-    <div class="image_wrapper">
-    <div class="mbr-overlay" style="opacity: 0.2;"></div>
-    <img src="assets/images/banner-67-ze-neto-e-cristiano-183943-1920x580.png" alt="" title="">
-    <div class="carousel-caption justify-content-center">
-    <div class="col-10 align-left">
-    <div class="mbr-section-btn" buttons="0"><a class="btn display-4 btn-secondary" href="https://mobirise.com">Comprar</a> <a class="btn  display-4 btn-warning" href="https://mobirise.com">Saiba mais</a></div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <a data-app-prevent-settings="" class="carousel-control carousel-control-prev" role="button" data-slide="prev" href="#slider1-v">
-    <span aria-hidden="true" class="mbri-left mbr-iconfont"></span>
-    <span class="sr-only">Previous</span></a>
-    <a data-app-prevent-settings="" class="carousel-control carousel-control-next" role="button" data-slide="next" href="#slider1-v">
-    <span aria-hidden="true" class="mbri-right mbr-iconfont"></span>
-    <span class="sr-only">Next</span></a></div></div>
-
-</section>
- 
-<!-- Categorias --> 
-<section class="mbr-section content4 cid-rHulWTdZPj" id="content4-u">
-    <div class="container">
-        <div class="media-container-row mx-md-n3">
-            <div class="title col-12 col-md-12 col-sm-12">
-                <h4 class="text-left pb-3 mbr-fonts-style display-6" style=font-family:Questrial,sans-serif;><b>Categorias: </b></h4> 
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-<div class = "container col-lg-12 col-md-12 col-sm-12" style="padding-right:0px; margin:0px;">
-	<div class="media-container-row mx-md-n6" style="padding:0px;" >
-    	<div align="center" class="inner" th:each="cat : ${listaCat}">
-    		<ul>
-        		<a th:href="@{/categoria(id=${cat.id})}" style="padding:0px;"><img th:src="@{/mostrarImagemCategoria/{imagem}(imagem=${cat.fotocategoria})}" height="120" width="130" alt="Festas e shows" class="img-circle" style="border-radius: 50%; padding: center;">
-        		<p style="font-family: 'Questrial', sans-serif; font-size: 15px;text-align: center; color:black; padding-left:0px;" th:text="${cat.nomeCategoria}"></p></a>
-    		</ul>
-		</div>
-		
-	</div>
+  </div>
 </div>
 
 
-
-
-<section class="mbr-section content4 cid-rHulWTdZPj" id="content4-u">
-    <div class="container">
-        <div class="media-container-row mx-md-n3">
-            <div class="title col-12 col-md-12 col-sm-12 col-lg-12">
-                <h4 class="text-left pb-3 mbr-fonts-style display-6" style="font-family:Questrial,sans-serif; margin-top: 0%;"><b>Eventos em destaque: </b></h4> 
-            </div>
-        </div>
-    </div>
-</section>
-
-    
+<div class="jumbotron jumbotron-fluid">
  <div class="container">
-        <div class="row">
-            <div  th:each="evt : ${lista}" class="col-sm-3 col-lg-3 d-flex align-items-stretch" style="text-align:center; margin-bottom:15px;">
-                <div class="card-wrapper" style="background-color:#000000; border-radius: 20px;">
-                    <div class="card-img">
-                    <h1 class="d-md-none d-block"></h1>
-	                <a th:href="@{/descEvento2(id=${evt.id})}">
-                        <img th:src="@{/mostrarImagemEvento/{imagem}(imagem=${evt.fotoevento})}" style="border-top-left-radius:20px; border-top-right-radius:20px;" alt="" title="">
-                    </a>
-                    </div>
-                    <div class="card-box">
-                        <h4 class="card-title pb-1 mt-3 mbr-fonts-style display-7"><strong class="acessibilidade" style="color:white;" th:text="${evt.nomeEvento}"></strong></h4>
-                        <p class="mbr-text mbr-fonts-style display-7" style="color:white;" th:text="${evt.endereco}"></p>
-                    </div>
-                </div>
-            </div>
+ 	<div class="row" >
+    	<div class="col-md-12">   	
+      		<h1><strong th:text="${evento.nomeEvento}"></strong></h1><br>
+      		<label><i th:text="${evento.endereco}" class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;</label><br>
+          	
+          	<br><br>
+         <div class="row">
+			<div class="col">
+            	<p th:text="${evento.desc_evento}">                	
+                  </p>           
+              </div>
           </div>
-       </div>
-<br>
+    	</div>
+    </div><br/>
+    <h1 class="display-4">Valores:</h1><br/>
+        <p></p>
+        <label><i class="fas fa-dollar-sign"></i></label> <br/><br/>
+     <a class="btn display-4 btn-secondary" th:href="@{/adicionarCarrinho(id=${evento.id})}">Comprar</a>
+</div>
+</div>
+
+          
+
+
+
+<!-- Localização e criador evento -->
+
+<div class="jumbotron jumbotron-fluid" id="orgEvento">
+  <div class="container">
+  <div class="row">
+  <div class="col-md-6">
+    <h1 class="display-4">Sobre o organizador:</h1>
+    <label class="lead" th:text="${evento.nomeOrganizador}"></label><br>
+    <label class="lead" th:text="${evento.desc_org}"></label><br>
+  </div>
+ 
+   
+  
+  <div class="col-md-6">
+    <h1 class="display-4">Local:</h1>
+    <label class="lead" th:text="${evento.endereco}"></label><br>
+     <p class="lead">
+    
+  </p>
+  </div>
+  </div>
+  </div>
+</div>
+	
+<!-- Foooter -->
 
 <section class="cid-rHui50L0v8" id="footer1-s">
     <div class="container">
@@ -253,6 +213,15 @@
   <script src="assets/theme/js/script.js"></script>
   <script src="assets/slidervideo/script.js"></script>
   <script src="/js/acessibilidade/acessibilidade.js"></script>
+  
+  <script src="/js/shopCart/script.js"></script>
+  <!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script><script  src="./script.js"></script>
+  <!--JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  
   
   
   <input name="animation" type="hidden">
