@@ -133,7 +133,7 @@
     	<div align="center" class="inner" th:each="cat : ${listaCat}">
     		<ul>
         		<a th:href="@{/categoria(id=${cat.id})}" style="padding:0px;"><img th:src="@{/mostrarImagemCategoria/{imagem}(imagem=${cat.fotocategoria})}" height="120" width="130" alt="Festas e shows" class="img-circle" style="border-radius: 50%; padding: center;">
-        		<p style="font-family: 'Questrial', sans-serif; font-size: 15px;text-align: center; color:black; padding-left:0px;" class="acessibilidade" th:text="${cat.nomeCategoria}"></p></a>
+        		<p style="font-family: 'Questrial', sans-serif; font-size: 15px;text-align: center; color:black; padding-left:0px;" class="acessibilidade"  th:text="${cat.nomeCategoria}"></p></a>
     		</ul>
 		</div>
 		
@@ -164,12 +164,9 @@
                         <img th:src="@{/mostrarImagemEvento/{imagem}(imagem=${evt.fotoevento})}" style="border-top-left-radius:20px; border-top-right-radius:20px;" alt="" title="">
                     </a>
                     </div>
-                    <a th:href="@{/descEvento2(id=${evt.id})}">
                     <div class="card-box">
-                        
                         <h4 class="card-title pb-1 mt-3 mbr-fonts-style display-7"><strong class="acessibilidade" style="color:white;" th:text="${evt.nomeEvento}"></strong></h4>
                         <p class="mbr-text mbr-fonts-style display-7" style="color:white;" th:text="${evt.endereco}"></p>
-                        </a>
                     </div>
                 </div>
             </div>
