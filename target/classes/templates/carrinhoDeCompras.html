@@ -10,11 +10,7 @@
   <meta name="description" content="">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   
-  
-  
-  
-  
-  <title>Home</title>
+  <title>TicketPass</title>
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
@@ -26,207 +22,473 @@
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
 
-
+	<div th:replace="header :: headerBlock"></div>
+	
 <style>
 
-.quantity {
-  position: relative;
+body {
+	background: #eee;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button
-{
-  -webkit-appearance: none;
-  margin: 0;
+.clearfix {
+  content: "";
+  display: table;
+  clear: both;	
 }
 
-input[type=number]
-{
-  -moz-appearance: textfield;
+#site-header, #site-footer {
+	background: #fff;
 }
 
-.quantity input {
-  width: 65px;
-  height: 42px;
-  line-height: 1.65;
-  float: left;
-  display: block;
-  padding: 0;
-  margin: 0;
-  padding-left: 20px;
-  border: 1px solid #eee;
+#site-header {
+	margin: 0 0 30px 0;
 }
 
-.quantity input:focus {
-  outline: 0;
+#site-header h1 {
+	font-size: 31px;
+	font-weight: 300;
+	padding: 40px 0;
+	position: relative;
+	margin: 0;
+}
+/*
+a {
+	color: #000;
+	text-decoration: none;
+
+	-webkit-transition: color .2s linear;
+	-moz-transition: color .2s linear;
+	-ms-transition: color .2s linear;
+	-o-transition: color .2s linear;
+	transition: color .2s linear;
+}
+*/
+a:hover {
+	color: #53b5aa;
 }
 
-.quantity-nav {
-  float: left;
-  position: relative;
-  height: 42px;
+#site-header h1 span {
+	color: #53b5aa;
 }
 
-.quantity-button {
-  position: relative;
-  cursor: pointer;
-  border-left: 1px solid #eee;
-  width: 20px;
-  text-align: center;
-  color: #333;
-  font-size: 13px;
-  font-family: "Trebuchet MS", Helvetica, sans-serif !important;
-  line-height: 1.7;
-  -webkit-transform: translateX(-100%);
-  transform: translateX(-100%);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
+#site-header h1 span.last-span {
+	background: #fff;
+	padding-right: 150px;
+	position: absolute;
+	left: 217px;
+
+	-webkit-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
 }
 
-.quantity-button.quantity-up {
-  position: absolute;
-  height: 50%;
-  top: 0;
-  border-bottom: 1px solid #eee;
+#site-header h1:hover span.last-span, #site-header h1 span.is-open {
+	left: 363px;
 }
 
-.quantity-button.quantity-down {
-  position: absolute;
-  bottom: -1px;
-  height: 50%;
+#site-header h1 em {
+	font-size: 16px;
+	font-style: normal;
+	vertical-align: middle;
+}
+/*
+.container {
+	font-family: 'Open Sans', sans-serif;
+	margin: 0 auto;
+	width: 980px;
+}
+*/
+#cart {
+	width: 100%;
+}
+
+#cart h1 {
+	font-weight: 300;
+}
+
+#cart a {
+	color: #53b5aa;
+	text-decoration: none;
+
+	-webkit-transition: color .2s linear;
+	-moz-transition: color .2s linear;
+	-ms-transition: color .2s linear;
+	-o-transition: color .2s linear;
+	transition: color .2s linear;
+}
+
+#cart a:hover {
+	color: #000;
+}
+
+.product.removed {
+	margin-left: 980px !important;
+	opacity: 0;
+}
+
+.product {
+	border: 1px solid #eee;
+	margin: 20px 0;
+	width: 100%;
+	height: 195px;
+	position: relative;
+
+	-webkit-transition: margin .2s linear, opacity .2s linear;
+	-moz-transition: margin .2s linear, opacity .2s linear;
+	-ms-transition: margin .2s linear, opacity .2s linear;
+	-o-transition: margin .2s linear, opacity .2s linear;
+	transition: margin .2s linear, opacity .2s linear;
+}
+
+.product img {
+	width: 100%;
+	height: 100%;
+}
+
+.product header, .product .content {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-style: none none solid none;
+	float: left;
+}
+
+.product header {
+	background: #000;
+	margin: 0 1% 20px 0;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+	width: 24%;
+	height: 195px;
+}
+
+.product header:hover img {
+	opacity: .7;
+}
+
+.product header:hover h3 {
+	bottom: 73px;
+}
+
+.product header h3 {
+	background: #53b5aa;
+	color: #fff;
+	font-size: 22px;
+	font-weight: 300;
+	line-height: 49px;
+	margin: 0;
+	padding: 0 30px;
+	position: absolute;
+	bottom: -50px;
+	right: 0;
+	left: 0;
+
+	-webkit-transition: bottom .2s linear;
+	-moz-transition: bottom .2s linear;
+	-ms-transition: bottom .2s linear;
+	-o-transition: bottom .2s linear;
+	transition: bottom .2s linear;
+}
+
+.remove {
+	cursor: pointer;
+}
+
+.product .content {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	height: 140px;
+	padding: 0 20px;
+	width: 75%;
+}
+
+.product h1 {
+	color: #53b5aa;
+	font-size: 25px;
+	font-weight: 300;
+	margin: 17px 0 20px 0;
+}
+
+.product footer.content {
+	height: 50px;
+	margin: 6px 0 0 0;
+	padding: 0;
+}
+
+.product footer .price {
+	background: #fcfcfc;
+	color: #000;
+	float: right;
+	font-size: 15px;
+	font-weight: 300;
+	line-height: 49px;
+	margin: 0;
+	padding: 0 30px;
+}
+
+.product footer .full-price {
+	background: #53b5aa;
+	color: #fff;
+	float: right;
+	font-size: 22px;
+	font-weight: 300;
+	line-height: 49px;
+	margin: 0;
+	padding: 0 30px;
+
+	-webkit-transition: margin .15s linear;
+	-moz-transition: margin .15s linear;
+	-ms-transition: margin .15s linear;
+	-o-transition: margin .15s linear;
+	transition: margin .15s linear;
+}
+
+.qt, .qt-plus, .qt-minus {
+	display: block;
+	float: left;
+}
+
+.qt {
+	font-size: 19px;
+	line-height: 50px;
+	width: 70px;
+	text-align: center;
+}
+
+.qt-plus, .qt-minus {
+	background: #fcfcfc;
+	border: none;
+	font-size: 30px;
+	font-weight: 300;
+	height: 100%;
+	padding: 0 20px;
+	-webkit-transition: background .2s linear;
+	-moz-transition: background .2s linear;
+	-ms-transition: background .2s linear;
+	-o-transition: background .2s linear;
+	transition: background .2s linear;
+}
+
+.qt-plus:hover, .qt-minus:hover {
+	background: #53b5aa;
+	color: #fff;
+	cursor: pointer;
+}
+
+.qt-plus {
+	line-height: 50px;
+}
+
+.qt-minus {
+	line-height: 47px;
+}
+
+#site-footer {
+	margin: 30px 0 0 0;
+}
+
+#site-footer {
+	padding: 40px;
+}
+
+#site-footer h1 {
+	background: #fcfcfc;
+	border: 1px solid #ccc;
+	border-style: none none solid none;
+	font-size: 24px;
+	font-weight: 300;
+	margin: 0 0 7px 0;
+	padding: 14px 40px;
+	text-align: center;
+}
+
+#site-footer h2 {
+	font-size: 24px;
+	font-weight: 300;
+	margin: 10px 0 0 0;
+}
+
+#site-footer h3 {
+	font-size: 19px;
+	font-weight: 300;
+	margin: 15px 0;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+/*
+.btn {
+	background: #53b5aa;
+	border: 1px solid #999;
+	border-style: none none solid none;
+	cursor: pointer;
+	display: block;
+	color: #fff;
+	font-size: 20px;
+	font-weight: 300;
+	padding: 16px 0;
+	width: 290px;
+	text-align: center;
+
+	-webkit-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+*/
+.btn:hover {
+	color: #fff;
+	background: #429188;
+}
+
+.type {
+	background: #fcfcfc;
+	font-size: 13px;
+	padding: 10px 16px;
+	left: 100%;
+}
+
+.type, .color {
+	border: 1px solid #ccc;
+	border-style: none none solid none;
+	position: absolute;
+}
+
+.color {
+	width: 40px;
+	height: 40px;
+	right: -40px;
+}
+
+.red {
+	background: #cb5a5e;
+}
+
+.yellow {
+	background: #f1c40f;
+}
+
+.blue {
+	background: #3598dc;
+}
+
+.minused {
+	margin: 0 50px 0 0 !important;
+}
+
+.added {
+	margin: 0 -50px 0 0 !important;
 }
 
 </style>
-
+	
 </head>
 
 <body>
-  <section class="menu cid-rHF8rI3IoO" once="menu" id="menu1-24">
-
-    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </button>
-        <div class="menu-logo">
-            <div class="navbar-brand">
-                <span class="navbar-logo">
-                    <a href="/">
-                         <img src="assets/images/pass-485x80.png" alt="Mobirise" title="" style="height: 3.8rem;">
-                    </a>
-                </span>
-                
-            </div>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
-                    <a class="nav-link link text-white display-7" href="https://mobirise.com">
-                        </a>
-                </li>
-                <li class="nav-item"><a class="nav-link link text-white display-7" href="https://mobirise.com" aria-expanded="false">Cadastre-se</a></li><li class="nav-item"><a class="nav-link link text-white display-7" href="https://mobirise.com" aria-expanded="false">Login</a></li></ul>
-            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="https://mobirise.com">Publicar evento</a></div>
-        </div>
-    </nav>
-
+<section>
+	<div th:replace="header :: navBar"></div>
 </section>
 
-<br>
-<br>
-<br>
-<br>
+<section style="margin-top: 80px;">
+		<header id="site-header">
+		<div class="container">
+			<h1 style="text-align: center;"><strong>Carrinho</strong></h1>
+		</div>
+	</header>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">	
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-	<!------ Include the above in your HEAD tag ---------->
-<script src="https://use.fontawesome.com/c560c025cf.js"></script>
-<div class="container">
-   <div class="card shopping-cart">
-            <div class="card-header text-light" style="background-color:black";>
-               <h3 style="font-family:Questrial, sans-serif";><strong>Carrinho</strong></h3> 
-                <a href="" class="btn btn-outline-info btn-sm pull-right" style=font-family:Questrial,sans-serif;>Continue comprando</a>
-                <div class="clearfix"></div>
-            </div>
-            <div class="card-body">
-                    <!-- PRODUCT -->
-                    <div class="row">
-                        <div class="col-12 col-sm-12 col-md-2 text-center">
-                                <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
-                        </div>
-                        <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-                            <h4 class="product-name" style=font-family:Questrial,sans-serif;><strong>Produto</strong></h4>
-                            <h4>
-                                <small style=font-family:Questrial,sans-serif;>Descrição</small>
-                            </h4>
-                        </div>
-                        <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
-                            <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-                                <h6 style=font-family:Questrial,sans-serif;><strong>R$ 25,00</h6>
-                            </div>
-                            <div class="quantity">
-                               <input type="number" min="1" max="10" step="1" value="1"> 
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 text-right">
-                                <button type="button" class="btn btn-outline-danger btn-xs">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <!-- END PRODUCT -->
+	<div class="container">
+		<section id="cart"> 
+			<article class="product">
+				<header>
+					<a class="remove">
+						<img src="http://www.sneakerfreaker.com/content/uploads/2014/03/sekure-d-custom-air-jordan-10-teal-graffiti-5.jpg" alt="">
 
-                
-            </div>
-            <div class="card-footer">
-                
-                <div class="pull-right" style="margin: 10px" >
-                    <a href="" class="btn btn-primary pull-right">Comprar</a>
-                    <div class="pull-right" style="margin: 5px">
-                        Total: <b>R$ 50,00</b>
-                    </div>
-                </div>
-            </div>
-        </div>
-</div>
+						<h3 style="text-align:center;">Remover</h3>
+					</a>
+				</header>
+
+				<div class="content">
+
+					<h1>Air Jordan 3 “Miami Nights” Custom</h1>
+
+The custom transforms the original Crimson base into a well received custom viewable above so take a look at the Air Jordan 3 “Miami Nights” Custom and inquire for your own pair.
+				</div>
+
+				<footer class="content">
+					
+					<span class="qt-minus">-</span>
+					<span class="qt">1</span>
+					<span class="qt-plus">+</span>
+
+					<h2 class="full-price">
+						17.99
+					</h2>
+
+					<h2 class="price">
+						17.99
+					</h2>
+				</footer>
+			</article>
+
+		</section>
+
+	</div>
+
+	<footer id="site-footer">
+		<div class="container clearfix">
+
+			<div class="left">
+				<h2 class="subtotal">Subtotal: <span>17.99</span></h2>
+				<h3 class="tax">Taxas: <span>0.0</span></h3>
+				<h3 class="shipping">Adicionais: <span>0.00</span></h3>
+			</div>
+
+			<div class="right">
+				<h1 class="total">Total: <span>17.99</span></h1>
+				<a class="btn">Comprar</a>
+			</div>
+
+		</div>
+	</footer>
+</section>
 
 <section class="cid-rHui50L0v8" id="footer1-s">
-
-    
-
-    
 
     <div class="container">
         <div class="media-container-row content text-white">
             <div class="col-12 col-md-3">
                 <div class="media-wrap">
-                    <a href="https://mobirise.co/">
+                    <a href="home">
                         <img src="assets/images/asts-1-206x192.png" alt="Mobirise" title="">
                     </a>
                 </div>
             </div>
-            <div class="col-12 col-md-3 mbr-fonts-style display-7">
+             <div class="col-12 col-md-3 mbr-fonts-style display-7">
                 <h5 class="pb-3">Endereço</h5>
                 <p class="mbr-text">Av. Barão de Lucena, 251 <br>Recife-Pernambuco</p>
             </div>
             <div class="col-12 col-md-3 mbr-fonts-style display-7">
                 <h5 class="pb-3">Contato</h5>
                 <p class="mbr-text">
-                    Email: ticketpasssuport@gmail.com&nbsp;<br>Telefone: (81) 3131-0000&nbsp;<br>Celular: &nbsp;(81) 93131-0000</p>
+                    Email: ticketpasssuporte@gmail.com&nbsp;<br>Telefone: (81) 3131-0000&nbsp;<br>Celular: &nbsp;(81) 93131-0000</p>
             </div>
             <div class="col-12 col-md-3 mbr-fonts-style display-7">
                 <h5 class="pb-3">
                     Sobre Nós
                 </h5>
                 <p class="mbr-text">
-                    <a class="text-primary" href="/quemSomos">Quem Somos</a>
+                    <a class="text-primary" href="/quemSomos">Quem somos</a>
                 </p>
             </div>
         </div>
@@ -279,7 +541,7 @@ input[type=number]
         </div>
     </div>
 </section>
-
+</footer>
 
   <script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/popper/popper.min.js"></script>
@@ -295,41 +557,96 @@ input[type=number]
   <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
   <script src="assets/theme/js/script.js"></script>
   <script src="assets/slidervideo/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script>
+var check = false;
+
+function changeVal(el) {
+  var qt = parseFloat(el.parent().children(".qt").html());
+  var price = parseFloat(el.parent().children(".price").html());
+  var eq = Math.round(price * qt * 100) / 100;
   
-  <script>
-  jQuery('<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>').insertAfter('.quantity input');
-  jQuery('.quantity').each(function() {
-    var spinner = jQuery(this),
-      input = spinner.find('input[type="number"]'),
-      btnUp = spinner.find('.quantity-up'),
-      btnDown = spinner.find('.quantity-down'),
-      min = input.attr('min'),
-      max = input.attr('max');
+  el.parent().children(".full-price").html( eq + "" );
+  
+  changeTotal();			
+}
 
-    btnUp.click(function() {
-      var oldValue = parseFloat(input.val());
-      if (oldValue >= max) {
-        var newVal = oldValue;
-      } else {
-        var newVal = oldValue + 1;
-      }
-      spinner.find("input").val(newVal);
-      spinner.find("input").trigger("change");
-    });
-
-    btnDown.click(function() {
-      var oldValue = parseFloat(input.val());
-      if (oldValue <= min) {
-        var newVal = oldValue;
-      } else {
-        var newVal = oldValue - 1;
-      }
-      spinner.find("input").val(newVal);
-      spinner.find("input").trigger("change");
-    });
-
+function changeTotal() {
+  
+  var price = 0;
+  
+  $(".full-price").each(function(index){
+    price += parseFloat($(".full-price").eq(index).html());
   });
-  </script>
+  
+  price = Math.round(price * 100) / 100;
+  var tax = Math.round(price * 0.00 * 100) / 100
+  var shipping = parseFloat($(".shipping span").html());
+  var fullPrice = Math.round((price + tax + shipping) *100) / 100;
+  
+  if(price == 0) {
+    fullPrice = 0;
+  }
+  
+  $(".subtotal span").html(price);
+  $(".tax span").html(tax);
+  $(".total span").html(fullPrice);
+}
+
+$(document).ready(function(){
+  
+  $(".remove").click(function(){
+    var el = $(this);
+    el.parent().parent().addClass("removed");
+    window.setTimeout(
+      function(){
+        el.parent().parent().slideUp('fast', function() { 
+          el.parent().parent().remove(); 
+          if($(".product").length == 0) {
+            if(check) {
+              $("#cart").html("<h1>The shop does not function, yet!</h1><p>If you liked my shopping cart, please take a second and heart this Pen on <a href='https://codepen.io/ziga-miklic/pen/xhpob'>CodePen</a>. Thank you!</p>");
+            } else {
+              $("#cart").html("<h1>No products!</h1>");
+            }
+          }
+          changeTotal(); 
+        });
+      }, 200);
+  });
+  
+  $(".qt-plus").click(function(){
+    $(this).parent().children(".qt").html(parseInt($(this).parent().children(".qt").html()) + 1);
+    
+    $(this).parent().children(".full-price").addClass("added");
+    
+    var el = $(this);
+    window.setTimeout(function(){el.parent().children(".full-price").removeClass("added"); changeVal(el);}, 150);
+  });
+  
+  $(".qt-minus").click(function(){
+    
+    child = $(this).parent().children(".qt");
+    
+    if(parseInt(child.html()) > 1) {
+      child.html(parseInt(child.html()) - 1);
+    }
+    
+    $(this).parent().children(".full-price").addClass("minused");
+    
+    var el = $(this);
+    window.setTimeout(function(){el.parent().children(".full-price").removeClass("minused"); changeVal(el);}, 150);
+  });
+  
+  window.setTimeout(function(){$(".is-open").removeClass("is-open")}, 1200);
+  
+  $(".btn").click(function(){
+    check = true;
+    $(".remove").click();
+  });
+});	 
+</script>
   
   <input name="animation" type="hidden">
 
