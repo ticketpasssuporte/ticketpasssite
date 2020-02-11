@@ -19,7 +19,7 @@ body
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-image: url(/cadastroElogin/img/loginFoto.jpg);
+	background-image: url(/cadastroElogin/img/login.jpg);
 	background-size: cover;
 }
 

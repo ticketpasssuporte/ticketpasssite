@@ -64,9 +64,13 @@
     	</div>
     </div><br/>
     <h1 class="display-4">Valores:</h1><br/>
-        <p></p>
-        <label><i class="fas fa-dollar-sign"></i></label> <br/><br/>
+        
+        <label><i class="fas fa-dollar-sign"><span th:text="${ingresso.valor}"></span></i></label><br/><br/>
+     <h1 class="display-4">Tipo:</h1><br/>
+     <span th:text="${ingresso.tipoIngresso}"></span><br><br>
      <a class="btn display-4 btn-secondary" th:href="@{/adicionarCarrinho(id=${ingresso.id})}">Comprar</a>
+
+        
 </div>
 </div>
 

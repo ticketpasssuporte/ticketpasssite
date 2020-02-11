@@ -34,7 +34,7 @@ import pp2.ifpe.service.IngressoService;
 public class EventoController {
 	
 	// Caminho da pasta onde ficam as imagens do evento
-	private static String caminhoImagens ="/home/victor/git/ticketpasssite/src/main/resources/static/ImagemEvent/";
+	private static String caminhoImagens ="C:/Users/thuane/git/ticketpasssite/src/main/resources/static/ImagemEvent/";
 	
 	@Autowired
 	private EventoDAO eventoDAO;
@@ -135,24 +135,18 @@ public class EventoController {
 	}	
 
 	
-	 @PostMapping("/pesquisar")
-		public ModelAndView pesquisar(@RequestParam("nomePesquisa") String nomePesquisa) {
-			ModelAndView modelAndView = new ModelAndView("redirect:/home");
-			modelAndView.addObject("lista", eventoDAO.findEventoByNome(nomePesquisa));
-		    modelAndView.addObject("eventoobj", new Evento());
-		    return modelAndView;
-	    }
+
+    @PostMapping("/pesquisar")
+	public ModelAndView pesquisar(@RequestParam("nomePesquisa") String nomePesquisa) {
+		ModelAndView modelAndView = new ModelAndView("/home");
+		modelAndView.addObject("lista", eventoDAO.findEventoByNome(nomePesquisa));
+	    modelAndView.addObject("eventoobj", new Evento());
+	    return modelAndView;
+    }
 
     
     
-    @GetMapping("/descEvento2")
-    public String DescricaoEvento (@RequestParam("id") Integer codigo,Model model) throws Exception {
-		Evento evento = this.eventoService.findByIdEvento(codigo);
-		Ingresso ingresso = this.ingressoService.findByIdIngresso(codigo);
-		model.addAttribute("evento", evento);
-		model.addAttribute("ingresso", ingresso);
-		return "descEvento2";
-	}
+    
 //	
 //	
 //	@GetMapping("/removerEvento")
@@ -161,6 +155,13 @@ public class EventoController {
 //		return"/";
 //	}
 //	
-
+    @GetMapping("/descEvento2")
+    public String DescricaoEvento (@RequestParam("id") Integer codigo,Model model) throws Exception {
+		Evento evento = this.eventoService.findByIdEvento(codigo);
+		Ingresso ingresso = this.ingressoService.findByIdIngresso(codigo);
+		model.addAttribute("evento", evento);
+		model.addAttribute("ingresso", ingresso);
+		return "descEvento2";
+	}
 
 }

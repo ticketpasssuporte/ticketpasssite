@@ -96,6 +96,8 @@
   			</thead>
 
 				<form  th:action="@{/salvarIngresso}" th:object="${ingresso}"  method="post" >
+      				<div th:if="${mensagemErro != null}" th:text="${mensagemErro}" style=color:white; class=""></div>
+      				<div class="alert alert-danger" th:if="${mensagemErro2}" th:text="${mensagemErro2}"></div>
       				<input type="hidden" th:field="*{id}">     				
       				
       				 <tr>
