@@ -73,7 +73,7 @@ public class UsuarioService {
 			usuario.setSenha(senhaCriptografada);
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 		}
 		
 		this.save(usuario);

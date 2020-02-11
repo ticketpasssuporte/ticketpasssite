@@ -18,11 +18,11 @@ public class ItensCompras {
 	@ManyToOne
 	private Pedido pedido;
 	
-	private int quantidade;
+	private Integer quantidade;
 	
-	private double valorIngresso;
+	private double valorIngresso=0.;
 	
-	private  double valorTotal;
+	private  double valorTotal=0.;
 
 	public Integer getId() {
 		return id;
@@ -48,11 +48,14 @@ public class ItensCompras {
 		this.pedido = pedido;
 	}
 
-	public int getQuantidade() {
+	public Integer getQuantidade() {
+		if(quantidade == null) {
+			quantidade =0;
+		}
 		return quantidade;
 	}
 
-	public void setQuantidade(int quantidade) {
+	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
 	}
 

@@ -28,7 +28,7 @@ public class Pedido {
 	
 	private String formaPagamento;
 	
-	private double valorTotal;
+	private double valorTotal=0.;
 	
 	@ManyToOne
 	@JoinColumn(name="id_usuario")

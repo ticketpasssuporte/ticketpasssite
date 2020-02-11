@@ -15,13 +15,12 @@ public class AutorizadorInterceptor implements HandlerInterceptor {
 
 	private static final boolean CONTROLAR_ACESSO = true;
 
-	private static final String[] RECURSOS_LIVRES = {"/","/sair", "/login", "/acesso-negado","/cadastro","/ativarConta","/confirmouConta","/Quem Somos"};
+	private static final String[] RECURSOS_LIVRES = {"/","/sair", "/login", "/acesso-negado","/cadastro","/ativarConta","/confirmouConta","/QuemSomos"};
 
-	private static final String PAGINA_ACESSO_NEGADO = "/acesso-negado";
+	private static final String PAGINA_ACESSO_NEGADO = "acesso-negado";
 	
 	private static final String[] RECURSOS_USUARIO = {"/login","/cadastro","/home","listarMeusEvento","sair"};
 	
-	private static final String[] RECURSOS_ADMIN = {"/adicionar_materiais","/salvarMaterial"};
 
 	
 	@Override
@@ -47,20 +46,15 @@ public class AutorizadorInterceptor implements HandlerInterceptor {
 			}
 		}
 		
-		
+	
 
 		if (request.getSession().getAttribute("usuarioLogado") == null) {
-			request.getRequestDispatcher(PAGINA_ACESSO_NEGADO).forward(request, response);
+			request.getRequestDispatcher("/acesso-negado").forward(request, response); // redirecionar para outra página
 			return false;
 		} else {
 			
 			Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioLogado");
 			
-			for (String recurso : RECURSOS_ADMIN) {
-				if (request.getRequestURL().toString().contains(recurso) && usuario.getPermissao() == 1) {
-					return true;
-				}
-			}
 			
 			for (String recurso : RECURSOS_USUARIO) {
 				if (request.getRequestURL().toString().contains(recurso) && usuario.getPermissao() == 0) {

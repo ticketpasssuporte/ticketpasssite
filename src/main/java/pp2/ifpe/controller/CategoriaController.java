@@ -52,10 +52,11 @@ public class CategoriaController {
 	
 	}
 	
-	@GetMapping("/listarCategoria")
-	public String listarCat(Model model) {
+	
+	@GetMapping("/listarCategoria2")
+	public String listarCat2(Model model) {
 		model.addAttribute("listaCat",categoriaService.listaCategoria());
-		return "listarCategoria";
+		return "listarCategoria2";
 	}
 	
 	

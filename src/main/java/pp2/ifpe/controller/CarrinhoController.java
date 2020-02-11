@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import pp2.ifpe.model.Ingresso;
 import pp2.ifpe.model.ItensCompras;
+import pp2.ifpe.model.Pedido;
 import pp2.ifpe.persistence.IngressoDAO;
 import pp2.ifpe.service.IngressoService;
 
@@ -26,13 +27,21 @@ public class CarrinhoController {
 	@Autowired
 	private IngressoDAO ingressoDAO;
 
-	@Autowired
-	private IngressoService ingressoService;
+	private Pedido pedido = new Pedido();
+	
+	private void calcularTotal() {
+		pedido.setValorTotal(0.);
+		for(ItensCompras it: itensCompras) {
+			pedido.setValorTotal(pedido.getValorTotal()+ it.getValorTotal());
+		}
+	}
+	
 	// Chamar Carrinho
-
 	@GetMapping("/carrinho")
 	public ModelAndView ChamaCarrinho() {
 		ModelAndView mv = new ModelAndView("carrinhoDeCompras");
+		calcularTotal();
+		mv.addObject("pedido",pedido);
 		mv.addObject("listaItens", itensCompras);
 		return mv;
 	}
@@ -41,7 +50,7 @@ public class CarrinhoController {
 	@GetMapping("/adicionarCarrinho")
 	public ModelAndView adicionarCarrinho(@RequestParam("id") Integer codigo, HttpSession session, Model model)
 			throws Exception {
-		ModelAndView mv = new ModelAndView("carrinhoDeCompras");
+		ModelAndView mv = new ModelAndView("redirect:/carrinho");
 		
 		Optional<Ingresso> ing = this.ingressoDAO.findById(codigo);
 		Ingresso ingresso = ing.get();
@@ -50,6 +59,8 @@ public class CarrinhoController {
 		for (ItensCompras it : itensCompras) {
 			if (it.getIngresso().getId().equals(ingresso.getId())) {
 				it.setQuantidade(it.getQuantidade() + 1);
+				it.setValorTotal(0.);
+				it.setValorTotal(it.getValorTotal() + (it.getQuantidade() * it.getValorIngresso()));
 				controle = 1;
 				break;
 			}
@@ -59,10 +70,10 @@ public class CarrinhoController {
 			item.setIngresso(ingresso);
 			item.setValorIngresso(ingresso.getValor());
 			item.setQuantidade(item.getQuantidade() + 1);
-			item.setValorTotal(item.getQuantidade() * item.getValorIngresso());
+			item.setValorTotal(item.getValorTotal() + (item.getQuantidade() * item.getValorIngresso()));
 			itensCompras.add(item);
 		}
-		mv.addObject("listaItens", itensCompras);
+		
 		return mv;
 
 	}
@@ -71,15 +82,19 @@ public class CarrinhoController {
 	public ModelAndView alterarQuantidade(@RequestParam("id") Integer id,@RequestParam("acao") Integer acao, Model model)throws Exception {
 		Optional<Ingresso> ingresso = this.ingressoDAO.findById(id);
 		model.addAttribute("listaItens", itensCompras);
-		ModelAndView mv = new ModelAndView("carrinhoDeCompras");
+		ModelAndView mv = new ModelAndView("redirect:/carrinho");
 		
 		for (ItensCompras it : itensCompras) {
 			if (it.getIngresso().getId().equals(id)) {
-				if (acao.equals(1))
-				{
+				if (acao.equals(1)){
 					it.setQuantidade(it.getQuantidade()+1);
+					it.setValorTotal(0.);
+					it.setValorTotal(it.getValorTotal() + (it.getQuantidade() * it.getValorIngresso()));
 				} else if (acao == 0) {
 					it.setQuantidade(it.getQuantidade()-1);
+					it.setValorTotal(0.);
+					it.setValorTotal(it.getValorTotal() + (it.getQuantidade() * it.getValorIngresso()));
+
 				}
 				break;
 			}
@@ -91,7 +106,7 @@ public class CarrinhoController {
 	@GetMapping("/removerIngresso")
 	public ModelAndView removeIngresso(@RequestParam("id") Integer id) {
 		Optional<Ingresso> ingresso = this.ingressoDAO.findByCodigo(id);
-		ModelAndView mv = new ModelAndView("carrinhoDeCompras");
+		ModelAndView mv = new ModelAndView("redirect:/carrinho");
 
 		for (ItensCompras it : itensCompras) {
 			if (it.getIngresso().getId().equals(id)) {
@@ -99,7 +114,7 @@ public class CarrinhoController {
 				break;
 			}
 		}
-		mv.addObject("listaItens", itensCompras);
+	
 		return mv;
 	}
 }

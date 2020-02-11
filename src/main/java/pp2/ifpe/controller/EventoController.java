@@ -67,7 +67,7 @@ public class EventoController {
 	public String salvarEvento(@Valid Evento evento, BindingResult result, HttpSession session, RedirectAttributes redirectAttributes, @RequestParam("file") MultipartFile arquivo) throws Exception{
 		
 		if (result.hasErrors()) {
-			redirectAttributes.addFlashAttribute("message", "Failed");
+			redirectAttributes.addFlashAttribute("message", "Seu cadastro falhou, tente novamente");
 			redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
 			return "redirect:/evento";
 			
@@ -137,7 +137,7 @@ public class EventoController {
 	
 	 @PostMapping("/pesquisar")
 		public ModelAndView pesquisar(@RequestParam("nomePesquisa") String nomePesquisa) {
-			ModelAndView modelAndView = new ModelAndView("/home");
+			ModelAndView modelAndView = new ModelAndView("redirect:/home");
 			modelAndView.addObject("lista", eventoDAO.findEventoByNome(nomePesquisa));
 		    modelAndView.addObject("eventoobj", new Evento());
 		    return modelAndView;

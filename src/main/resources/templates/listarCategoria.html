@@ -63,7 +63,7 @@
 </section>
 
 
-<section class="engine"><a href="https://mobirise.info/s">free bootstrap themes</a></section><section class="carousel slide cid-rHuohw46dW" data-interval="false" id="slider1-v">
+<section class="engine"><a href="">free bootstrap themes</a></section><section class="carousel slide cid-rHuohw46dW" data-interval="false" id="slider1-v">
 
     
 
@@ -116,31 +116,7 @@
 
 </section>
  
-<section class="mbr-section content4 cid-rHulWTdZPj" id="content4-u">
-    <div class="container">
-        <div class="media-container-row mx-md-n3">
-            <div class="title col-12 col-md-12 col-sm-12">
-                <h4 class="text-left pb-3 mbr-fonts-style display-6" style=font-family:Questrial,sans-serif;><b>Categorias: </b></h4> 
-            </div>
-        </div>
-    </div>
-</section>
 
-
-
-<div class = "container col-lg-12 col-md-12 col-sm-12">
-
-<div class="media-container-row mx-md-n6" >
-	
-    	<div class="inner" th:each="cat : ${listaCat}">
-    		<ul>
-        		<a th:href="@{/pesquisar/categoria(id=${cat.id})}"><img th:src="@{/mostrarImagemCategoria/{imagem}(imagem=${cat.fotocategoria})}"  height="120" width="130" alt="Festas e shows" class="img-circle" style="border-radius: 50%;">
-        		<p style="font-family: 'Questrial', sans-serif; font-size: 15px;" ><span style="margin-left: 10%"><strong class="acessibilidade" th:text="${cat.nomeCategoria}"></strong></span></a>
-    		</ul>
-		</div>
-		
-	</div>
-</div>
 
 
 
@@ -162,7 +138,7 @@
                 <div class="card-wrapper" style="background-color:#000000; border-radius: 20px;">
                     <div class="card-img">
                     <h1 class="d-md-none d-block"></h1>
-	                <a th:href="@{/pagEvento(id=${evt.id})}">
+	                <a href="/cadastro">
                         <img th:src="@{/mostrarImagemEvento/{imagem}(imagem=${evt.fotoevento})}" style="border-top-left-radius:20px; border-top-right-radius:20px;" alt="" title="">
                     </a>
                     </div>
@@ -177,109 +153,14 @@
 <br>
        
 
-           <!-- <div class="card p-3 col-12 col-md-6 col-lg-3">
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <img src="cssPaginasSoltas/imgHome/carnatal.jpeg" alt="Mobirise" title="">
-                    </div>
-                    <div class="card-box ">
-                        <h4 class="card-title pb-1 mt-3 mbr-fonts-style display-7"><strong class="acessibilidade">Carnatal 2019 | Camarote Skol Beats</strong></h4>
-                        <p class="mbr-text mbr-fonts-style display-7">Natal - RN</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card p-3 col-12 col-md-6 col-lg-3">
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <img src="cssPaginasSoltas/imgHome/cool-ritiba.jpeg" alt="Mobirise" title="">
-                    </div>
-                    <div class="card-box">
-                        <h4 class="card-title pb-1 mt-3 mbr-fonts-style display-7"><strong class="acessibilidade">Festival Coolritiba 2020</strong></h4>
-                        <p class="mbr-text mbr-fonts-style display-7">Curitiba - PR</p>
-                        
-                    </div>
-                </div>
-            </div>
-
-            <div class="card p-3 col-12 col-md-6 col-lg-3">
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <img src="cssPaginasSoltas/imgHome/arena-mix.jpeg" alt="Mobirise" title="">
-                    </div>
-                    <div class="card-box">
-                        <h4 class="card-title pb-1 mt-3 mbr-fonts-style display-7"><strong class="acessibilidade">Arena Mix - Arena Corinthians</strong></h4>
-                        <p class="mbr-text mbr-fonts-style display-7">São Paulo - SP</p>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-    <div class="container">
-        <div class="media-container-row">
-            <div class="card p-3 col-12 col-md-6 col-lg-3">
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <img src="cssPaginasSoltas/imgHome/mcfly.jpeg" alt="Mobirise" title="">
-                    </div>
-                    <div class="card-box">
-                        <h4 class="card-title pb-1 mt-3 mbr-fonts-style display-7"><strong class="acessibilidade">McFly - Riberão Preto/SP</strong></h4>
-                        <p class="mbr-text mbr-fonts-style display-7">Ribeirão Preto - SP</p>
-                        
-                    </div>
-                </div>
-            </div>
-
-            <div class="card p-3 col-12 col-md-6 col-lg-3">
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <img src="cssPaginasSoltas/imgHome/garota-vip.jpeg" alt="Mobirise" title="">
-                    </div>
-                    <div class="card-box ">
-                        <h4 class="card-title pb-1 mt-3 mbr-fonts-style display-7"><strong class="acessibilidade">Garota Vip &nbsp;São Paulo - 2019</strong></h4>
-                        <p class="mbr-text mbr-fonts-style display-7">São Paulo - SP</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card p-3 col-12 col-md-6 col-lg-3">
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <img src="cssPaginasSoltas/imgHome/reveillon-dj.jpeg" alt="Mobirise">
-                    </div>
-                    <div class="card-box">
-                        <h4 class="card-title pb-1 mt-3 mbr-fonts-style display-7"><strong class="acessibilidade">Réveillon 2020 - Rayz Beach Point</strong></h4>
-                        <p class="mbr-text mbr-fonts-style display-7">Rio de Janeiro - RJ</p>
-                        
-                    </div>
-                </div>
-            </div>
-
-            <div class="card p-3 col-12 col-md-6 col-lg-3">
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <img src="cssPaginasSoltas/imgHome/reveillon-sorriario.png" alt="Mobirise" title="">
-                    </div>
-                    <div class="card-box">
-                        <h4 class="card-title pb-1 mt-3 mbr-fonts-style display-7"><strong class="acessibilidade">Réveillon Sorria Rio</strong></h4>
-                        <p class="mbr-text mbr-fonts-style display-7">Rio de Janeiro - RJ</p>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
+ 
 
 <section class="cid-rHui50L0v8" id="footer1-s">
     <div class="container">
         <div class="media-container-row content text-white">
             <div class="col-12 col-md-3">
                 <div class="media-wrap">
-                    <a href="https://mobirise.co/">
+                    <a href="/">
                         <img src="assets/images/asts-1-206x192.png" alt="Mobirise" title="">
                     </a>
                 </div>
@@ -313,25 +194,7 @@
                     <p class="mbr-text mbr-fonts-style display-7">
                         © Copyright 2019 TicketPass - Todos dos direitos reservados</p>
                 </div>
-                <div class="col-md-6">
-                    <div class="social-list align-right">
-                        <div class="soc-item">
-                            <a href="https://www.facebook.com/pages/Mobirise/1616226671953247" target="_blank">
-                                <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
-                            <a href="https://instagram.com/mobirise" target="_blank">
-                                <span class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span>
-                            </a>
-                        </div>
-                        <div class="soc-item">
-                            <a href="https://plus.google.com/u/0/+Mobirise" target="_blank">
-                                <span class="socicon-googleplus socicon mbr-iconfont mbr-iconfont-social"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+           
             </div>
         </div>
     </div>

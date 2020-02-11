@@ -22,10 +22,10 @@ public class PesquisaCategoria {
 	@Autowired
 	private CategoriaService categoriaService;
 	
-	@GetMapping("/categoria")
+	@GetMapping("/categoria2")
 	public String eventosCategoria(@RequestParam("id")Integer id, HttpSession session, Model model) throws Exception {
 		model.addAttribute("listaCat",categoriaService.listaCategoria());
 		model.addAttribute("lista", eventoService.listEventoCategoria(id));
-		return "listarCategoria";
+		return "listarCategoria2";
 	}
 }

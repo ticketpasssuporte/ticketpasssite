@@ -73,12 +73,4 @@ public class IngressoController {
 	
 	
 	
-	/*@GetMapping("/ingresso") 
-	public ModelAndView configurarIngresso(Ingresso ingresso, @RequestParam("id") Integer id){
-		ModelAndView mv= new ModelAndView("configurarIngresso");
-		this.idevento = id;
-		mv.addObject("evento",eventoDAO.findById(id));
-	    return mv;
-	}*/
-
 }

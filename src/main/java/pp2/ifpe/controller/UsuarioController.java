@@ -109,7 +109,7 @@ public class UsuarioController {
 		} catch (ServiceException e) {
 			ra.addFlashAttribute("mensagemErro", e.getMessage());
 
-			return "redirect:/login";
+			return "redirect:login";
 		}
 
 		ra.addFlashAttribute("loginEfetuado", true);
@@ -119,7 +119,7 @@ public class UsuarioController {
 		@RequestMapping("/sair")
 		public String sair(HttpSession session) {
 			session.invalidate();
-			return "redirect:/";
+			return "redirect:";
 		}
 	
 	
@@ -129,18 +129,18 @@ public class UsuarioController {
 	// mensagem que o email foi enviado
 	@GetMapping("ativar")
 	public String ativeSuaConta() {
-		return "/ativarConta";
+		return "ativarConta";
 	}
 	
 	// mensagem conta confirmada
 	@GetMapping("confirmou")
 	public String confirmouConta() {
-		return "/confirmouConta";
+		return "confirmouConta";
 	}
 
 	@GetMapping("faq")
 	public String faq() {
-		return "/faq";
+		return "faq";
 	}
 	// Ativar conta no bd
 	@GetMapping("/ativarConta")
@@ -163,7 +163,7 @@ public class UsuarioController {
 		}
 
 		ra.addFlashAttribute("alertSucesso", "Conta Ativada com sucesso!");
-		return "redirect:/confirmouConta";
+		return "redirect:confirmouConta";
 	}
 	
 	/*
@@ -196,7 +196,7 @@ public class UsuarioController {
 	 */
 	@GetMapping("/recuperar-senha")
 	public String recuperarSeha() {
-		return "/recuperarSenha";
+		return "recuperarSenha";
 	}
 
 	/*
@@ -206,7 +206,7 @@ public class UsuarioController {
 	public ModelAndView recuperarSenha(@RequestParam(name = "email", required = true) String email) {
 		
 		
-		ModelAndView mv = new ModelAndView("/receberSenha");
+		ModelAndView mv = new ModelAndView("receberSenha");
 		
 		this.usuarioService.recuperarSenha(email);
 		
@@ -221,13 +221,13 @@ public class UsuarioController {
 	
 	@GetMapping("/editar")
 	public ModelAndView exibirEditarPerfil(HttpSession session, RedirectAttributes ra) {
-		ModelAndView mv = new ModelAndView("/trocarSenha");
+		ModelAndView mv = new ModelAndView("trocarSenha");
 
 		if (session.getAttribute("usuarioLogado") == null) {
 			ra.addFlashAttribute("acessoNegado", true);
 			ra.addFlashAttribute("retorno", "/editar");
 
-			mv.setViewName("redirect:/login");
+			mv.setViewName("redirect:login");
 			return mv;
 		}
 
@@ -241,14 +241,14 @@ public class UsuarioController {
 	@GetMapping("editarUsuario")
 	public String editarUsuario(Integer id, Model model) {
 	model.addAttribute("usuario", this.usuarioService.findById(id));
-		return "/cadastro";
+		return "cadastro";
 	}
 	
 	@GetMapping("/listarUsuario")
 	public String listarUsuario (Model model, Usuario usuario, HttpSession sessao) {		
 		Usuario usuariologado = (Usuario) sessao.getAttribute("usuarioLogado");
 		model.addAttribute("lista",usuarioDAO.findAllByUsuario(usuariologado.getId()));
-		return "/listaUsuarios";
+		return "listaUsuarios";
 	}
 	
 	

@@ -35,7 +35,7 @@
 <div class="main">
 <form action="pesquisar" method="POST">
   <div class="input-group">
-    <input type="text" name="nomePesquisa" class="form-control" placeholder="Pesquisar evento" style="background-color:white;">
+    <input type="text" name="nomePesquisa" class="form-control" placeholder="Pesquisar evento e categoria" style="background-color:white;">
     <div class="input-group-append">
       <input class="btn btn-primary btn-sm" type="submit" value="Pesquisar">
     </div>
@@ -48,11 +48,11 @@
 
 <!-- Carousel -->
 
-<section class="engine"><a>free bootstrap themes</a></section><section class="carousel slide cid-rHuohw46dW" data-interval="false" id="slider1-v">
+<section  class="engine"><a>free bootstrap themes</a></section><section class="carousel slide cid-rHuohw46dW" data-interval="false" id="slider1-v">
 
     
 
-    <div class="full-screen"><div class="mbr-slider slide carousel" data-pause="true" data-keyboard="false" data-ride="carousel" data-interval="4000">
+   <div class="full-screen"><div class="mbr-slider slide carousel" data-pause="true" data-keyboard="false" data-ride="carousel" data-interval="4000">
     <div class="carousel-inner" role="listbox">
     <div class="carousel-item slider-fullscreen-image active" data-bg-video-slide="false" style="background-image: url(assets/images/shawn2-1260x630.jpg);">
     <div class="container container-slide">
@@ -120,7 +120,7 @@
 	
     	<div align="center" class="inner" th:each="cat : ${listaCat}">
     		<ul>
-    		   <a th:href="@{/categoria(id=${cat.id})}" style="padding:0px;"><img th:src="@{/mostrarImagemCategoria/{imagem}(imagem=${cat.fotocategoria})}" height="120" width="130" alt="Festas e shows" class="img-circle" style="border-radius: 50%; padding: center;">
+    		   <a th:href="@{/categoria2(id=${cat.id})}" style="padding:0px;"><img th:src="@{/mostrarImagemCategoria/{imagem}(imagem=${cat.fotocategoria})}" height="120" width="130" alt="Festas e shows" class="img-circle" style="border-radius: 50%; padding: center;">
         		<p style="font-family: 'Questrial', sans-serif; font-size: 15px;text-align: center; color:black; padding-left:0px;" class="acessibilidade"  th:text="${cat.nomeCategoria}"></p></a>		
     		</ul>
     		
@@ -144,7 +144,7 @@
        
     <div class="container">
         <div class="row">
-            <div  th:each="evt : ${lista}" class="col-sm-3 col-lg-3 d-flex align-items-stretch" style="text-align:center; margin-bottom:15px;">
+            <div th:each="evt : ${lista}" class="col-sm-3 col-lg-3 d-flex align-items-stretch" style="text-align:center; margin-bottom:15px;">
                 <div class="card-wrapper" style="background-color:#000000; border-radius: 20px;">
                     <div class="card-img">
                     <h1 class="d-md-none d-block"></h1>
@@ -188,7 +188,7 @@
                     Sobre Nós
                 </h5>
                 <p class="mbr-text">
-                    <a class="text-primary" href="/quemSomos">Quem somos</a>
+                    <a class="text-primary" href="/quemsomos2">Quem somos</a>
                 </p>
             </div>
         </div>
