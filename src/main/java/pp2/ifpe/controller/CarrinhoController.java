@@ -42,8 +42,8 @@ public class CarrinhoController {
 	public ModelAndView adicionarCarrinho(@RequestParam("id") Integer codigo, HttpSession session, Model model)
 			throws Exception {
 		ModelAndView mv = new ModelAndView("carrinhoDeCompras");
-
-		Optional<Ingresso> ing = ingressoDAO.findById(codigo);
+		
+		Optional<Ingresso> ing = this.ingressoDAO.findById(codigo);
 		Ingresso ingresso = ing.get();
 
 		int controle = 0;
@@ -68,30 +68,33 @@ public class CarrinhoController {
 	}
 
 	@GetMapping("/alterarQuantidade")
-	public String alterarQuantidade(@RequestParam Integer codigo, Integer acao, Model model)throws Exception {
-		Ingresso ingresso = this.ingressoService.findByIdIngresso(codigo);
+	public ModelAndView alterarQuantidade(@RequestParam("id") Integer id,@RequestParam("acao") Integer acao, Model model)throws Exception {
+		Optional<Ingresso> ingresso = this.ingressoDAO.findById(id);
 		model.addAttribute("listaItens", itensCompras);
+		ModelAndView mv = new ModelAndView("carrinhoDeCompras");
 		
 		for (ItensCompras it : itensCompras) {
-			if (it.getIngresso().getId().equals(codigo)) {
-				if (acao.equals(1)) {
-					it.setQuantidade(it.getQuantidade() + 1);
+			if (it.getIngresso().getId().equals(id)) {
+				if (acao.equals(1))
+				{
+					it.setQuantidade(it.getQuantidade()+1);
 				} else if (acao == 0) {
-					it.setQuantidade(it.getQuantidade() - 1);
+					it.setQuantidade(it.getQuantidade()-1);
 				}
 				break;
 			}
 		}
-		return "/carrinhoDeCompras";
+		return mv;
 		
 	}
 	
-	@GetMapping("/removerIngresso/")
-	public ModelAndView removeIngresso(@RequestParam Integer codigo) {
+	@GetMapping("/removerIngresso")
+	public ModelAndView removeIngresso(@RequestParam("id") Integer id) {
+		Optional<Ingresso> ingresso = this.ingressoDAO.findByCodigo(id);
 		ModelAndView mv = new ModelAndView("carrinhoDeCompras");
 
 		for (ItensCompras it : itensCompras) {
-			if (it.getIngresso().getId().equals(codigo)) {
+			if (it.getIngresso().getId().equals(id)) {
 				itensCompras.remove(it);
 				break;
 			}

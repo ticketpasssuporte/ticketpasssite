@@ -93,18 +93,18 @@
 							<td>Em Estoque</td>
 							<td><span th:text="${item.quantidade}"></span> <a
 								class="btn btn-sm btn-primary"
-								th:href="@{/alterarQuantidade(id=${item.ingresso.evento.id})}"><i class="fa fa-plus"></i></a>
+								th:href="@{/alterarQuantidade(id=${item.ingresso.id},acao=${1})}"><i class="fa fa-plus"></i></a>
 								
 								<a
 								class="btn btn-sm btn-primary"
-								th:href="@{/alterarQuantidade(id=${item.id})}"><i class="fa fa-minus"></i></a>
+								th:href="@{/alterarQuantidade(id=${item.ingresso.id},acao=${0})}"><i class="fa fa-minus"></i></a>
 
 								
 							<td class="text-right" th:text="${item.valorTotal}"></td>
 							<td class="text-right">
 							<a
 								class="btn btn-sm btn-danger"
-								th:href="@{/removerIngresso/{id}(id=${item.ingresso.id})}"><i class="fa fa-trash"></i></a>
+								th:href="@{/removerIngresso(id=${item.ingresso.evento.id})}"><i class="fa fa-trash"></i></a>
 							
 							
 						</tr>

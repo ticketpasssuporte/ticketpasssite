@@ -95,5 +95,28 @@ public class Ingresso {
 		this.evento = evento;
 	}
 
+	public Ingresso(Integer id, @NotNull Boolean statusLote, @NotNull int lote, @NotNull String nomeIngresso,
+			@NotNull double valor, String tipoIngresso, Evento evento) {
+		super();
+		this.id = id;
+		this.statusLote = statusLote;
+		this.lote = lote;
+		this.nomeIngresso = nomeIngresso;
+		this.valor = valor;
+		this.tipoIngresso = tipoIngresso;
+		this.evento = evento;
+	}
+
+	public Ingresso() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "Ingresso [id=" + id + ", statusLote=" + statusLote + ", lote=" + lote + ", nomeIngresso=" + nomeIngresso
+				+ ", valor=" + valor + ", tipoIngresso=" + tipoIngresso + ", evento=" + evento + "]";
+	}
+
 
 }
