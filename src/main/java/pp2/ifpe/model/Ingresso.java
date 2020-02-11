@@ -28,7 +28,7 @@ public class Ingresso {
 	private String nomeIngresso;
 	
     @NotNull
-	private String valor;
+	private double valor;
 	
 	private String tipoIngresso;
 	
@@ -54,11 +54,12 @@ public class Ingresso {
 		this.statusLote = statusLote;
 	}
 
-	public String getValor() {
+
+	public double getValor() {
 		return valor;
 	}
 
-	public void setValor(String valor) {
+	public void setValor(double valor) {
 		this.valor = valor;
 	}
 
