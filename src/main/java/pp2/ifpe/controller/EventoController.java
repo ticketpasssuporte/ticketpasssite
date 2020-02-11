@@ -60,7 +60,7 @@ public class EventoController {
 	public String cadastraEvento(Evento evento, Model model) {
 		List<Categoria> categoria1 = categoriaService.listaCategoria();
 		model.addAttribute("categoria", categoria1);
-		return"/criarEvento";
+		return"criarEvento";
 	}
 		
 		//Metodo para fazer upload da imagem do evento adicionado na hora de salvar, o nome da imagem Ã© salva com o id do evento
@@ -98,7 +98,7 @@ public class EventoController {
 	public String listarEventoIndex(Model model) {
 		model.addAttribute("listaCat",categoriaService.listaCategoria());
 		model.addAttribute("lista",eventoDAO.findAll());
-		return "/index";
+		return "index";
 	}
 	
 	@GetMapping("/home")
@@ -114,7 +114,7 @@ public class EventoController {
 	public String listarMeusEventos (Model model, Usuario usuario, HttpSession sessao) {		
 		Usuario usuariologado = (Usuario) sessao.getAttribute("usuarioLogado");
 		model.addAttribute("lista",eventoDAO.findAllByUsuario(usuariologado.getId()));
-		return "/listarEventos";
+		return "listarEventos";
 	}
 	
 	
@@ -122,7 +122,7 @@ public class EventoController {
 	@GetMapping("editarEvento")
 	public String editarEvento(Integer id, Model model) {
 	model.addAttribute("evento", this.eventoService.findById(id));
-		return "/criarEvento";
+		return "criarEvento";
 	}
 	
 	
@@ -137,14 +137,14 @@ public class EventoController {
 			ra.addFlashAttribute("mensagemErro3", "Não foi possível exibir evento: " + e.getMessage());
 			return"redirect:/home";
 		}
-		return "/descEvento";
+		return "descEvento";
 	}	
 
 	
 
     @PostMapping("/pesquisar")
 	public ModelAndView pesquisar(@RequestParam("nomePesquisa") String nomePesquisa) {
-		ModelAndView modelAndView = new ModelAndView("/home");
+		ModelAndView modelAndView = new ModelAndView("home");
 		modelAndView.addObject("lista", eventoDAO.findEventoByNome(nomePesquisa));
 	    modelAndView.addObject("eventoobj", new Evento());
 	    return modelAndView;

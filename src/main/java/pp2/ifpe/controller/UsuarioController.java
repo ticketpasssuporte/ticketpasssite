@@ -45,7 +45,7 @@ public class UsuarioController {
 	 */
 	@GetMapping("/cadastro")
 	public ModelAndView exibirTelaCadastro() {
-		ModelAndView mv = new ModelAndView("/cadastro");
+		ModelAndView mv = new ModelAndView("cadastro");
 		mv.addObject("usuario", new Usuario());
 		return mv;
 	}
@@ -55,7 +55,7 @@ public class UsuarioController {
 		if (errors.hasErrors()) {
 			ra.addFlashAttribute("mensagemErro", "Não foi possível criar usuário: " + errors.getFieldErrors());
 
-			return "redirect:/cadastro";
+			return "redirect:cadastro";
 		} else {
 			try {
 				this.usuarioService.criarUsuario(usuario);
@@ -63,12 +63,12 @@ public class UsuarioController {
 			} catch (ServiceException | MessagingException e) {
 				ra.addFlashAttribute("mensagemErro", "Não foi possível criar usuário: " + e.getMessage());
 
-				return "redirect:/cadastro";
+				return "redirect:cadastro";
 			}
 		}
 
 		ra.addFlashAttribute("contaCriada", true);
-		return "redirect:/ativarConta";
+		return "redirect:ativarConta";
 	}
 
 	//---------------------------------------//
@@ -78,7 +78,7 @@ public class UsuarioController {
 	 */
 	@GetMapping("/login")
 	public ModelAndView login(HttpServletRequest request, RedirectAttributes ra) {
-		ModelAndView mv = new ModelAndView("/login");
+		ModelAndView mv = new ModelAndView("login");
 		mv.addObject("usuario", new Usuario());
 
 		if (request.getAttribute("acessoNegado") != null) {
@@ -97,7 +97,7 @@ public class UsuarioController {
 	public String efetuarLogin(HttpServletRequest request, @ModelAttribute Usuario usuario,
 			@RequestParam(name = "retorno", required = false) String retorno, RedirectAttributes ra,
 			HttpSession session) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		String redirect = "redirect:/home";
+		String redirect = "redirect:home";
 		if (retorno != null) {
 			redirect = "redirect:" + retorno;
 		}

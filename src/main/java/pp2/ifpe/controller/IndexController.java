@@ -43,7 +43,7 @@ public class IndexController {
 	@GetMapping("index.html")
 	public String index(Model model) {
 		model.addAttribute("listaCat",categoriaService.listaCategoria());
-		return "redirect:/home";
+		return "home";
 	}
 	
 	@GetMapping("/index")
@@ -67,7 +67,7 @@ public class IndexController {
 		
 	@GetMapping("/trocarSenha")
 	public String alterarSenha() {
-		return "/trocarSenha";
+		return "trocarSenha";
 	}
 		
 	@GetMapping("/confirmouConta")

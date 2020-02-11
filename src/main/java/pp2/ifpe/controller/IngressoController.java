@@ -71,7 +71,7 @@ public class IngressoController {
 	public String editarIngresso(Integer id, Model model) {
 	model.addAttribute("ingresso", this.ingressoService.findById(id));
 
-		return "/configurarIngresso";
+		return "configurarIngresso";
 	}
 	
 	
