@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pp2.ifpe.model.Evento;
 import pp2.ifpe.model.Ingresso;
@@ -45,23 +46,25 @@ public class IngressoController {
 	
 	
 	@PostMapping("/salvarIngresso")
-	public String salvarIngresso(Ingresso ingresso)throws ServiceException, MessagingException {
+	public ModelAndView salvarIngresso(Ingresso ingresso, RedirectAttributes ra, @RequestParam("id") Integer id, Model model)throws Exception {
+		ModelAndView mv= new ModelAndView("redirect:/listarMeusEventos");
 		Evento evento = eventoDAO.findByCodigo(idevento);
 		ingresso.setId(0);
 		ingresso.setEvento(evento);
-		if(this.ingressoDAO.findByTipo(ingresso.getTipoIngresso()) != null) {
-		throw new ServiceException("Já existe Ingresso com desse tipo ");		
-		}else{
-		this.ingressoDAO.save(ingresso);
-		return "redirect:/listarMeusEventos";
-	}
+		
+		try {
+	
+		this.ingressoService.salvarIngresso(ingresso);
+		}catch(Exception e){
+			ra.addFlashAttribute("mensagemErro4", "Erro ao cadastrar ingresso, seu ingresso esta sem nome ou já foi cadastrado");
+			ModelAndView mv2= new ModelAndView("redirect:/home");
+			return mv2;
+		}
+		return mv;
+	
 }
 	
 	
-	private Object ingressoDAO(String tipoIngresso) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 	@GetMapping("editarIngresso")

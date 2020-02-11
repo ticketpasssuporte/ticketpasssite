@@ -24,7 +24,6 @@ public class Ingresso {
     @NotNull
 	private int lote;
 	
-    @NotNull
 	private String nomeIngresso;
 	
     @NotNull

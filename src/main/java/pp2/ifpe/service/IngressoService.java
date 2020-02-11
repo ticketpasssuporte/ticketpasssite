@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pp2.ifpe.exception.ServiceException;
+import pp2.ifpe.model.Evento;
 import pp2.ifpe.model.Ingresso;
 import pp2.ifpe.persistence.IngressoDAO;
 
@@ -23,13 +24,16 @@ public class IngressoService {
 		if (ingresso.isPresent()) {
 			return ingresso.get();
 		}
-		
-		return null;
-		//throw new Exception("Evento não encontrado!");
+	
+	throw new Exception("Ingresso não encontrado!");
 	}
 	
-	public void salvarIngresso(Ingresso ingresso)throws ServiceException, MessagingException{
-		this.ingressoDAO.save(ingresso);
+	public Ingresso salvarIngresso(Ingresso ingresso)throws Exception{
+		if(ingressoDAO.existsByNomeIngresso(ingresso.getNomeIngresso()) != false || ingressoDAO.findByNomeIngresso(ingresso.getNomeIngresso()) == null)  {
+			throw new Exception(" ou já foi cadastrado");
+		}else {
+		 return ingressoDAO.saveAndFlush(ingresso);
+		}
 	}
 	
 	public void editarIngresso(Ingresso ingresso) {

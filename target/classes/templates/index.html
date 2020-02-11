@@ -27,6 +27,7 @@
   
 </head>
 <body>
+
   <section class="menu cid-rHF8rI3IoO" once="menu" id="menu1-24">
 
     <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
@@ -61,10 +62,22 @@
         </div>
     </nav>
 </section>
-<div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"/>
-
 <br><br><br>
-
+<div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"/>
+<div class="alert alert-danger" th:if="${mensagemErro3 != null}" th:text="${mensagemErro3}"></div>
+<!-- search box -->
+<div>
+<div class="main">
+<form action="pesquisar2" method="POST">
+  <div class="input-group">
+    <input type="text" name="nomePesquisa" class="form-control" placeholder="Pesquisar Nome do Evento " style="background-color:white;">
+    <div class="input-group-append">
+      <input class="btn btn-primary btn-sm" type="submit" value="Pesquisar">
+    </div>
+  </div> 
+</form>
+</div>
+</div>
 
 <section class="engine"><a href="">free bootstrap themes</a></section><section class="carousel slide cid-rHuohw46dW" data-interval="false" id="slider1-v">
 
@@ -146,7 +159,6 @@
 
 
 
-
 <section class="mbr-section content4 cid-rHulWTdZPj" id="content4-u">
     <div class="container">
         <div class="media-container-row mx-md-n3">
@@ -164,7 +176,7 @@
                 <div class="card-wrapper" style="background-color:#000000; border-radius: 20px;">
                     <div class="card-img">
                     <h1 class="d-md-none d-block"></h1>
-	                <a th:href="@{/descEvento2(id=${evt.id})}">
+	                <a th:href="@{/descevento2(id=${evt.id})}">
                         <img th:src="@{/mostrarImagemEvento/{imagem}(imagem=${evt.fotoevento})}" style="border-top-left-radius:20px; border-top-right-radius:20px;" alt="" title="">
                     </a>
                     </div>

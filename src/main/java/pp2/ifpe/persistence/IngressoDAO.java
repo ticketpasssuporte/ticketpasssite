@@ -11,6 +11,8 @@ import pp2.ifpe.model.Evento;
 import pp2.ifpe.model.Ingresso;
 
 public interface IngressoDAO extends JpaRepository<Ingresso, Integer>{
+	@Query("SELECT i FROM Ingresso i WHERE i.nomeIngresso = :nomeIngresso")
+	public Ingresso findByNomeIngresso(String nomeIngresso);
 
 	@Query("SELECT i FROM Ingresso i WHERE i.tipoIngresso = :tipoIngresso")
 	public Ingresso findByTipo(String tipoIngresso);
@@ -18,5 +20,5 @@ public interface IngressoDAO extends JpaRepository<Ingresso, Integer>{
 	@Query("select i from Ingresso i where i.id = :id")
 	  public Optional<Ingresso> findByCodigo(Integer id);
 
-	
+	public boolean existsByNomeIngresso(String nomeIngresso);
 }

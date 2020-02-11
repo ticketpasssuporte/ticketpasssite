@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -34,7 +35,7 @@ import pp2.ifpe.service.IngressoService;
 public class EventoController {
 	
 	// Caminho da pasta onde ficam as imagens do evento
-	private static String caminhoImagens ="C:/Users/thuane/git/ticketpasssite/src/main/resources/static/ImagemEvent/";
+	private static String caminhoImagens ="/home/ticketpass/ImagemEvento/";
 	
 	@Autowired
 	private EventoDAO eventoDAO;
@@ -104,7 +105,7 @@ public class EventoController {
 	public String listarEvento(Model model) {
 		model.addAttribute("listaCat",categoriaService.listaCategoria());
 		model.addAttribute("lista",eventoDAO.findAll());
-		return "/home";
+		return "home";
 	}
 	
 	
@@ -126,11 +127,16 @@ public class EventoController {
 	
 	
 	@GetMapping("/pagEvento")
-	public String descricaoEvento2(@RequestParam("id") Integer codigo,HttpSession session,Model model) throws Exception {
+	public String descricaoEvento2(@RequestParam("id") Integer codigo,HttpSession session,Model model, RedirectAttributes ra ) throws Exception {
+		try {
 		Evento evento = this.eventoService.findByIdEvento(codigo);
 		Ingresso ingresso = this.ingressoService.findByIdIngresso(codigo);
 		model.addAttribute("evento", evento);
 		model.addAttribute("ingresso", ingresso);
+		} catch(Exception e) {
+			ra.addFlashAttribute("mensagemErro3", "Não foi possível exibir evento: " + e.getMessage());
+			return"redirect:/home";
+		}
 		return "/descEvento";
 	}	
 
@@ -143,6 +149,7 @@ public class EventoController {
 	    modelAndView.addObject("eventoobj", new Evento());
 	    return modelAndView;
     }
+}
 
     
     
@@ -155,13 +162,5 @@ public class EventoController {
 //		return"/";
 //	}
 //	
-    @GetMapping("/descEvento2")
-    public String DescricaoEvento (@RequestParam("id") Integer codigo,Model model) throws Exception {
-		Evento evento = this.eventoService.findByIdEvento(codigo);
-		Ingresso ingresso = this.ingressoService.findByIdIngresso(codigo);
-		model.addAttribute("evento", evento);
-		model.addAttribute("ingresso", ingresso);
-		return "descEvento2";
-	}
+    
 
-}
